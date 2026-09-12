@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Capital Investment Club Admin Chrome UAT findings and release-gate results.">
+  <title>Admin · Chrome UAT findings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
+  <a class="skip-link" href="#findings-list">Skip to findings</a>
+  <header class="topbar">
+    <a class="brand" href="https://github.com/capitalinvestmentclub/admin-uat-report">
+      <span class="brand-mark">CIC</span>
+      <span><strong>Review record</strong><small>capitalinvestmentclub / webapp</small></span>
+    </a>
+    <div class="topbar-actions">
+      <button class="quiet-button" id="export-button">Export CSV</button>
+      <button class="primary-button" id="share-button">Copy view link</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="overview">
+      <div class="overview-copy">
+        <p class="eyebrow">Admin Chrome · Release-gate review</p>
+        <h1>Admin go-live findings</h1>
+        <p class="lede">A sanitized record of the Admin lifecycle tests, exact prior-24-hour evidence reused, current Chrome checks, and the defects that prevent a go-live pass.</p>
+        <div class="metadata"><span>Executed 11–12 Sep 2026</span><span>Chrome · single computer</span><span>Test environment</span></div>
+      </div>
+      <div class="release-signal danger">
+        <span class="signal-pulse"></span>
+        <div><small>Release signal</small><strong>Admin gate failed</strong><span>0 of 10 priority scenarios passed all mandatory gates.</span></div>
+      </div>
+    </section>
+
+    <section class="metrics" aria-label="Finding summary">
+      <button class="metric" data-metric-filter="all"><strong id="metric-total">—</strong><span>Tracked</span></button>
+      <button class="metric metric-danger" data-metric-filter="urgent"><strong id="metric-urgent">—</strong><span>Critical + high</span></button>
+      <button class="metric" data-metric-filter="open"><strong id="metric-open">—</strong><span>Open</span></button>
+      <button class="metric metric-success" data-metric-filter="passed"><strong>10/10</strong><span>Gate results recorded</span></button>
+      <button class="metric" data-metric-filter="scenarios"><strong>0/10</strong><span>Scenario passes</span></button>
+    </section>
+
+    <div class="campaign-note"><strong>Priority batch dispositioned: 10 of 10 scenarios.</strong> “Dispositioned” means each has an evidence-backed release decision; it does not mean every granular check passed. No unexecuted viewport cell is counted as a pass. <a href="#coverage">View coverage →</a></div>
+
+    <section class="workspace">
+      <aside class="filters">
+        <div class="search-wrap"><label for="search">Search findings</label><input id="search" type="search" placeholder="ID, title, area…"><kbd>/</kbd></div>
+        <fieldset><legend>Severity</legend><div id="severity-filters" class="filter-options"></div></fieldset>
+        <fieldset><legend>Scenario</legend><div id="scenario-filters" class="filter-options compact"></div></fieldset>
+        <div class="filter-note"><span class="mini-orbit"></span><p><strong>Privacy-safe publication.</strong> Credentials, tokens, private documents, full emails and raw identifiers are excluded.</p><a href="https://github.com/capitalinvestmentclub/admin-uat-report">Open report source →</a></div>
+      </aside>
+      <div class="results">
+        <div class="results-toolbar"><div><p><strong id="result-count">—</strong> findings shown</p><span id="active-filter-copy">Full Admin record</span></div><label>Sort <select id="sort"><option value="severity">Severity</option><option value="id">Finding ID</option><option value="scenario">Scenario</option></select></label></div>
+        <div class="list-heading"><span>Finding</span><span>Area</span><span>Status</span></div>
+        <div id="findings-list" class="findings-list"></div>
+        <div id="empty-state" class="empty-state" hidden><h2>No findings match this view</h2><button class="quiet-button" id="clear-filters">Clear filters</button></div>
+      </div>
+    </section>
+
+    <div class="report-appendix">
+      <section><div class="section-title"><h2>What worked</h2><span>Successful gates, not whole-scenario passes</span></div><div class="success-grid"><article><h3>Admin security controls</h3><p>Per-session revocation, device blocking, reason-required account lock/unlock, persistence after refresh and immutable before/after audit worked on an isolated user.</p></article><article><h3>Investment and grant milestones</h3><p>Takeover acknowledgements and Admin rationale, automatic project promotion, grant award and current wallet/cap-table totals were visible and reconciled for scoped fixtures.</p></article><article><h3>Responsive Admin surfaces</h3><p>Moderation Queue and Admin Ledger were inspected at 360×800, 390×844, 768×1024, 1024×768, 1280×800 and 1440×900. Controls stayed reachable in those scoped surfaces.</p></article></div></section>
+
+      <section id="coverage"><div class="section-title"><h2>Priority scenario results</h2><span>All ten failed at least one mandatory gate</span></div><div class="table-wrap" tabindex="0"><table><thead><tr><th>Scenario</th><th>Result</th><th>Demonstrated</th><th>Blocking reason</th></tr></thead><tbody id="scenarios"></tbody></table></div></section>
+
+      <section><div class="section-title"><h2>Coverage interpretation</h2><span>What this report does—and does not—certify</span></div><div class="success-grid"><article><h3>Completed decision</h3><p>Each priority scenario has an evidence-backed release-gate outcome. A single mandatory failure is sufficient to fail a scenario; dependent unsafe or impossible branches remain explicitly blocked.</p></article><article><h3>Not a full-cell pass</h3><p>The large source inventories and every viewport-expanded lifecycle cell are not represented as passed. Only exact actor, fixture, action, state and viewport matches from the preceding 24 hours were reused.</p></article><article><h3>Chrome-only scope</h3><p>This campaign does not certify Safari, Edge or physical iOS/Android devices. It follows the agreed Chrome-only, six-size scope.</p></article></div></section>
+
+      <section id="method"><h2>Method, provenance & history</h2><div class="success-grid"><article><h3>Execution contract</h3><p>Actual rendered Chrome UI on one computer, with normal logout/login role handoffs. Automation was limited to fixture setup and the explicitly approved synthetic file chooser.</p></article><article><h3>Data safety</h3><p>Only disposable subjects were locked, revoked or blocked. The account and device were restored; the revoked disposable session stayed revoked. No shared password was changed.</p></article><article><h3>Evidence</h3><p>Detailed private run records remain under <code>tests/e2e/admin/</code> in the webapp project. This public report contains sanitized summaries only.</p></article></div><h3>Publication history</h3><p>Revision 1 · 12 Sep 2026: priority-ten Admin release-gate report published.</p></section>
+    </div>
+  </main>
+
+  <dialog id="finding-dialog" class="finding-dialog"><div class="dialog-shell"><header class="dialog-header"><div><p id="dialog-kicker" class="eyebrow"></p><h2 id="dialog-title"></h2></div><button id="dialog-close" class="icon-button" aria-label="Close finding">×</button></header><div id="dialog-content" class="dialog-content"></div></div></dialog>
+  <div id="toast" class="toast" role="status"></div>
+  <footer class="report-footer">Published by Capital Investment Club · Admin Chrome release-gate review · Revision 1</footer>
+  <script src="data.js?v=1"></script>
+  <script src="app.js?v=1"></script>
+</body>
+</html>
