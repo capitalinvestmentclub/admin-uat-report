@@ -1,46 +1,457 @@
-const data = window.ADMIN_UAT;
-const severityRank = {critical:0,high:1,medium:2,low:3};
-let state = {severity:'all',scenario:'all',query:'',sort:'severity'};
-const $ = (id) => document.getElementById(id);
+(() => {
+  const report = window.PR_REVIEW_DATA;
+  const updates = window.PR_REVIEW_UPDATES || {};
+  if (!report?.findings) {
+    document.body.innerHTML = '<p role="alert">The generated finding ledger could not be loaded.</p>';
+    return;
+  }
 
-function esc(value){return String(value).replace(/[&<>"']/g,(c)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function filtered(){
-  const q=state.query.trim().toLowerCase();
-  return data.findings.filter(f=>(state.severity==='all'||f.severity===state.severity)&&(state.scenario==='all'||f.scenario===state.scenario)&&(!q||Object.values(f).join(' ').toLowerCase().includes(q))).sort((a,b)=>state.sort==='severity'?(severityRank[a.severity]-severityRank[b.severity]||a.id.localeCompare(b.id)):a[state.sort].localeCompare(b[state.sort]));
-}
-function renderFilters(){
-  const severities=['all','critical','high','medium'];
-  $('severity-filters').innerHTML=severities.map(v=>`<button class="filter-pill ${state.severity===v?'active':''}" data-severity="${v}">${v==='all'?'All severities':v}</button>`).join('');
-  const scenarios=['all',...data.scenarios.map(s=>s[0])];
-  $('scenario-filters').innerHTML=scenarios.map(v=>`<button class="filter-pill ${state.scenario===v?'active':''}" data-scenario="${v}">${v==='all'?'All scenarios':v}</button>`).join('');
-}
-function render(){
-  renderFilters(); const rows=filtered(); $('result-count').textContent=rows.length;
-  $('active-filter-copy').textContent=state.scenario==='all'?'Full Admin record':state.scenario;
-  $('findings-list').innerHTML=rows.map(f=>`<button class="finding-row" data-id="${f.id}"><span><small>${f.id} · ${f.scenario}</small><strong>${esc(f.title)}</strong><em>${esc(f.summary)}</em></span><span>${esc(f.area)}</span><span class="badge ${f.severity}">${f.severity}</span></button>`).join('');
-  $('empty-state').hidden=rows.length>0;
-}
-function openFinding(id){
-  const f=data.findings.find(x=>x.id===id); if(!f)return;
-  $('dialog-kicker').textContent=`${f.id} · ${f.scenario} · ${f.severity}`; $('dialog-title').textContent=f.title;
-  $('dialog-content').innerHTML=`<section><h3>Observed</h3><p>${esc(f.summary)}</p></section><section><h3>Expected</h3><p>${esc(f.expected)}</p></section><section><h3>Retest</h3><p>${esc(f.retest)}</p></section><p class="evidence-note">Detailed evidence remains in the private webapp test record; this public drawer is sanitized.</p>`;
-  $('finding-dialog').showModal(); history.replaceState(null,'',`#${id}`);
-}
-function exportCsv(){
-  const values=[['ID','Scenario','Severity','Area','Title','Summary'],...filtered().map(f=>[f.id,f.scenario,f.severity,f.area,f.title,f.summary])];
-  const csv=values.map(r=>r.map(v=>`"${String(v).replaceAll('"','""')}"`).join(',')).join('\n');
-  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'})); a.download='admin-uat-findings.csv'; a.click(); URL.revokeObjectURL(a.href);
-}
-$('metric-total').textContent=data.findings.length;
-$('metric-urgent').textContent=data.findings.filter(f=>['critical','high'].includes(f.severity)).length;
-$('metric-open').textContent=data.findings.length;
-$('scenarios').innerHTML=data.scenarios.map(s=>`<tr><td><strong>${s[0]}</strong></td><td><span class="badge critical">${s[1]}</span></td><td>${esc(s[2])}</td><td>${esc(s[3])}</td></tr>`).join('');
-document.addEventListener('click',e=>{const sev=e.target.closest('[data-severity]');const sc=e.target.closest('[data-scenario]');const row=e.target.closest('[data-id]');if(sev){state.severity=sev.dataset.severity;render();}if(sc){state.scenario=sc.dataset.scenario;render();}if(row)openFinding(row.dataset.id);});
-$('search').addEventListener('input',e=>{state.query=e.target.value;render();});
-$('sort').addEventListener('change',e=>{state.sort=e.target.value;render();});
-$('dialog-close').addEventListener('click',()=>{$('finding-dialog').close();history.replaceState(null,'',location.pathname);});
-$('clear-filters').addEventListener('click',()=>{state={severity:'all',scenario:'all',query:'',sort:'severity'};$('search').value='';render();});
-$('export-button').addEventListener('click',exportCsv);
-$('share-button').addEventListener('click',async()=>{await navigator.clipboard.writeText(location.href);$('toast').textContent='View link copied';$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),1800);});
-document.addEventListener('keydown',e=>{if(e.key==='/'&&!/input|select|textarea/i.test(e.target.tagName)){e.preventDefault();$('search').focus();}if(e.key==='Escape'&&$('finding-dialog').open)$('finding-dialog').close();});
-render(); if(location.hash)openFinding(location.hash.slice(1));
+  const findings = report.findings.map((finding) => ({
+    ...finding,
+    ...(updates[finding.id] || {}),
+  }));
+  const elements = {
+    list: document.querySelector('#findings-list'),
+    empty: document.querySelector('#empty-state'),
+    count: document.querySelector('#result-count'),
+    filterCopy: document.querySelector('#active-filter-copy'),
+    search: document.querySelector('#search'),
+    sort: document.querySelector('#sort'),
+    dialog: document.querySelector('#finding-dialog'),
+    dialogKicker: document.querySelector('#dialog-kicker'),
+    dialogTitle: document.querySelector('#dialog-title'),
+    dialogContent: document.querySelector('#dialog-content'),
+    toast: document.querySelector('#toast'),
+  };
+  const state = {
+    search: '',
+    types: new Set(),
+    statuses: new Set(),
+    severities: new Set(),
+    sort: 'severity',
+  };
+
+  const statusBucket = (status = '') => {
+    const value = status.toLowerCase();
+    if (value.startsWith('fixed')) return 'Fixed';
+    if (value.includes('progress')) return 'In progress';
+    if (value.includes('retest')) return 'Needs retest';
+    if (value.startsWith('closed')) return 'Closed';
+    return 'Open';
+  };
+
+  const statusClass = (status) => {
+    const bucket = statusBucket(status);
+    if (bucket === 'Fixed') return 'status-fixed';
+    if (bucket === 'In progress') return 'status-progress';
+    if (bucket === 'Needs retest') return 'status-retest';
+    if (bucket === 'Closed') return 'status-closed';
+    return '';
+  };
+
+  const escapeHtml = (value = '') =>
+    String(value).replace(
+      /[&<>'"]/g,
+      (character) =>
+        ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[
+          character
+        ],
+    );
+
+  const severityWeight = {
+    Critical: 0,
+    Blocker: 1,
+    High: 2,
+    Medium: 3,
+    Low: 4,
+    Info: 5,
+    Unclassified: 6,
+  };
+
+  const idNumber = (finding) => Number(finding.id.match(/\d+/)?.[0] || 0);
+  const comparators = {
+    severity: (a, b) =>
+      severityWeight[a.severity] - severityWeight[b.severity] ||
+      a.type.localeCompare(b.type) ||
+      idNumber(a) - idNumber(b),
+    id: (a, b) => a.type.localeCompare(b.type) || idNumber(a) - idNumber(b),
+    scenario: (a, b) => a.scenario.localeCompare(b.scenario) || idNumber(a) - idNumber(b),
+    status: (a, b) => statusBucket(a.status).localeCompare(statusBucket(b.status)) || idNumber(a) - idNumber(b),
+  };
+
+  function renderMetadata() {
+    const generated = new Date(report.meta.generatedAt);
+    document.querySelector('#metadata').innerHTML = `
+      <span>HEAD ${escapeHtml(report.meta.commit.slice(0, 8))}</span>
+      <span>Updated ${escapeHtml(generated.toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' }))}</span>
+      <a href="${report.meta.url}">Open report source ↗</a>
+    `;
+  }
+
+  function renderMetrics() {
+    const urgent = findings.filter(
+      (finding) =>
+        ['Critical', 'High'].includes(finding.severity) && statusBucket(finding.status) === 'Open',
+    ).length;
+    const open = findings.filter((finding) => statusBucket(finding.status) === 'Open').length;
+    const fixed = findings.filter((finding) => statusBucket(finding.status) === 'Fixed').length;
+    const closed = findings.filter((finding) => statusBucket(finding.status) === 'Closed').length;
+    document.querySelector('#metric-total').textContent = findings.length;
+    document.querySelector('#metric-urgent').textContent = urgent;
+    document.querySelector('#metric-open').textContent = open;
+    document.querySelector('#metric-fixed').textContent = fixed;
+    document.querySelector('#metric-closed').textContent = closed;
+    document.querySelector('#release-reason').textContent = `${urgent} open critical/high findings remain; ${fixed} product fixes are verified.`;
+  }
+
+  function optionCounts(property, transform = (value) => value) {
+    return findings.reduce((counts, finding) => {
+      const value = transform(finding[property]);
+      counts[value] = (counts[value] || 0) + 1;
+      return counts;
+    }, {});
+  }
+
+  function renderFilterGroup(containerId, name, counts, selectedSet, preferredOrder) {
+    const container = document.querySelector(`#${containerId}`);
+    const options = Object.keys(counts).sort((a, b) => {
+      const left = preferredOrder.indexOf(a);
+      const right = preferredOrder.indexOf(b);
+      return (left < 0 ? 99 : left) - (right < 0 ? 99 : right) || a.localeCompare(b);
+    });
+    container.innerHTML = options
+      .map(
+        (option) => `
+          <label class="filter-option">
+            <span>
+              <input type="checkbox" name="${name}" value="${escapeHtml(option)}" ${selectedSet.has(option) ? 'checked' : ''} />
+              ${escapeHtml(option)}
+            </span>
+            <output>${counts[option]}</output>
+          </label>
+        `,
+      )
+      .join('');
+    container.querySelectorAll('input').forEach((input) => {
+      input.addEventListener('change', () => {
+        if (input.checked) selectedSet.add(input.value);
+        else selectedSet.delete(input.value);
+        render();
+      });
+    });
+  }
+
+  function renderFilters() {
+    renderFilterGroup(
+      'type-filters',
+      'type',
+      optionCounts('type'),
+      state.types,
+      ['Defect', 'Gap', 'Question'],
+    );
+    renderFilterGroup(
+      'status-filters',
+      'status',
+      optionCounts('status', statusBucket),
+      state.statuses,
+      ['Open', 'In progress', 'Needs retest', 'Fixed', 'Closed'],
+    );
+    renderFilterGroup(
+      'severity-filters',
+      'severity',
+      optionCounts('severity'),
+      state.severities,
+      ['Critical', 'Blocker', 'High', 'Medium', 'Low', 'Info', 'Unclassified'],
+    );
+  }
+
+  function filteredFindings() {
+    const query = state.search.toLowerCase().trim();
+    return findings
+      .filter((finding) => !state.types.size || state.types.has(finding.type))
+      .filter((finding) => !state.statuses.size || state.statuses.has(statusBucket(finding.status)))
+      .filter((finding) => !state.severities.size || state.severities.has(finding.severity))
+      .filter((finding) => {
+        if (!query) return true;
+        return [
+          finding.id,
+          finding.title,
+          finding.description,
+          finding.area,
+          finding.scenario,
+          finding.status,
+        ]
+          .join(' ')
+          .toLowerCase()
+          .includes(query);
+      })
+      .sort(comparators[state.sort]);
+  }
+
+  function activeFilterText() {
+    const parts = [];
+    if (state.search) parts.push(`“${state.search}”`);
+    if (state.types.size) parts.push([...state.types].join(', '));
+    if (state.statuses.size) parts.push([...state.statuses].join(', '));
+    if (state.severities.size) parts.push([...state.severities].join(', '));
+    return parts.length ? parts.join(' · ') : 'Full Admin record';
+  }
+
+  function rowTemplate(finding) {
+    return `
+      <button
+        class="finding-row"
+        type="button"
+        data-id="${finding.id}"
+        data-type="${finding.type}"
+        data-severity="${finding.severity}"
+        aria-label="Open ${finding.id}: ${escapeHtml(finding.title)}"
+      >
+        <span class="finding-main">
+          <span class="finding-id">${finding.id}</span>
+          <span>
+            <span class="finding-title">${escapeHtml(finding.title)}</span>
+            <span class="finding-tags">
+              <span class="tag tag-${finding.severity.toLowerCase()}">${finding.severity}</span>
+              <span class="tag">${finding.type}</span>
+            </span>
+          </span>
+        </span>
+        <span class="finding-area">
+          <strong>${finding.scenario}</strong>
+          ${escapeHtml(finding.area)}
+        </span>
+        <span class="status-label ${statusClass(finding.status)}">${escapeHtml(finding.status)}</span>
+      </button>
+    `;
+  }
+
+  function render() {
+    const visible = filteredFindings();
+    elements.list.innerHTML = visible.map(rowTemplate).join('');
+    elements.count.textContent = visible.length;
+    elements.filterCopy.textContent = activeFilterText();
+    elements.empty.hidden = visible.length > 0;
+    elements.list.querySelectorAll('.finding-row').forEach((row) => {
+      row.addEventListener('click', () => openFinding(row.dataset.id));
+    });
+    persistView();
+  }
+
+  function evidenceLink(label, url, note) {
+    if (!url) return '';
+    return `
+      <a class="evidence-link" href="${escapeHtml(url)}" target="_blank" rel="noreferrer">
+        <span><strong>${escapeHtml(label)}</strong><small>${escapeHtml(note)}</small></span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    `;
+  }
+
+  function fixTemplate(finding) {
+    if (!finding.fix && !finding.resolution) return '';
+    const fix = finding.fix || {};
+    const evidence = finding.verificationEvidence || fix.evidence || [];
+    const changes = [
+      fix.summary ? `<li><strong>Summary:</strong> ${escapeHtml(fix.summary)}</li>` : '',
+      fix.commit
+        ? `<li><strong>Commit:</strong> <a href="${escapeHtml(fix.commit.url)}" target="_blank" rel="noreferrer">${escapeHtml(fix.commit.sha || fix.commit.url)}</a></li>`
+        : '',
+      fix.pr
+        ? `<li><strong>Fix PR:</strong> <a href="${escapeHtml(fix.pr.url)}" target="_blank" rel="noreferrer">${escapeHtml(fix.pr.label || fix.pr.url)}</a></li>`
+        : '',
+      ...(fix.files || []).map(
+        (file) => `<li><strong>Changed:</strong> <a href="${escapeHtml(file.url)}" target="_blank" rel="noreferrer">${escapeHtml(file.path)}</a></li>`,
+      ),
+    ].filter(Boolean);
+    return `
+      <section class="detail-section fix-section">
+        <h3>${statusBucket(finding.status) === 'Fixed' ? 'Fix verified' : 'Resolution'}</h3>
+        <p>${escapeHtml(finding.resolution || fix.summary || 'Resolution recorded.')}</p>
+        ${changes.length ? `<ul class="change-list">${changes.join('')}</ul>` : ''}
+      </section>
+      ${
+        evidence.length
+          ? `<section class="detail-section"><h3>Fix evidence</h3><div class="evidence-links">${evidence
+              .map((item) => evidenceLink(item.label, item.url, item.note || 'Verification evidence'))
+              .join('')}</div></section>`
+          : ''
+      }
+    `;
+  }
+
+  function openFinding(id, updateHash = true) {
+    const finding = findings.find((item) => item.id === id);
+    if (!finding) return;
+    elements.dialogKicker.textContent = `${finding.id} · ${finding.scenario} · ${finding.type}`;
+    elements.dialogTitle.textContent = finding.title;
+    const fixed = statusBucket(finding.status) === 'Fixed';
+    const resolved = fixed || statusBucket(finding.status) === 'Closed';
+    elements.dialogContent.innerHTML = `
+      <div class="detail-status">
+        <span class="tag tag-${finding.severity.toLowerCase()}">${finding.severity}</span>
+        <span class="status-label ${statusClass(finding.status)}">${escapeHtml(finding.status)}</span>
+      </div>
+      <section class="detail-section">
+        <h3>What was found</h3>
+        <p>${escapeHtml(finding.description || finding.title)}</p>
+      </section>
+      <section class="detail-section">
+        <h3>Issue evidence</h3>
+        <div class="evidence-links">
+          ${evidenceLink(
+            finding.evidenceRun !== finding.source ? 'Original finding record' : 'Finding run record',
+            finding.sourceUrl,
+            `${finding.source}:${finding.line}`,
+          )}
+          ${
+            finding.evidenceRun !== finding.source
+              ? evidenceLink('Latest media-backed run', finding.evidenceRunUrl, finding.evidenceRun)
+              : ''
+          }
+          ${evidenceLink(
+            'Latest verified media',
+            finding.evidenceUrl,
+            `${finding.mediaEvidenceCount} screenshot or recording file${finding.mediaEvidenceCount === 1 ? '' : 's'} confirmed`,
+          )}
+        </div>
+      </section>
+      ${fixTemplate(finding)}
+      <section class="detail-section">
+        <h3>Lifecycle</h3>
+        <div class="timeline">
+          <div class="timeline-item done"><strong>Finding recorded</strong><small>${finding.scenario} · Admin Chrome evidence run</small></div>
+          <div class="timeline-item ${finding.fix ? 'done' : ''}"><strong>Change linked</strong><small>${finding.fix ? 'Commit and changed files recorded' : 'Awaiting implementation'}</small></div>
+          <div class="timeline-item ${resolved ? 'done' : ''}"><strong>Verification evidence</strong><small>${resolved ? escapeHtml(finding.verifiedAt || 'Recorded') : 'Awaiting browser retest'}</small></div>
+        </div>
+      </section>
+    `;
+    if (!elements.dialog.open) elements.dialog.showModal();
+    if (updateHash) history.replaceState(null, '', `${location.pathname}${location.search}#${id}`);
+  }
+
+  function closeDialog() {
+    elements.dialog.close();
+    history.replaceState(null, '', `${location.pathname}${location.search}`);
+  }
+
+  function persistView() {
+    const params = new URLSearchParams();
+    if (state.search) params.set('q', state.search);
+    if (state.types.size) params.set('type', [...state.types].join(','));
+    if (state.statuses.size) params.set('status', [...state.statuses].join(','));
+    if (state.severities.size) params.set('severity', [...state.severities].join(','));
+    if (state.sort !== 'severity') params.set('sort', state.sort);
+    const query = params.toString();
+    const hash = elements.dialog.open ? location.hash : '';
+    history.replaceState(null, '', `${location.pathname}${query ? `?${query}` : ''}${hash}`);
+  }
+
+  function hydrateView() {
+    const params = new URLSearchParams(location.search);
+    state.search = params.get('q') || '';
+    state.sort = params.get('sort') || 'severity';
+    ['type', 'status', 'severity'].forEach((key) => {
+      const setName = key === 'type' ? 'types' : key === 'status' ? 'statuses' : 'severities';
+      const values = params.get(key)?.split(',').filter(Boolean) || [];
+      state[setName] = new Set(values);
+    });
+    elements.search.value = state.search;
+    elements.sort.value = state.sort;
+  }
+
+  function clearFilters() {
+    state.search = '';
+    state.types.clear();
+    state.statuses.clear();
+    state.severities.clear();
+    elements.search.value = '';
+    renderFilters();
+    render();
+  }
+
+  function applyMetricFilter(metric) {
+    clearFilters();
+    if (metric === 'urgent') {
+      state.severities = new Set(['Critical', 'High']);
+      state.statuses = new Set(['Open']);
+    }
+    if (metric === 'open') state.statuses = new Set(['Open']);
+    if (metric === 'fixed') state.statuses = new Set(['Fixed']);
+    if (metric === 'closed') state.statuses = new Set(['Closed']);
+    renderFilters();
+    render();
+    document.querySelector('.results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function showToast(message) {
+    elements.toast.textContent = message;
+    elements.toast.classList.add('visible');
+    window.clearTimeout(showToast.timeout);
+    showToast.timeout = window.setTimeout(() => elements.toast.classList.remove('visible'), 2200);
+  }
+
+  async function copyViewLink() {
+    try {
+      await navigator.clipboard.writeText(location.href);
+      showToast('Filtered view link copied');
+    } catch {
+      showToast('Copy unavailable — use the browser address bar');
+    }
+  }
+
+  function exportCsv() {
+    const columns = [
+      'id',
+      'type',
+      'severity',
+      'status',
+      'scenario',
+      'area',
+      'title',
+      'sourceUrl',
+      'evidenceUrl',
+    ];
+    const quote = (value) => `"${String(value ?? '').replaceAll('"', '""')}"`;
+    const csv = [columns.join(','), ...filteredFindings().map((item) => columns.map((column) => quote(item[column])).join(','))].join('\n');
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
+    link.download = 'admin-uat-findings.csv';
+    link.click();
+    URL.revokeObjectURL(link.href);
+    showToast('CSV exported');
+  }
+
+  elements.search.addEventListener('input', (event) => {
+    state.search = event.target.value;
+    render();
+  });
+  elements.sort.addEventListener('change', (event) => {
+    state.sort = event.target.value;
+    render();
+  });
+  document.querySelectorAll('[data-metric-filter]').forEach((button) => {
+    button.addEventListener('click', () => applyMetricFilter(button.dataset.metricFilter));
+  });
+  document.querySelector('#clear-filters').addEventListener('click', clearFilters);
+  document.querySelector('#share-button').addEventListener('click', copyViewLink);
+  document.querySelector('#export-button').addEventListener('click', exportCsv);
+  document.querySelector('#dialog-close').addEventListener('click', closeDialog);
+  elements.dialog.addEventListener('click', (event) => {
+    if (event.target === elements.dialog) closeDialog();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === '/' && document.activeElement !== elements.search) {
+      event.preventDefault();
+      elements.search.focus();
+    }
+  });
+
+  const initialId = location.hash.replace('#', '');
+  hydrateView();
+  renderMetadata();
+  renderMetrics();
+  renderFilters();
+  render();
+  if (initialId) openFinding(initialId);
+})();

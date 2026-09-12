@@ -40,3 +40,31 @@ window.ADMIN_UAT = {
     {id:'ADM055-BACKFILL-001',scenario:'ADM-055',severity:'medium',area:'Admin ledger',title:'Broad Backfill action is exposed beside filters',summary:'Admin Ledger presents Backfill beside read/export controls without explanatory scope in the inspected state. It was not executed against shared data.',expected:'Broad reconciliation mutations need explicit scope, preview, confirmation, idempotency and audit.',retest:'Use an isolated backfill fixture and verify preview/cancel/commit/replay safeguards.'}
   ]
 };
+
+window.PR_REVIEW_DATA = {
+  meta: {
+    generatedAt: '2026-09-12T06:10:24Z',
+    commit: '8780f40d',
+    url: 'https://github.com/capitalinvestmentclub/admin-uat-report',
+    source: 'Admin UAT run records in the capitalinvestmentclub/webapp project'
+  },
+  findings: window.ADMIN_UAT.findings.map((finding) => ({
+    id: finding.id,
+    type: finding.severity === 'medium' ? 'Gap' : 'Defect',
+    severity: finding.severity[0].toUpperCase() + finding.severity.slice(1),
+    status: 'Open',
+    scenario: finding.scenario,
+    area: finding.area,
+    title: finding.title,
+    description: finding.summary,
+    expected: finding.expected,
+    retest: finding.retest,
+    source: `tests/e2e/admin/${finding.scenario}`,
+    line: 1,
+    sourceUrl: 'https://github.com/capitalinvestmentclub/admin-uat-report',
+    evidenceRun: `Private ${finding.scenario} browser run record`,
+    evidenceRunUrl: 'https://github.com/capitalinvestmentclub/admin-uat-report',
+    evidenceUrl: '',
+    mediaEvidenceCount: 0
+  }))
+};
