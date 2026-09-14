@@ -1,0 +1,279 @@
+{
+  "repairBatch": {
+    "runId": "2026-09-14-close37-merged",
+    "updatedAt": "2026-09-14T23:56:33.561Z",
+    "state": "MERGED AND LIVE — targeted cloud verification progressing",
+    "executionMode": "cloud",
+    "browser": "Google Chrome",
+    "sizes": [
+      "360×800",
+      "390×844",
+      "768×1024",
+      "1024×768",
+      "1280×800",
+      "1440×900"
+    ],
+    "mergeStatus": "MERGED",
+    "deploymentStatus": "STAGING PENDING — NOT PROMOTED",
+    "cloudRetestStatus": "PARTIAL",
+    "scope": "Five findings, three shared causes: mobile grant Actions, grant receipt recipient, organization calendar timezone. Code delivery is separate from deployed acceptance; no finding status or viewport result changed.",
+    "releaseGate": "Recorded merge commits are live. Cloud closure below is limited to explicit targeted results with six measured CSS viewport outcomes; merged code alone never closes other findings.",
+    "candidates": {
+      "webapp": "f6e0fb4c345658bd12011516d67b95ba2421d393",
+      "webapi": "4e9ac2680d49156a59e9bf447db0f8e3f73e8c04"
+    },
+    "pullRequests": [
+      {
+        "url": "https://github.com/capitalinvestmentclub/webapp/pull/2346",
+        "label": "Frontend PR #2346 — MERGED; f5a4396d8cfbfd4c9abad90e44fc8aaf10b22ca4"
+      },
+      {
+        "url": "https://github.com/capitalinvestmentclub/webapi/pull/738",
+        "label": "API PR #738 — MERGED; de320d4539f95415a84a3928fce77ee16633ca8f"
+      }
+    ],
+    "deployments": {
+      "webapp": {
+        "version": "auth-34904805743-1",
+        "commit": "f5a4396d8cfbfd4c9abad90e44fc8aaf10b22ca4",
+        "promotionRun": "34910414295",
+        "promotedAt": "2026-09-14T23:48:05Z",
+        "status": "LIVE"
+      },
+      "webapi": {
+        "version": "policy-34904590658-1",
+        "commit": "de320d4539f95415a84a3928fce77ee16633ca8f",
+        "promotionRun": "34910303346",
+        "promotedAt": "2026-09-14T23:46:36Z",
+        "status": "LIVE"
+      },
+      "buildId": "rwHF6H9jwBWTjB7AhtWo1",
+      "verifiedBy": "/root"
+    },
+    "frontendTests": "Required, focused and CodeQL checks passed; no open review threads. Local visual screenshot acceptance remains deferred, not passed.",
+    "apiTests": "Required CI passed; substantive review resolved; nine review-delta tests passed. Full local suite last checkpoint250 of471 suites/3281 assertions passed,zero failures,still unfinished.",
+    "findings": [
+      {
+        "id": "ADM053-REC-001",
+        "status": "FAIL",
+        "classification": "PRODUCT_FIX_MERGED_AWAITING_DEPLOYMENT",
+        "summary": "Repair merged in recorded PR/SHA. Not promoted live; latest cloud acceptance remains FAIL. Exact-release visual retest remains pending.",
+        "cloudRetestStatus": "FAIL"
+      },
+      {
+        "id": "ADM053-CFG-001",
+        "status": "FAIL",
+        "classification": "PRODUCT_FIX_MERGED_AWAITING_DEPLOYMENT",
+        "summary": "Fresh exact-live-release360x800 enabled-reporting check: authored instructions \"Close37 verified 360: report progress, challenges and next steps monthly. Synthetic draft only.\" persist after save/reload/reopen editor, but Details replaces them with \"This grantor requires monthly reporting.\" One shared display/configuration mismatch; other five sizes not executed for this fresh branch. No funding or publication.",
+        "cloudRetestStatus": "FAIL"
+      }
+    ],
+    "previousBatchRunId": "2026-09-14-close37-pr-open",
+    "mergeCommits": {
+      "webapp": "f5a4396d8cfbfd4c9abad90e44fc8aaf10b22ca4",
+      "webapi": "de320d4539f95415a84a3928fce77ee16633ca8f"
+    },
+    "cloudRetestSummary": "Latest targeted batch 2026-09-14-close37-live-authored-reporting: ADM053-CFG-001 FAIL, ADM053-REPORT-001 FAIL. Other findings retain prior evidence; this is not full-scenario closure."
+  },
+  "findings": [
+    {
+      "id": "ADM053-CFG-001",
+      "title": "Saved grant configuration is lost on reopen",
+      "status": "FAIL",
+      "summary": "Fresh exact-live-release360x800 enabled-reporting check: authored instructions \"Close37 verified 360: report progress, challenges and next steps monthly. Synthetic draft only.\" persist after save/reload/reopen editor, but Details replaces them with \"This grantor requires monthly reporting.\" One shared display/configuration mismatch; other five sizes not executed for this fresh branch. No funding or publication.",
+      "steps": [
+        "Open original private synthetic matrix draft with reporting enabled.",
+        "Save authored monthly reporting instructions.",
+        "Reload and reopen editor; authored text retained.",
+        "Compare Details, which substitutes generic monthly reporting sentence."
+      ],
+      "responsive": [
+        {
+          "size": "360×800",
+          "measuredCss": "360x800",
+          "status": "FAIL",
+          "summary": "Fresh exact-live-release360x800 enabled-reporting check: authored instructions \"Close37 verified 360: report progress, challenges and next steps monthly. Synthetic draft only.\" persist after save/reload/reopen editor, but Details replaces them with \"This grantor requires monthly reporting.\" One shared display/configuration mismatch; other five sizes not executed for this fresh branch. No funding or publication.",
+          "steps": [
+            "Open original private synthetic matrix draft with reporting enabled.",
+            "Save authored monthly reporting instructions.",
+            "Reload and reopen editor; authored text retained.",
+            "Compare Details, which substitutes generic monthly reporting sentence."
+          ],
+          "evidence": [
+            {
+              "url": "assets/2026-09-14-close37-live-authored-reporting/cloud-reporting-editor-reloaded-360.png",
+              "label": "cloud-reporting-editor-reloaded-360.png"
+            },
+            {
+              "url": "assets/2026-09-14-close37-live-authored-reporting/cloud-reporting-details-mismatch-360.png",
+              "label": "cloud-reporting-details-mismatch-360.png"
+            }
+          ],
+          "observedAt": "2026-09-14T23:56:33.561Z"
+        },
+        {
+          "size": "390×844",
+          "measuredCss": null,
+          "status": "NOT RUN",
+          "summary": "Not executed for this fresh exact-release enabled-reporting branch; historical results preserved.",
+          "steps": [],
+          "evidence": [],
+          "observedAt": "2026-09-14T23:56:33.561Z"
+        },
+        {
+          "size": "768×1024",
+          "measuredCss": null,
+          "status": "NOT RUN",
+          "summary": "Not executed for this fresh exact-release enabled-reporting branch; historical results preserved.",
+          "steps": [],
+          "evidence": [],
+          "observedAt": "2026-09-14T23:56:33.561Z"
+        },
+        {
+          "size": "1024×768",
+          "measuredCss": null,
+          "status": "NOT RUN",
+          "summary": "Not executed for this fresh exact-release enabled-reporting branch; historical results preserved.",
+          "steps": [],
+          "evidence": [],
+          "observedAt": "2026-09-14T23:56:33.561Z"
+        },
+        {
+          "size": "1280×800",
+          "measuredCss": null,
+          "status": "NOT RUN",
+          "summary": "Not executed for this fresh exact-release enabled-reporting branch; historical results preserved.",
+          "steps": [],
+          "evidence": [],
+          "observedAt": "2026-09-14T23:56:33.561Z"
+        },
+        {
+          "size": "1440×900",
+          "measuredCss": null,
+          "status": "NOT RUN",
+          "summary": "Not executed for this fresh exact-release enabled-reporting branch; historical results preserved.",
+          "steps": [],
+          "evidence": [],
+          "observedAt": "2026-09-14T23:56:33.561Z"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "assets/2026-09-14-close37-live-authored-reporting/cloud-reporting-editor-reloaded-360.png",
+          "label": "cloud-reporting-editor-reloaded-360.png"
+        },
+        {
+          "url": "assets/2026-09-14-close37-live-authored-reporting/cloud-reporting-details-mismatch-360.png",
+          "label": "cloud-reporting-details-mismatch-360.png"
+        }
+      ],
+      "evidencePublication": "APPROVED_PUBLIC_EVIDENCE",
+      "limitations": "Fresh360 authored-reporting mismatch only, on recorded live versions. Other five cells NOT RUN for this branch; previous results preserved in archive. Existing OFF-reporting evidence is not invalidated. No complete six-size acceptance claimed.",
+      "sourceRun": "2026-09-14-close37-live-authored-reporting",
+      "resultSource": "results.json"
+    },
+    {
+      "id": "ADM053-REPORT-001",
+      "title": "Grant detail invents comment and reporting obligations",
+      "status": "FAIL",
+      "summary": "Fresh exact-live-release360x800 enabled-reporting check: authored instructions \"Close37 verified360: report progress, challenges and next steps monthly. Synthetic draft only.\" persist after save/reload/reopen editor, but Details replaces them with \"This grantor requires monthly reporting.\" One shared display/configuration mismatch; other five sizes not executed for this fresh branch. No funding or publication.",
+      "steps": [
+        "Open original private synthetic matrix draft with reporting enabled.",
+        "Save authored monthly reporting instructions.",
+        "Reload and reopen editor; authored text retained.",
+        "Compare Details, which substitutes generic monthly reporting sentence."
+      ],
+      "responsive": [
+        {
+          "size": "360×800",
+          "measuredCss": "360x800",
+          "status": "FAIL",
+          "summary": "Fresh exact-live-release360x800 enabled-reporting check: authored instructions \"Close37 verified360: report progress, challenges and next steps monthly. Synthetic draft only.\" persist after save/reload/reopen editor, but Details replaces them with \"This grantor requires monthly reporting.\" One shared display/configuration mismatch; other five sizes not executed for this fresh branch. No funding or publication.",
+          "steps": [
+            "Open original private synthetic matrix draft with reporting enabled.",
+            "Save authored monthly reporting instructions.",
+            "Reload and reopen editor; authored text retained.",
+            "Compare Details, which substitutes generic monthly reporting sentence."
+          ],
+          "evidence": [
+            {
+              "url": "assets/2026-09-14-close37-live-authored-reporting/cloud-reporting-editor-reloaded-360.png",
+              "label": "cloud-reporting-editor-reloaded-360.png"
+            },
+            {
+              "url": "assets/2026-09-14-close37-live-authored-reporting/cloud-reporting-details-mismatch-360.png",
+              "label": "cloud-reporting-details-mismatch-360.png"
+            }
+          ],
+          "observedAt": "2026-09-14T23:56:33.561Z"
+        },
+        {
+          "size": "390×844",
+          "measuredCss": null,
+          "status": "NOT RUN",
+          "summary": "Not executed for this fresh exact-release enabled-reporting branch; historical results preserved.",
+          "steps": [],
+          "evidence": [],
+          "observedAt": "2026-09-14T23:56:33.561Z"
+        },
+        {
+          "size": "768×1024",
+          "measuredCss": null,
+          "status": "NOT RUN",
+          "summary": "Not executed for this fresh exact-release enabled-reporting branch; historical results preserved.",
+          "steps": [],
+          "evidence": [],
+          "observedAt": "2026-09-14T23:56:33.561Z"
+        },
+        {
+          "size": "1024×768",
+          "measuredCss": null,
+          "status": "NOT RUN",
+          "summary": "Not executed for this fresh exact-release enabled-reporting branch; historical results preserved.",
+          "steps": [],
+          "evidence": [],
+          "observedAt": "2026-09-14T23:56:33.561Z"
+        },
+        {
+          "size": "1280×800",
+          "measuredCss": null,
+          "status": "NOT RUN",
+          "summary": "Not executed for this fresh exact-release enabled-reporting branch; historical results preserved.",
+          "steps": [],
+          "evidence": [],
+          "observedAt": "2026-09-14T23:56:33.561Z"
+        },
+        {
+          "size": "1440×900",
+          "measuredCss": null,
+          "status": "NOT RUN",
+          "summary": "Not executed for this fresh exact-release enabled-reporting branch; historical results preserved.",
+          "steps": [],
+          "evidence": [],
+          "observedAt": "2026-09-14T23:56:33.561Z"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "assets/2026-09-14-close37-live-authored-reporting/cloud-reporting-editor-reloaded-360.png",
+          "label": "cloud-reporting-editor-reloaded-360.png"
+        },
+        {
+          "url": "assets/2026-09-14-close37-live-authored-reporting/cloud-reporting-details-mismatch-360.png",
+          "label": "cloud-reporting-details-mismatch-360.png"
+        }
+      ],
+      "evidencePublication": "APPROVED_PUBLIC_EVIDENCE",
+      "limitations": "Fresh360 authored-reporting mismatch only, on recorded live versions. Other five cells NOT RUN for this branch; previous results preserved in archive. Existing OFF-reporting evidence is not invalidated. No complete six-size acceptance claimed.",
+      "sourceRun": "2026-09-14-close37-live-authored-reporting",
+      "resultSource": "results.json"
+    }
+  ],
+  "browser": "Google Chrome",
+  "frontend": "https://planar-truck-361704.uc.r.appspot.com",
+  "api": "https://cicdevapi.uc.r.appspot.com",
+  "runId": "2026-09-14-close37-live-authored-reporting",
+  "state": "RETEST PARTIAL — completed targeted batch published; remaining findings retain their latest recorded outcomes",
+  "updatedAt": "2026-09-14T23:56:33.561Z",
+  "scope": "Chrome-only targeted defect acceptance on the recorded deployed versions. New results are limited to explicitly supplied findings and six measured CSS sizes. Historical scenarios and unexecuted lifecycle branches are not promoted to PASS."
+}
