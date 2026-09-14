@@ -1,0 +1,107 @@
+{
+  "runId": "2026-09-14-merged-deployed-repair",
+  "state": "MERGED AND LIVE — targeted cloud verification progressing",
+  "executionMode": "cloud",
+  "browser": "Google Chrome",
+  "sizes": [
+    "360×800",
+    "390×844",
+    "768×1024",
+    "1024×768",
+    "1280×800",
+    "1440×900"
+  ],
+  "mergeStatus": "MERGED",
+  "deploymentStatus": "LIVE",
+  "cloudRetestStatus": "PARTIAL",
+  "frontendTests": "Final candidate: 632 suites / 4,943 tests passed; production build passed. Final original-refund real-API Chrome check passed at all six exact sizes.",
+  "apiTests": "Prior complete reconciliation: 468 suites / 5,565 assertions passed; latest API base and refund delta: 5 suites / 82 assertions passed. Separate runs, not one new full-suite execution.",
+  "scope": "Readiness update only. Existing deployed findings and per-size results below remain the last published cloud outcomes until exact-release browser retesting is supplied.",
+  "findings": [
+    {
+      "id": "ADM051-WDR-001",
+      "classification": "TEST_FIXTURE_CORRECTED",
+      "summary": "Original failure was an incomplete synthetic seed. Decision-driven completed/failed fixtures persist actor, time and rationale through real service code and Chrome readback. The deficient historical seed is preserved, not backfilled.",
+      "cloudRetestStatus": "PENDING"
+    },
+    {
+      "id": "ADM053-CFG-001",
+      "classification": "PRODUCT_FIX_LOCAL_VERIFIED",
+      "summary": "Original draft workflow blocked at measured 360x800: Actions bounds left349/right413 extend past viewport width360 and clipped parent prevents opening menu; no menu appears after click. October13 date retained after one save/reload, but mobile editor cannot be reopened, so configuration acceptance remains failed. One shared header defect affects GRT005 and ADM053-CFG; other five cells not executed.",
+      "cloudRetestStatus": "FAIL"
+    },
+    {
+      "id": "ADM053-REPORT-001",
+      "classification": "PRODUCT_FIX_LOCAL_VERIFIED",
+      "summary": "Changed behavior passed focused regression and real API-backed Chrome local checks at all six measured sizes.",
+      "cloudRetestStatus": "PENDING"
+    },
+    {
+      "id": "ADM046-LINK-001",
+      "classification": "PRODUCT_FIX_LOCAL_VERIFIED",
+      "summary": "Changed behavior passed focused regression and real API-backed Chrome local checks at all six measured sizes.",
+      "cloudRetestStatus": "PENDING"
+    }
+  ],
+  "updatedAt": "2026-09-14T21:24:37.042Z",
+  "candidates": {
+    "webapp": "b99da21cf757593a3f5419086022556b7965e9b3",
+    "webapi": "f11aba9330b84ee98e0e7f3188a2442b928e4aad"
+  },
+  "pullRequests": [
+    {
+      "url": "https://github.com/capitalinvestmentclub/webapp/pull/2342",
+      "label": "Frontend PR #2342 — merged"
+    },
+    {
+      "url": "https://github.com/capitalinvestmentclub/webapi/pull/737",
+      "label": "API PR #737 — merged after review corrections"
+    },
+    {
+      "url": "https://github.com/capitalinvestmentclub/webapp/actions/runs/34880983295",
+      "label": "Frontend live promotion — success"
+    },
+    {
+      "url": "https://github.com/capitalinvestmentclub/webapi/actions/runs/34880842679",
+      "label": "API live promotion — success"
+    }
+  ],
+  "releaseGate": "Recorded merge commits are live. Cloud closure below is limited to explicit targeted results with six measured CSS viewport outcomes; merged code alone never closes other findings.",
+  "mergeCommits": {
+    "webapp": "2a16bad104bdbd0c2319523ddc5f145af420c1d4",
+    "webapi": "a86720f026956fa9a9e76e3f4bb23e5e02af445d"
+  },
+  "stagedDeployments": {
+    "webapp": {
+      "version": "auth-34878846169-1",
+      "commit": "2a16bad104bdbd0c2319523ddc5f145af420c1d4",
+      "workflow": "34878846169",
+      "status": "SUCCESS"
+    },
+    "webapi": {
+      "version": "policy-34880209047-1",
+      "commit": "a86720f026956fa9a9e76e3f4bb23e5e02af445d",
+      "workflow": "34880209047",
+      "status": "SUCCESS",
+      "policyParityMatched": true
+    }
+  },
+  "apiReviewDelta": "Final review corrections: 44 controller assertions and 66 organization assertions passed; three required API checks passed and zero unresolved review threads.",
+  "deployments": {
+    "webapp": {
+      "version": "auth-34878846169-1",
+      "commit": "2a16bad104bdbd0c2319523ddc5f145af420c1d4",
+      "promotionRun": "34880983295",
+      "status": "LIVE"
+    },
+    "webapi": {
+      "version": "policy-34880209047-1",
+      "commit": "a86720f026956fa9a9e76e3f4bb23e5e02af445d",
+      "promotionRun": "34880842679",
+      "status": "LIVE"
+    },
+    "buildId": "yU2MSQuhYYpfh4uHJUpxd",
+    "verifiedBy": "/root"
+  },
+  "cloudRetestSummary": "Latest targeted batch 2026-09-14-close37-reproduced-failures: ADM053-REC-001 FAIL, ADM053-CFG-001 FAIL. Other findings retain prior evidence; this is not full-scenario closure."
+}
