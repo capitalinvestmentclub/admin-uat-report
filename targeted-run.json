@@ -1,0 +1,954 @@
+{
+  "findings": [
+    {
+      "id": "ADM050-EMAIL-001",
+      "title": "KYC confirmation link fails TLS validation",
+      "status": "PARTIAL",
+      "summary": "Opened the actual September 8 KYC Email Confirmation in the controlled Pitcher inbox. Tracking redirect now reaches the canonical HTTPS verification page without a Chrome certificate warning. It reports Token is Invalid or expired at all six sizes, with a login recovery link.",
+      "steps": [],
+      "responsive": [
+        {
+          "size": "360×800",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Opened the actual September 8 KYC Email Confirmation in the controlled Pitcher inbox. Tracking redirect now reaches the canonical HTTPS verification page without a Chrome certificate warning. It reports Token is Invalid or expired at all six sizes, with a login recovery link. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "390×844",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Opened the actual September 8 KYC Email Confirmation in the controlled Pitcher inbox. Tracking redirect now reaches the canonical HTTPS verification page without a Chrome certificate warning. It reports Token is Invalid or expired at all six sizes, with a login recovery link. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "768×1024",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Opened the actual September 8 KYC Email Confirmation in the controlled Pitcher inbox. Tracking redirect now reaches the canonical HTTPS verification page without a Chrome certificate warning. It reports Token is Invalid or expired at all six sizes, with a login recovery link. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1024×768",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Opened the actual September 8 KYC Email Confirmation in the controlled Pitcher inbox. Tracking redirect now reaches the canonical HTTPS verification page without a Chrome certificate warning. It reports Token is Invalid or expired at all six sizes, with a login recovery link. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1280×800",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Opened the actual September 8 KYC Email Confirmation in the controlled Pitcher inbox. Tracking redirect now reaches the canonical HTTPS verification page without a Chrome certificate warning. It reports Token is Invalid or expired at all six sizes, with a login recovery link. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1440×900",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Opened the actual September 8 KYC Email Confirmation in the controlled Pitcher inbox. Tracking redirect now reaches the canonical HTTPS verification page without a Chrome certificate warning. It reports Token is Invalid or expired at all six sizes, with a login recovery link. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        }
+      ],
+      "evidence": [],
+      "evidencePublication": "WITHHELD_PRIVACY_REVIEW",
+      "limitations": "Historical token replay only. Fresh KYC confirmation issuance, token acceptance and reviewer/approver readback are not completed. Evidence withheld pending explicit public-asset review. Private document captures, signed links and local paths are never copied automatically.",
+      "sourceRun": "2026-09-14-retest45",
+      "resultSource": "results.json"
+    },
+    {
+      "id": "ADM052-FIN-001",
+      "title": "Assessor is not credited after successful capture",
+      "status": "BLOCKED",
+      "summary": "Actual browser preflight reached controlled Assessor assessment requests and wallet. Historical Project Test is now Deadline missed / Auto-failed; hold released, with no capture or cancellation action. Fresh money-moving acceptance requires an active reserved assessment and confirmed sandbox funds or user handoff.",
+      "steps": [
+        "Signed in normally as controlled Assessor; no MFA required.",
+        "Opened Manage Assessments and Requests (127).",
+        "Inspected Project Test: requester Test Pitcher, rate 150.55, due 7 April 2026, Deadline missed, Auto-failed; hold released; only chat action.",
+        "Opened personal Wallet; NGN and USD wallet balances are privacy-masked; transaction list contains assessment pending-payment entries. No visible sandbox/test-mode assurance."
+      ],
+      "responsive": [
+        {
+          "size": "360×800",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "390×844",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "768×1024",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1024×768",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1280×800",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1440×900",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        }
+      ],
+      "evidence": [],
+      "evidencePublication": "WITHHELD_PRIVACY_REVIEW",
+      "limitations": "Historical terminal status is not a fresh capture/cancellation test or balance reconciliation. Six-size preflight was attempted but normal-page CDP/selector timeouts interrupted it; no six-size pass claimed. Live configuration verification unavailable due cloud reauthentication. Source confirms paid review submission captures funds. Final capture/submission or cancel/release cannot be executed safely until non-real-money mode is confirmed or user performs consequential action. Evidence withheld pending explicit public-asset review. Private document captures, signed links and local paths are never copied automatically.",
+      "sourceRun": "2026-09-14-retest45",
+      "resultSource": "finance-results.json"
+    },
+    {
+      "id": "ADM052-CAN-001",
+      "title": "Cancelled assessment keeps reserved funds",
+      "status": "BLOCKED",
+      "summary": "Actual browser preflight reached controlled Assessor assessment requests and wallet. Historical Project Test is now Deadline missed / Auto-failed; hold released, with no capture or cancellation action. Fresh money-moving acceptance requires an active reserved assessment and confirmed sandbox funds or user handoff.",
+      "steps": [
+        "Signed in normally as controlled Assessor; no MFA required.",
+        "Opened Manage Assessments and Requests (127).",
+        "Inspected Project Test: requester Test Pitcher, rate 150.55, due 7 April 2026, Deadline missed, Auto-failed; hold released; only chat action.",
+        "Opened personal Wallet; NGN and USD wallet balances are privacy-masked; transaction list contains assessment pending-payment entries. No visible sandbox/test-mode assurance."
+      ],
+      "responsive": [
+        {
+          "size": "360×800",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "390×844",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "768×1024",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1024×768",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1280×800",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1440×900",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        }
+      ],
+      "evidence": [],
+      "evidencePublication": "WITHHELD_PRIVACY_REVIEW",
+      "limitations": "Historical terminal status is not a fresh capture/cancellation test or balance reconciliation. Six-size preflight was attempted but normal-page CDP/selector timeouts interrupted it; no six-size pass claimed. Live configuration verification unavailable due cloud reauthentication. Source confirms paid review submission captures funds. Final capture/submission or cancel/release cannot be executed safely until non-real-money mode is confirmed or user performs consequential action. Evidence withheld pending explicit public-asset review. Private document captures, signed links and local paths are never copied automatically.",
+      "sourceRun": "2026-09-14-retest45",
+      "resultSource": "finance-results.json"
+    },
+    {
+      "id": "ADM055-LEDGER-001",
+      "title": "Historical bid ledger values are internally inconsistent",
+      "status": "PARTIAL",
+      "summary": "Fresh controlled owner-rejection filter returned eight journal rows covering 100.00 and 100.01 submit/reject cycles. All fourteen account amounts per row sum to zero, every Control is Valid, and all account aggregates are 0.00. Mobile journal cards show the paired signs. Actual horizontal scrolling reached rightmost account/control columns; six-size images record that access.",
+      "steps": [],
+      "responsive": [
+        {
+          "size": "360×800",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Fresh controlled owner-rejection filter returned eight journal rows covering 100.00 and 100.01 submit/reject cycles. All fourteen account amounts per row sum to zero, every Control is Valid, and all account aggregates are 0.00. Mobile journal cards show the paired signs. Actual horizontal scrolling reached rightmost account/control columns; six-size images record that access. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "390×844",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Fresh controlled owner-rejection filter returned eight journal rows covering 100.00 and 100.01 submit/reject cycles. All fourteen account amounts per row sum to zero, every Control is Valid, and all account aggregates are 0.00. Mobile journal cards show the paired signs. Actual horizontal scrolling reached rightmost account/control columns; six-size images record that access. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "768×1024",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Fresh controlled owner-rejection filter returned eight journal rows covering 100.00 and 100.01 submit/reject cycles. All fourteen account amounts per row sum to zero, every Control is Valid, and all account aggregates are 0.00. Mobile journal cards show the paired signs. Actual horizontal scrolling reached rightmost account/control columns; six-size images record that access. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1024×768",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Fresh controlled owner-rejection filter returned eight journal rows covering 100.00 and 100.01 submit/reject cycles. All fourteen account amounts per row sum to zero, every Control is Valid, and all account aggregates are 0.00. Mobile journal cards show the paired signs. Actual horizontal scrolling reached rightmost account/control columns; six-size images record that access. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1280×800",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Fresh controlled owner-rejection filter returned eight journal rows covering 100.00 and 100.01 submit/reject cycles. All fourteen account amounts per row sum to zero, every Control is Valid, and all account aggregates are 0.00. Mobile journal cards show the paired signs. Actual horizontal scrolling reached rightmost account/control columns; six-size images record that access. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1440×900",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Fresh controlled owner-rejection filter returned eight journal rows covering 100.00 and 100.01 submit/reject cycles. All fourteen account amounts per row sum to zero, every Control is Valid, and all account aggregates are 0.00. Mobile journal cards show the paired signs. Actual horizontal scrolling reached rightmost account/control columns; six-size images record that access. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        }
+      ],
+      "evidence": [],
+      "evidencePublication": "WITHHELD_PRIVACY_REVIEW",
+      "limitations": "Historical double-entry equations pass, but original defect also concerns current wallet/running-balance consistency and counterparties. No fresh bid/refund/capture or wallet running-balance comparison was performed, so the full defect remains partially verified. Journal detail uses raw internal account identifiers; those details were not saved as public evidence. Evidence withheld pending explicit public-asset review. Private document captures, signed links and local paths are never copied automatically.",
+      "sourceRun": "2026-09-14-retest45",
+      "resultSource": "ops-results.json"
+    },
+    {
+      "id": "ADM050-EVIDENCE-001",
+      "title": "Required no-TIN evidence can be omitted",
+      "status": "BLOCKED",
+      "summary": "Original defect requires an applicant Nigeria no-TIN submission without and with a declaration, followed by reviewer evidence verification. The supplied private controlled-fixture matrix contains individual Assessor/Pitcher KYC, disposable approver-return KYC and AIR fixtures, but no fixture identified as Nigeria no-TIN or no-TIN declaration present/absent. Current Admin Compliance Operations exposes control metrics rather than an applicant no-TIN submission form.",
+      "steps": [
+        "Read original ADM050-EVIDENCE-001 expected outcome and retest contract from admin-uat-report/data.js.",
+        "Inspected deployed Admin Compliance Operations UI read-only.",
+        "Read supplied controlled-fixture matrix identities/flow metadata only and found no declared Nigeria no-TIN fixture."
+      ],
+      "responsive": [
+        {
+          "size": "360×800",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "390×844",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "768×1024",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1024×768",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1280×800",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1440×900",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        }
+      ],
+      "evidence": [],
+      "evidencePublication": "WITHHELD_PRIVACY_REVIEW",
+      "limitations": "No defining submit or reviewer evidence query was executed. No viewport completion claimed; six screenshots of unrelated compliance metrics would not prove this defect. No real identity record browsed, uploaded, approved or modified. A verified controlled Nigeria no-TIN applicant fixture, accessible owner submission session and paired declaration absent/present state are required. No such mapped fixture was provided; existing KYC fixtures were not assumed to be no-TIN or modified. Evidence withheld pending explicit public-asset review. Private document captures, signed links and local paths are never copied automatically.",
+      "sourceRun": "2026-09-14-retest45",
+      "resultSource": "evidence-results.json"
+    },
+    {
+      "id": "ADM050-REVIEW-001",
+      "title": "Reviewer can complete queried or unreviewed evidence",
+      "status": "PASS",
+      "summary": "Targeted completion guard passed at all six Chrome sizes. Normal Submit with required Queried and Pending evidence is rejected; the real API returned HTTP 409 and the UI explained that all required identifiers must be reviewed and accepted. Reload retained In Progress 4 and Completed 4.",
+      "steps": [
+        "Opened exact owned synthetic Reviewer fixture.",
+        "Saved valid Bio test comment; record moved from Pending to In Progress, not Completed.",
+        "Used normal Submit with required passport/address evidence Pending review.",
+        "Marked last-name Passport requirement Queried using normal Query control.",
+        "Used normal Submit with Queried plus Pending requirements.",
+        "Reloaded and found same record In Progress, Completed count 4; reopened and verified Passport remains Queried.",
+        "Recovered viewport/network observation using a fresh normal KYC page in the same profile; no PDF extension opened.",
+        "Replayed normal Submit at all six sizes with Queried and Pending requirements; captured HTTP 409 responses and visible required-identifier error messages.",
+        "Reloaded after six-size sweep; In Progress remains 4 and Completed remains 4."
+      ],
+      "responsive": [
+        {
+          "size": "360×800",
+          "status": "PASS",
+          "summary": "Targeted Submit rejected while Queried and Pending requirements remain; no completed transition.",
+          "evidence": []
+        },
+        {
+          "size": "390×844",
+          "status": "PASS",
+          "summary": "Targeted Submit rejected while Queried and Pending requirements remain; no completed transition.",
+          "evidence": []
+        },
+        {
+          "size": "768×1024",
+          "status": "PASS",
+          "summary": "Targeted Submit rejected while Queried and Pending requirements remain; no completed transition.",
+          "evidence": []
+        },
+        {
+          "size": "1024×768",
+          "status": "PASS",
+          "summary": "Targeted Submit rejected while Queried and Pending requirements remain; no completed transition.",
+          "evidence": []
+        },
+        {
+          "size": "1280×800",
+          "status": "PASS",
+          "summary": "Targeted Submit rejected while Queried and Pending requirements remain; no completed transition.",
+          "evidence": []
+        },
+        {
+          "size": "1440×900",
+          "status": "PASS",
+          "summary": "Targeted Submit rejected while Queried and Pending requirements remain; no completed transition.",
+          "evidence": []
+        }
+      ],
+      "evidence": [],
+      "evidencePublication": "WITHHELD_PRIVACY_REVIEW",
+      "limitations": "PASS is targeted regression of non-completion with insufficient evidence, not full KYC acceptance. Required evidence includes both Queried and Pending items, so isolated independent server-rule attribution is not claimed. Fully reviewed positive transition not attempted: base account contains mixed historical fields and only selected documents are certified synthetic. Existing table clipping remains visible at narrower viewports and is not passed as general responsive UX. Evidence withheld pending explicit public-asset review. Private document captures, signed links and local paths are never copied automatically.",
+      "sourceRun": "2026-09-14-retest45",
+      "resultSource": "kyc-results.json"
+    },
+    {
+      "id": "ADM051-AGR-001",
+      "title": "View agreement CTA opens the wrong destination",
+      "status": "PARTIAL",
+      "summary": "Inspected both recipient copies of the controlled September 11 UAT Authority Eligible Ventures shareholder-agreement-complete email. Message says Open the pitch to view it but displayed body contains no agreement CTA, only generic application/support and preference links. It predates the deployment; no new agreement was signed or issued.",
+      "steps": [],
+      "responsive": [
+        {
+          "size": "360×800",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "390×844",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "768×1024",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1024×768",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1280×800",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1440×900",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Inspected both recipient copies of the controlled September 11 UAT Authority Eligible Ventures shareholder-agreement-complete email. Message says Open the pitch to view it but displayed body contains no agreement CTA, only generic application/support and preference links. It predates the deployment; no new agreement was signed or issued. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        }
+      ],
+      "evidence": [],
+      "evidencePublication": "WITHHELD_PRIVACY_REVIEW",
+      "limitations": "Fresh agreement notification with a valid signatory session is required to verify current CTA routing. Historical email does not establish a current-template failure or pass. Evidence withheld pending explicit public-asset review. Private document captures, signed links and local paths are never copied automatically.",
+      "sourceRun": "2026-09-14-retest45",
+      "resultSource": "results.json"
+    },
+    {
+      "id": "ADM051-WDR-001",
+      "title": "Withdrawal terminal detail omits decision audit",
+      "status": "FAIL",
+      "summary": "Original controlled historical completed withdrawal still shows Deciding admin: Not recorded. Outcome Completed, timestamp 4 Apr 2026 13:15 and rationale render, but missing actor provenance remains reproducible at all six Chrome sizes.",
+      "steps": [],
+      "responsive": [
+        {
+          "size": "360×800",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Original controlled historical completed withdrawal still shows Deciding admin: Not recorded. Outcome Completed, timestamp 4 Apr 2026 13:15 and rationale render, but missing actor provenance remains reproducible at all six Chrome sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "390×844",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Original controlled historical completed withdrawal still shows Deciding admin: Not recorded. Outcome Completed, timestamp 4 Apr 2026 13:15 and rationale render, but missing actor provenance remains reproducible at all six Chrome sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "768×1024",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Original controlled historical completed withdrawal still shows Deciding admin: Not recorded. Outcome Completed, timestamp 4 Apr 2026 13:15 and rationale render, but missing actor provenance remains reproducible at all six Chrome sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1024×768",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Original controlled historical completed withdrawal still shows Deciding admin: Not recorded. Outcome Completed, timestamp 4 Apr 2026 13:15 and rationale render, but missing actor provenance remains reproducible at all six Chrome sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1280×800",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Original controlled historical completed withdrawal still shows Deciding admin: Not recorded. Outcome Completed, timestamp 4 Apr 2026 13:15 and rationale render, but missing actor provenance remains reproducible at all six Chrome sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1440×900",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Original controlled historical completed withdrawal still shows Deciding admin: Not recorded. Outcome Completed, timestamp 4 Apr 2026 13:15 and rationale render, but missing actor provenance remains reproducible at all six Chrome sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        }
+      ],
+      "evidence": [],
+      "evidencePublication": "WITHHELD_PRIVACY_REVIEW",
+      "limitations": "Read-only historical defect retest. No new withdrawal approval/transfer performed; current decision actor capture is not assessed. Evidence withheld pending explicit public-asset review. Private document captures, signed links and local paths are never copied automatically.",
+      "sourceRun": "2026-09-14-retest45",
+      "resultSource": "ops-results.json"
+    },
+    {
+      "id": "ADM053-REC-001",
+      "title": "Grant award receipt reverses sender and recipient",
+      "status": "PARTIAL",
+      "summary": "Exact existing grant award recipient HTML receipt passes all six sizes: grant sender and controlled Investor recipient populated, settled USD 100 gross/net and zero fees. Full defect closure requires reconciliation with owner's view of this SAME award, not the contribution receipt.",
+      "steps": [
+        "Signed out normally from Assessor and signed into controlled Investor; no MFA required.",
+        "Opened Wallet and located the existing Funds received for grant approval award, not a grant contribution.",
+        "Opened the exact award row Receipt using the normal UI.",
+        "Inspected the rendered HTML receipt at all six Chrome viewport sizes. Sender, recipient and financial totals are populated and readable; no recipient N/A appears.",
+        "Saved and visually inspected all six private screenshots, then cleared the temporary viewport override."
+      ],
+      "responsive": [
+        {
+          "size": "360×800",
+          "status": "PASS",
+          "summary": "Recipient-side existing award receipt: grant sender, controlled Investor recipient, settled USD 100 gross/net and zero fees. This cell does not verify owner-side reconciliation.",
+          "evidence": []
+        },
+        {
+          "size": "390×844",
+          "status": "PASS",
+          "summary": "Recipient-side existing award receipt: grant sender, controlled Investor recipient, settled USD 100 gross/net and zero fees. This cell does not verify owner-side reconciliation.",
+          "evidence": []
+        },
+        {
+          "size": "768×1024",
+          "status": "PASS",
+          "summary": "Recipient-side existing award receipt: grant sender, controlled Investor recipient, settled USD 100 gross/net and zero fees. This cell does not verify owner-side reconciliation.",
+          "evidence": []
+        },
+        {
+          "size": "1024×768",
+          "status": "PASS",
+          "summary": "Recipient-side existing award receipt: grant sender, controlled Investor recipient, settled USD 100 gross/net and zero fees. This cell does not verify owner-side reconciliation.",
+          "evidence": []
+        },
+        {
+          "size": "1280×800",
+          "status": "PASS",
+          "summary": "Recipient-side existing award receipt: grant sender, controlled Investor recipient, settled USD 100 gross/net and zero fees. This cell does not verify owner-side reconciliation.",
+          "evidence": []
+        },
+        {
+          "size": "1440×900",
+          "status": "PASS",
+          "summary": "Recipient-side existing award receipt: grant sender, controlled Investor recipient, settled USD 100 gross/net and zero fees. This cell does not verify owner-side reconciliation.",
+          "evidence": []
+        }
+      ],
+      "evidence": [],
+      "evidencePublication": "WITHHELD_PRIVACY_REVIEW",
+      "limitations": "This independent task inspected recipient side only. Parent owns the grantor-side same-award comparison. No PDF download or fresh disbursement was executed. Screenshots remain private because wallet background can contain unrelated ledger entries. Evidence withheld pending explicit public-asset review. Private document captures, signed links and local paths are never copied automatically.",
+      "sourceRun": "2026-09-14-retest45",
+      "resultSource": "receipt-results.json"
+    },
+    {
+      "id": "ADM053-CFG-001",
+      "title": "Saved grant configuration is lost on reopen",
+      "status": "FAIL",
+      "summary": "Fresh private pitch-grant draft now retains Seed funding-stage eligibility, group/public contributions, max grantors 2, calculated USD5, voting and monthly reporting instructions after reload at six sizes. Configuration is not fully faithful: selected application deadline 2026-10-14 reopens as 2026-10-13. The individual draft similarly shifts its deadline by one day. Details also replaces saved reporting instructions with generic text although the editor retains them.",
+      "steps": [],
+      "responsive": [
+        {
+          "size": "360×800",
+          "status": "FAIL",
+          "summary": "Fresh private pitch-grant draft now retains Seed funding-stage eligibility, group/public contributions, max grantors 2, calculated USD5, voting and monthly reporting instructions after reload at six sizes. Configuration is not fully faithful: selected application deadline 2026-10-14 reopens as 2026-10-13. The individual draft similarly shifts its deadline by one day. Details also replaces saved reporting instructions with generic text although the editor retains them.",
+          "evidence": []
+        },
+        {
+          "size": "390×844",
+          "status": "FAIL",
+          "summary": "Fresh private pitch-grant draft now retains Seed funding-stage eligibility, group/public contributions, max grantors 2, calculated USD5, voting and monthly reporting instructions after reload at six sizes. Configuration is not fully faithful: selected application deadline 2026-10-14 reopens as 2026-10-13. The individual draft similarly shifts its deadline by one day. Details also replaces saved reporting instructions with generic text although the editor retains them.",
+          "evidence": []
+        },
+        {
+          "size": "768×1024",
+          "status": "FAIL",
+          "summary": "Fresh private pitch-grant draft now retains Seed funding-stage eligibility, group/public contributions, max grantors 2, calculated USD5, voting and monthly reporting instructions after reload at six sizes. Configuration is not fully faithful: selected application deadline 2026-10-14 reopens as 2026-10-13. The individual draft similarly shifts its deadline by one day. Details also replaces saved reporting instructions with generic text although the editor retains them.",
+          "evidence": []
+        },
+        {
+          "size": "1024×768",
+          "status": "FAIL",
+          "summary": "Fresh private pitch-grant draft now retains Seed funding-stage eligibility, group/public contributions, max grantors 2, calculated USD5, voting and monthly reporting instructions after reload at six sizes. Configuration is not fully faithful: selected application deadline 2026-10-14 reopens as 2026-10-13. The individual draft similarly shifts its deadline by one day. Details also replaces saved reporting instructions with generic text although the editor retains them.",
+          "evidence": []
+        },
+        {
+          "size": "1280×800",
+          "status": "FAIL",
+          "summary": "Fresh private pitch-grant draft now retains Seed funding-stage eligibility, group/public contributions, max grantors 2, calculated USD5, voting and monthly reporting instructions after reload at six sizes. Configuration is not fully faithful: selected application deadline 2026-10-14 reopens as 2026-10-13. The individual draft similarly shifts its deadline by one day. Details also replaces saved reporting instructions with generic text although the editor retains them.",
+          "evidence": []
+        },
+        {
+          "size": "1440×900",
+          "status": "FAIL",
+          "summary": "Fresh private pitch-grant draft now retains Seed funding-stage eligibility, group/public contributions, max grantors 2, calculated USD5, voting and monthly reporting instructions after reload at six sizes. Configuration is not fully faithful: selected application deadline 2026-10-14 reopens as 2026-10-13. The individual draft similarly shifts its deadline by one day. Details also replaces saved reporting instructions with generic text although the editor retains them.",
+          "evidence": []
+        }
+      ],
+      "evidence": [],
+      "evidencePublication": "WITHHELD_PRIVACY_REVIEW",
+      "limitations": "Original missing funding-stage/group flags no longer reproduced, but date round-trip and Details/editor inconsistency prevent configuration closure. Neither draft was published or funded. Evidence withheld pending explicit public-asset review. Private document captures, signed links and local paths are never copied automatically.",
+      "sourceRun": "2026-09-14-retest45",
+      "resultSource": "results.json"
+    },
+    {
+      "id": "ADM053-REPORT-001",
+      "title": "Grant detail invents comment and reporting obligations",
+      "status": "FAIL",
+      "summary": "Shared fresh grant evidence reproduces invented monthly reporting obligation despite authoritative Details showing tracking/reporting disabled. Same controlled grant and six viewport observations as GRT021-REPORT-001.",
+      "steps": [],
+      "responsive": [
+        {
+          "size": "360×800",
+          "status": "FAIL",
+          "summary": "Shared fresh grant evidence reproduces invented monthly reporting obligation despite authoritative Details showing tracking/reporting disabled. Same controlled grant and six viewport observations as GRT021-REPORT-001.",
+          "evidence": []
+        },
+        {
+          "size": "390×844",
+          "status": "FAIL",
+          "summary": "Shared fresh grant evidence reproduces invented monthly reporting obligation despite authoritative Details showing tracking/reporting disabled. Same controlled grant and six viewport observations as GRT021-REPORT-001.",
+          "evidence": []
+        },
+        {
+          "size": "768×1024",
+          "status": "FAIL",
+          "summary": "Shared fresh grant evidence reproduces invented monthly reporting obligation despite authoritative Details showing tracking/reporting disabled. Same controlled grant and six viewport observations as GRT021-REPORT-001.",
+          "evidence": []
+        },
+        {
+          "size": "1024×768",
+          "status": "FAIL",
+          "summary": "Shared fresh grant evidence reproduces invented monthly reporting obligation despite authoritative Details showing tracking/reporting disabled. Same controlled grant and six viewport observations as GRT021-REPORT-001.",
+          "evidence": []
+        },
+        {
+          "size": "1280×800",
+          "status": "FAIL",
+          "summary": "Shared fresh grant evidence reproduces invented monthly reporting obligation despite authoritative Details showing tracking/reporting disabled. Same controlled grant and six viewport observations as GRT021-REPORT-001.",
+          "evidence": []
+        },
+        {
+          "size": "1440×900",
+          "status": "FAIL",
+          "summary": "Shared fresh grant evidence reproduces invented monthly reporting obligation despite authoritative Details showing tracking/reporting disabled. Same controlled grant and six viewport observations as GRT021-REPORT-001.",
+          "evidence": []
+        }
+      ],
+      "evidence": [],
+      "evidencePublication": "WITHHELD_PRIVACY_REVIEW",
+      "limitations": "Evidence withheld pending explicit public-asset review. Private document captures, signed links and local paths are never copied automatically.",
+      "sourceRun": "2026-09-14-retest45",
+      "resultSource": "results.json"
+    },
+    {
+      "id": "ADM054-WF-001",
+      "title": "No complete enforcement and appeal lifecycle",
+      "status": "PARTIAL",
+      "summary": "Fresh admin browser run reassigned the existing controlled case to its existing test administrator (version 11), reopened it with an immutable reason (version 12), and progressed investigating → enforced → appealed → restored → resolved → closed. Reload preserved version 17, reasons and canonical support/feedback/moderation references. Blank reopen confirmation was disabled. Closed-state persistence and controls were visually reviewed at all six sizes.",
+      "steps": [
+        "Sign into documented Admin in an isolated third Chrome profile.",
+        "Open CASE-20260914-0BDDAF, Assign owner, retain its current administrator, supply reason and save.",
+        "Open Reopen; verify blank reason disables Confirm; provide reason and confirm.",
+        "Transition through enforced, appealed, restored, resolved and closed with explicit metadata-only reasons.",
+        "Reload; verify version 17 and new immutable history.",
+        "Inspect closed case, source links and controls at all six Chrome sizes."
+      ],
+      "responsive": [
+        {
+          "size": "360×800",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Fresh admin browser run reassigned the existing controlled case to its existing test administrator (version 11), reopened it with an immutable reason (version 12), and progressed investigating → enforced → appealed → restored → resolved → closed. Reload preserved version 17, reasons and canonical support/feedback/moderation references. Blank reopen confirmation was disabled. Closed-state persistence and controls were visually reviewed at all six sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "390×844",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Fresh admin browser run reassigned the existing controlled case to its existing test administrator (version 11), reopened it with an immutable reason (version 12), and progressed investigating → enforced → appealed → restored → resolved → closed. Reload preserved version 17, reasons and canonical support/feedback/moderation references. Blank reopen confirmation was disabled. Closed-state persistence and controls were visually reviewed at all six sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "768×1024",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Fresh admin browser run reassigned the existing controlled case to its existing test administrator (version 11), reopened it with an immutable reason (version 12), and progressed investigating → enforced → appealed → restored → resolved → closed. Reload preserved version 17, reasons and canonical support/feedback/moderation references. Blank reopen confirmation was disabled. Closed-state persistence and controls were visually reviewed at all six sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1024×768",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Fresh admin browser run reassigned the existing controlled case to its existing test administrator (version 11), reopened it with an immutable reason (version 12), and progressed investigating → enforced → appealed → restored → resolved → closed. Reload preserved version 17, reasons and canonical support/feedback/moderation references. Blank reopen confirmation was disabled. Closed-state persistence and controls were visually reviewed at all six sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1280×800",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Fresh admin browser run reassigned the existing controlled case to its existing test administrator (version 11), reopened it with an immutable reason (version 12), and progressed investigating → enforced → appealed → restored → resolved → closed. Reload preserved version 17, reasons and canonical support/feedback/moderation references. Blank reopen confirmation was disabled. Closed-state persistence and controls were visually reviewed at all six sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1440×900",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Fresh admin browser run reassigned the existing controlled case to its existing test administrator (version 11), reopened it with an immutable reason (version 12), and progressed investigating → enforced → appealed → restored → resolved → closed. Reload preserved version 17, reasons and canonical support/feedback/moderation references. Blank reopen confirmation was disabled. Closed-state persistence and controls were visually reviewed at all six sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        }
+      ],
+      "evidence": [],
+      "evidencePublication": "WITHHELD_PRIVACY_REVIEW",
+      "limitations": "Metadata-only test case has no affected user attached. No real user restriction, restoration, customer notification, appeal submission or cross-role enforcement effect was performed. Reassignment retained the same administrator, not a different owner. Functional lifecycle ran once; six sizes cover rendered persisted state, not six complete lifecycle executions. Evidence withheld pending explicit public-asset review. Private document captures, signed links and local paths are never copied automatically.",
+      "sourceRun": "2026-09-14-retest45",
+      "resultSource": "ops-results.json"
+    },
+    {
+      "id": "ADM054-PRIV-001",
+      "title": "Profile report exposes full participant emails",
+      "status": "PASS",
+      "summary": "Targeted original email-exposure regression passes in documented Admin session: controlled profile report shows masked reported-profile and reporter emails at all six Chrome sizes. No complete mailbox address is rendered in the inspected report detail.",
+      "steps": [],
+      "responsive": [
+        {
+          "size": "360×800",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Targeted original email-exposure regression passes in documented Admin session: controlled profile report shows masked reported-profile and reporter emails at all six Chrome sizes. No complete mailbox address is rendered in the inspected report detail. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "390×844",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Targeted original email-exposure regression passes in documented Admin session: controlled profile report shows masked reported-profile and reporter emails at all six Chrome sizes. No complete mailbox address is rendered in the inspected report detail. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "768×1024",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Targeted original email-exposure regression passes in documented Admin session: controlled profile report shows masked reported-profile and reporter emails at all six Chrome sizes. No complete mailbox address is rendered in the inspected report detail. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1024×768",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Targeted original email-exposure regression passes in documented Admin session: controlled profile report shows masked reported-profile and reporter emails at all six Chrome sizes. No complete mailbox address is rendered in the inspected report detail. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1280×800",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Targeted original email-exposure regression passes in documented Admin session: controlled profile report shows masked reported-profile and reporter emails at all six Chrome sizes. No complete mailbox address is rendered in the inspected report detail. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1440×900",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Targeted original email-exposure regression passes in documented Admin session: controlled profile report shows masked reported-profile and reporter emails at all six Chrome sizes. No complete mailbox address is rendered in the inspected report detail. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        }
+      ],
+      "evidence": [],
+      "evidencePublication": "WITHHELD_PRIVACY_REVIEW",
+      "limitations": "PASS is limited to the original rendered-email exposure defect for this Admin session and controlled record. Separate ordinary-Admin versus Super-Admin comparison, authorized reveal and API payload minimization were not tested. No reveal action or security permission change was performed. Evidence withheld pending explicit public-asset review. Private document captures, signed links and local paths are never copied automatically.",
+      "sourceRun": "2026-09-14-retest45",
+      "resultSource": "ops-results.json"
+    },
+    {
+      "id": "ADM056-UNBLOCK-001",
+      "title": "Request unblock immediately unblocks the device",
+      "status": "BLOCKED",
+      "summary": "Documented controlled Pitcher user security details show zero blocked devices. No eligible isolated blocked-device fixture was available for the unblock request workflow.",
+      "steps": [],
+      "responsive": [
+        {
+          "size": "360×800",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "390×844",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "768×1024",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1024×768",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1280×800",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1440×900",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        }
+      ],
+      "evidence": [],
+      "evidencePublication": "WITHHELD_PRIVACY_REVIEW",
+      "limitations": "Did not create a security restriction, alter permissions or attempt an unblock. No unblock scenario executed at any viewport. Raw security dialog includes sensitive session/device fields and was not saved as public evidence. Evidence withheld pending explicit public-asset review. Private document captures, signed links and local paths are never copied automatically.",
+      "sourceRun": "2026-09-14-retest45",
+      "resultSource": "ops-results.json"
+    },
+    {
+      "id": "ADM056-INCIDENT-001",
+      "title": "Security actions are not linked into an incident case",
+      "status": "PARTIAL",
+      "summary": "Created a controlled metadata-only security incident from documented Pitcher user operations. Source and affected-user linkage were prefilled. Dismissed and closed it with explicit no-security-action reasons. Reload preserved case version 3, correct source and immutable history; reviewed at all six Chrome sizes.",
+      "steps": [],
+      "responsive": [
+        {
+          "size": "360×800",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Created a controlled metadata-only security incident from documented Pitcher user operations. Source and affected-user linkage were prefilled. Dismissed and closed it with explicit no-security-action reasons. Reload preserved case version 3, correct source and immutable history; reviewed at all six Chrome sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "390×844",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Created a controlled metadata-only security incident from documented Pitcher user operations. Source and affected-user linkage were prefilled. Dismissed and closed it with explicit no-security-action reasons. Reload preserved case version 3, correct source and immutable history; reviewed at all six Chrome sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "768×1024",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Created a controlled metadata-only security incident from documented Pitcher user operations. Source and affected-user linkage were prefilled. Dismissed and closed it with explicit no-security-action reasons. Reload preserved case version 3, correct source and immutable history; reviewed at all six Chrome sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1024×768",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Created a controlled metadata-only security incident from documented Pitcher user operations. Source and affected-user linkage were prefilled. Dismissed and closed it with explicit no-security-action reasons. Reload preserved case version 3, correct source and immutable history; reviewed at all six Chrome sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1280×800",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Created a controlled metadata-only security incident from documented Pitcher user operations. Source and affected-user linkage were prefilled. Dismissed and closed it with explicit no-security-action reasons. Reload preserved case version 3, correct source and immutable history; reviewed at all six Chrome sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1440×900",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Created a controlled metadata-only security incident from documented Pitcher user operations. Source and affected-user linkage were prefilled. Dismissed and closed it with explicit no-security-action reasons. Reload preserved case version 3, correct source and immutable history; reviewed at all six Chrome sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        }
+      ],
+      "evidence": [],
+      "evidencePublication": "WITHHELD_PRIVACY_REVIEW",
+      "limitations": "No account restriction, session revocation or device-blocking action was performed. This verifies incident creation/linkage/history, not security-action-to-incident integration. Evidence withheld pending explicit public-asset review. Private document captures, signed links and local paths are never copied automatically.",
+      "sourceRun": "2026-09-14-retest45",
+      "resultSource": "ops-results.json"
+    },
+    {
+      "id": "ADM021-COMMS-001",
+      "title": "Suspension communications are missing",
+      "status": "PARTIAL",
+      "summary": "Triggered one real suspension and immediate restoration of designated synthetic C360 published baseline; persisted audit confirms both operations. The fixture owner is Admin Test Pitcher Fixture, for whom no accessible account/inbox mapping was available.",
+      "steps": [],
+      "responsive": [
+        {
+          "size": "360×800",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "390×844",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "768×1024",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1024×768",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1280×800",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1440×900",
+          "status": "NOT RUN",
+          "summary": "No new per-size outcome supplied.",
+          "evidence": []
+        }
+      ],
+      "evidence": [],
+      "evidencePublication": "WITHHELD_PRIVACY_REVIEW",
+      "limitations": "Owner-facing in-app notification, email receipt, template content and deep link are unverified. Audit evidence proves trigger only, not communication delivery; do not mark communications fixed. Evidence withheld pending explicit public-asset review. Private document captures, signed links and local paths are never copied automatically.",
+      "sourceRun": "2026-09-14-retest45",
+      "resultSource": "ops-results.json"
+    },
+    {
+      "id": "ADM021-AUDIT-001",
+      "title": "Pitch lifecycle omits suspension actor and reason",
+      "status": "PASS",
+      "summary": "Suspended and immediately restored designated synthetic C360 published baseline via admin UI. Empty suspension reason disabled confirmation. Lifecycle now records both exact new reasons, actor admin admin, suspension 13 Sept 2026 23:41 and restoration 23:42. Reload preserved these new entries. Actor, reason and timestamp were visually verified at all six Chrome sizes.",
+      "steps": [],
+      "responsive": [
+        {
+          "size": "360×800",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Suspended and immediately restored designated synthetic C360 published baseline via admin UI. Empty suspension reason disabled confirmation. Lifecycle now records both exact new reasons, actor admin admin, suspension 13 Sept 2026 23:41 and restoration 23:42. Reload preserved these new entries. Actor, reason and timestamp were visually verified at all six Chrome sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "390×844",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Suspended and immediately restored designated synthetic C360 published baseline via admin UI. Empty suspension reason disabled confirmation. Lifecycle now records both exact new reasons, actor admin admin, suspension 13 Sept 2026 23:41 and restoration 23:42. Reload preserved these new entries. Actor, reason and timestamp were visually verified at all six Chrome sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "768×1024",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Suspended and immediately restored designated synthetic C360 published baseline via admin UI. Empty suspension reason disabled confirmation. Lifecycle now records both exact new reasons, actor admin admin, suspension 13 Sept 2026 23:41 and restoration 23:42. Reload preserved these new entries. Actor, reason and timestamp were visually verified at all six Chrome sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1024×768",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Suspended and immediately restored designated synthetic C360 published baseline via admin UI. Empty suspension reason disabled confirmation. Lifecycle now records both exact new reasons, actor admin admin, suspension 13 Sept 2026 23:41 and restoration 23:42. Reload preserved these new entries. Actor, reason and timestamp were visually verified at all six Chrome sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1280×800",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Suspended and immediately restored designated synthetic C360 published baseline via admin UI. Empty suspension reason disabled confirmation. Lifecycle now records both exact new reasons, actor admin admin, suspension 13 Sept 2026 23:41 and restoration 23:42. Reload preserved these new entries. Actor, reason and timestamp were visually verified at all six Chrome sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1440×900",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Suspended and immediately restored designated synthetic C360 published baseline via admin UI. Empty suspension reason disabled confirmation. Lifecycle now records both exact new reasons, actor admin admin, suspension 13 Sept 2026 23:41 and restoration 23:42. Reload preserved these new entries. Actor, reason and timestamp were visually verified at all six Chrome sizes. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        }
+      ],
+      "evidence": [],
+      "evidencePublication": "WITHHELD_PRIVACY_REVIEW",
+      "limitations": "Targeted audit defect passes. One controlled functional suspension/restoration ran at 360x800; six sizes cover persisted audit readback, not six separate mutations. No other pitch changed. Notification delivery is separately PARTIAL. Evidence withheld pending explicit public-asset review. Private document captures, signed links and local paths are never copied automatically.",
+      "sourceRun": "2026-09-14-retest45",
+      "resultSource": "ops-results.json"
+    },
+    {
+      "id": "ADM046-LINK-001",
+      "title": "Moderation, support and feedback cannot be linked",
+      "status": "FAIL",
+      "summary": "Fresh source handoff regression remains: Support Link operational case, Feedback Link operational case and Moderation Open linked case all open a new-case form despite their canonical source IDs already being linked to CASE-20260914-0BDDAF. The dialog has no existing-case selector. Support and moderation handoff dialogs were reviewed at all six sizes. Feedback selected-detail still collapses to a single-character column at 1024x768, with workflow controls clipped on the right.",
+      "steps": [
+        "From the controlled case, open canonical support source, choose PIT032 synthetic callback View, and follow Link operational case.",
+        "Observe new-case form containing already-linked support source; inspect six sizes, cancel without creating duplicate.",
+        "Open canonical feedback source; inspect 1024px selected detail and follow Link operational case; observe new-case form for already-linked feedback source; cancel.",
+        "Open canonical moderation source; follow Open linked case on ASS-033 controlled thread; observe new-case form for already-linked moderation source.",
+        "Inspect moderation dialog at all six sizes; cancel and verify original case remains version17."
+      ],
+      "responsive": [
+        {
+          "size": "360×800",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Fresh source handoff regression remains: Support Link operational case, Feedback Link operational case and Moderation Open linked case all open a new-case form despite their canonical source IDs already being linked to CASE-20260914-0BDDAF. The dialog has no existing-case selector. Support and moderation handoff dialogs were reviewed at all six sizes. Feedback selected-detail still collapses to a single-character column at 1024x768, with workflow controls clipped on the right. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "390×844",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Fresh source handoff regression remains: Support Link operational case, Feedback Link operational case and Moderation Open linked case all open a new-case form despite their canonical source IDs already being linked to CASE-20260914-0BDDAF. The dialog has no existing-case selector. Support and moderation handoff dialogs were reviewed at all six sizes. Feedback selected-detail still collapses to a single-character column at 1024x768, with workflow controls clipped on the right. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "768×1024",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Fresh source handoff regression remains: Support Link operational case, Feedback Link operational case and Moderation Open linked case all open a new-case form despite their canonical source IDs already being linked to CASE-20260914-0BDDAF. The dialog has no existing-case selector. Support and moderation handoff dialogs were reviewed at all six sizes. Feedback selected-detail still collapses to a single-character column at 1024x768, with workflow controls clipped on the right. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1024×768",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Fresh source handoff regression remains: Support Link operational case, Feedback Link operational case and Moderation Open linked case all open a new-case form despite their canonical source IDs already being linked to CASE-20260914-0BDDAF. The dialog has no existing-case selector. Support and moderation handoff dialogs were reviewed at all six sizes. Feedback selected-detail still collapses to a single-character column at 1024x768, with workflow controls clipped on the right. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1280×800",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Fresh source handoff regression remains: Support Link operational case, Feedback Link operational case and Moderation Open linked case all open a new-case form despite their canonical source IDs already being linked to CASE-20260914-0BDDAF. The dialog has no existing-case selector. Support and moderation handoff dialogs were reviewed at all six sizes. Feedback selected-detail still collapses to a single-character column at 1024x768, with workflow controls clipped on the right. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        },
+        {
+          "size": "1440×900",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Fresh source handoff regression remains: Support Link operational case, Feedback Link operational case and Moderation Open linked case all open a new-case form despite their canonical source IDs already being linked to CASE-20260914-0BDDAF. The dialog has no existing-case selector. Support and moderation handoff dialogs were reviewed at all six sizes. Feedback selected-detail still collapses to a single-character column at 1024x768, with workflow controls clipped on the right. No independent per-size workflow acceptance outcome supplied.",
+          "evidence": []
+        }
+      ],
+      "evidence": [],
+      "evidencePublication": "WITHHELD_PRIVACY_REVIEW",
+      "limitations": "No duplicate was submitted. Linked references themselves persist and can be opened via the central case. Cross-role authorization and downstream enforcement remain unverified. Six-size coverage proves the displayed support/moderation destination dialogs; source clicks ran once each. Feedback readability was rechecked at 1024x768 only. Evidence withheld pending explicit public-asset review. Private document captures, signed links and local paths are never copied automatically.",
+      "sourceRun": "2026-09-14-retest45",
+      "resultSource": "ops-results.json"
+    }
+  ],
+  "browser": "Google Chrome",
+  "frontend": "https://planar-truck-361704.uc.r.appspot.com",
+  "api": "https://cicdevapi.uc.r.appspot.com",
+  "runId": "2026-09-14-retest45",
+  "state": "RETEST PARTIAL — all 45 dispositioned; incomplete workflows explicitly blocked or partial",
+  "updatedAt": "2026-09-14T07:08:29.535Z",
+  "scope": "Chrome-only targeted retest of the 45 originally unclosed critical/high defects. Dispositioned does not mean fully executed: blocked, partial and unexecuted viewport checks remain explicit. Historical campaign findings remain unchanged. Targeted PASS does not assert broader unexecuted lifecycle coverage."
+}
