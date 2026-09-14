@@ -1,0 +1,58 @@
+{
+  "runId": "2026-09-14-close37-merged",
+  "updatedAt": "2026-09-14T22:35:57.564Z",
+  "state": "BOTH PRs MERGED — staging pending; NOT promoted live",
+  "executionMode": "delivery-metadata-only",
+  "browser": "Google Chrome",
+  "sizes": [
+    "360×800",
+    "390×844",
+    "768×1024",
+    "1024×768",
+    "1280×800",
+    "1440×900"
+  ],
+  "mergeStatus": "MERGED",
+  "deploymentStatus": "STAGING PENDING — NOT PROMOTED",
+  "cloudRetestStatus": "FAIL — latest acceptance unchanged; new-release retest pending",
+  "scope": "Five findings, three shared causes: mobile grant Actions, grant receipt recipient, organization calendar timezone. Code delivery is separate from deployed acceptance; no finding status or viewport result changed.",
+  "releaseGate": "Frontend2346 and API738 merged with required checks passing and substantive review resolved. Stage-only development deployment is pending; no verified live promotion. Full local API suite remains unfinished. User deferred visual retest for merging only; latest cloud FAIL and per-size outcomes remain unchanged.",
+  "candidates": {
+    "webapp": "f6e0fb4c345658bd12011516d67b95ba2421d393",
+    "webapi": "4e9ac2680d49156a59e9bf447db0f8e3f73e8c04"
+  },
+  "pullRequests": [
+    {
+      "url": "https://github.com/capitalinvestmentclub/webapp/pull/2346",
+      "label": "Frontend PR #2346 — MERGED; f5a4396d8cfbfd4c9abad90e44fc8aaf10b22ca4"
+    },
+    {
+      "url": "https://github.com/capitalinvestmentclub/webapi/pull/738",
+      "label": "API PR #738 — MERGED; de320d4539f95415a84a3928fce77ee16633ca8f"
+    }
+  ],
+  "deployments": {},
+  "frontendTests": "Required, focused and CodeQL checks passed; no open review threads. Local visual screenshot acceptance remains deferred, not passed.",
+  "apiTests": "Required CI passed; substantive review resolved; nine review-delta tests passed. Full local suite last checkpoint250 of471 suites/3281 assertions passed,zero failures,still unfinished.",
+  "findings": [
+    {
+      "id": "ADM053-REC-001",
+      "status": "FAIL",
+      "classification": "PRODUCT_FIX_MERGED_AWAITING_DEPLOYMENT",
+      "summary": "Repair merged in recorded PR/SHA. Not promoted live; latest cloud acceptance remains FAIL. Exact-release visual retest remains pending.",
+      "cloudRetestStatus": "FAIL"
+    },
+    {
+      "id": "ADM053-CFG-001",
+      "status": "FAIL",
+      "classification": "PRODUCT_FIX_MERGED_AWAITING_DEPLOYMENT",
+      "summary": "Repair merged in recorded PR/SHA. Not promoted live; latest cloud acceptance remains FAIL. Exact-release visual retest remains pending.",
+      "cloudRetestStatus": "FAIL"
+    }
+  ],
+  "previousBatchRunId": "2026-09-14-close37-pr-open",
+  "mergeCommits": {
+    "webapp": "f5a4396d8cfbfd4c9abad90e44fc8aaf10b22ca4",
+    "webapi": "de320d4539f95415a84a3928fce77ee16633ca8f"
+  }
+}
