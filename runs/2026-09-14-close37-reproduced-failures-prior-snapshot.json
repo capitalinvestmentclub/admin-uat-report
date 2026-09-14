@@ -1,8 +1,8 @@
 {
   "repairBatch": {
     "runId": "2026-09-14-merged-deployed-repair",
-    "state": "MERGED AND LIVE — targeted cloud verification progressing",
-    "executionMode": "cloud",
+    "state": "MERGED AND LIVE — one targeted cloud refund retest passed; remaining cloud retests pending",
+    "executionMode": "real-api-local",
     "browser": "Google Chrome",
     "sizes": [
       "360×800",
@@ -28,8 +28,8 @@
       {
         "id": "ADM053-CFG-001",
         "classification": "PRODUCT_FIX_LOCAL_VERIFIED",
-        "summary": "Original draft workflow blocked at measured 360x800: Actions bounds left349/right413 extend past viewport width360 and clipped parent prevents opening menu; no menu appears after click. October13 date retained after one save/reload, but mobile editor cannot be reopened, so configuration acceptance remains failed. One shared header defect affects GRT005 and ADM053-CFG; other five cells not executed.",
-        "cloudRetestStatus": "FAIL"
+        "summary": "Changed behavior passed focused regression and real API-backed Chrome local checks at all six measured sizes.",
+        "cloudRetestStatus": "PENDING"
       },
       {
         "id": "ADM053-REPORT-001",
@@ -44,7 +44,7 @@
         "cloudRetestStatus": "PENDING"
       }
     ],
-    "updatedAt": "2026-09-14T21:24:37.042Z",
+    "updatedAt": "2026-09-14T18:36:18.550Z",
     "candidates": {
       "webapp": "b99da21cf757593a3f5419086022556b7965e9b3",
       "webapi": "f11aba9330b84ee98e0e7f3188a2442b928e4aad"
@@ -67,7 +67,7 @@
         "label": "API live promotion — success"
       }
     ],
-    "releaseGate": "Recorded merge commits are live. Cloud closure below is limited to explicit targeted results with six measured CSS viewport outcomes; merged code alone never closes other findings.",
+    "releaseGate": "Both exact merge commits are promoted live; promotion workflows succeeded. User-authorized approval-only override was used after required checks and concrete review corrections passed. New Chrome cloud acceptance is limited to GRT020-BAL-001 at all six measured sizes. Other prior cloud results remain unchanged; merged code alone does not close their findings.",
     "mergeCommits": {
       "webapp": "2a16bad104bdbd0c2319523ddc5f145af420c1d4",
       "webapi": "a86720f026956fa9a9e76e3f4bb23e5e02af445d"
@@ -100,11 +100,9 @@
         "commit": "a86720f026956fa9a9e76e3f4bb23e5e02af445d",
         "promotionRun": "34880842679",
         "status": "LIVE"
-      },
-      "buildId": "yU2MSQuhYYpfh4uHJUpxd",
-      "verifiedBy": "/root"
+      }
     },
-    "cloudRetestSummary": "Latest targeted batch 2026-09-14-close37-reproduced-failures: ADM053-REC-001 FAIL, ADM053-CFG-001 FAIL. Other findings retain prior evidence; this is not full-scenario closure."
+    "cloudRetestSummary": "GRT020-BAL-001 PASS: original terminated grant shows its existing USD -1 refund, USD +1 contribution and zero available/current balance after reload. Six exact measured Chrome CSS viewports passed. No fresh financial transaction was executed; other cloud retests are pending."
   },
   "findings": [
     {
@@ -534,175 +532,107 @@
     {
       "id": "ADM053-REC-001",
       "title": "Grant award receipt reverses sender and recipient",
-      "status": "FAIL",
-      "summary": "Fresh original grant Wallet disbursement receipt at exact1440x900: reference6a9628cdcae07bfa04bc4127 / CIC-7BFA04BC4127 shows grant sender but Recipient N/A, despite table counterparty CIC Investor. Gross/net USD100 and zero fees. Main visually reviewed screenshot. Owner/recipient same-award reconciliation fails; other five cells not executed before repair.",
+      "status": "PARTIAL",
+      "summary": "Exact existing grant award recipient HTML receipt passes all six sizes: grant sender and controlled Investor recipient populated, settled USD 100 gross/net and zero fees. Full defect closure requires reconciliation with owner's view of this SAME award, not the contribution receipt.",
       "steps": [
-        "Open original grant Wallet disbursement",
-        "Open Receipt CIC-7BFA04BC4127",
-        "Compare counterparty CIC Investor with receipt Recipient N/A"
+        "Signed out normally from Assessor and signed into controlled Investor; no MFA required.",
+        "Opened Wallet and located the existing Funds received for grant approval award, not a grant contribution.",
+        "Opened the exact award row Receipt using the normal UI.",
+        "Inspected the rendered HTML receipt at all six Chrome viewport sizes. Sender, recipient and financial totals are populated and readable; no recipient N/A appears.",
+        "Saved and visually inspected all six private screenshots, then cleared the temporary viewport override."
       ],
       "responsive": [
         {
           "size": "360×800",
-          "measuredCss": null,
-          "status": "NOT RUN",
-          "summary": "Not executed in this fresh cloud run; earlier evidence retained in immutable prior snapshot.",
-          "steps": [],
-          "evidence": [],
-          "observedAt": null
+          "status": "PASS",
+          "summary": "Recipient-side existing award receipt: grant sender, controlled Investor recipient, settled USD 100 gross/net and zero fees. This cell does not verify owner-side reconciliation.",
+          "evidence": []
         },
         {
           "size": "390×844",
-          "measuredCss": null,
-          "status": "NOT RUN",
-          "summary": "Not executed in this fresh cloud run; earlier evidence retained in immutable prior snapshot.",
-          "steps": [],
-          "evidence": [],
-          "observedAt": null
+          "status": "PASS",
+          "summary": "Recipient-side existing award receipt: grant sender, controlled Investor recipient, settled USD 100 gross/net and zero fees. This cell does not verify owner-side reconciliation.",
+          "evidence": []
         },
         {
           "size": "768×1024",
-          "measuredCss": null,
-          "status": "NOT RUN",
-          "summary": "Not executed in this fresh cloud run; earlier evidence retained in immutable prior snapshot.",
-          "steps": [],
-          "evidence": [],
-          "observedAt": null
+          "status": "PASS",
+          "summary": "Recipient-side existing award receipt: grant sender, controlled Investor recipient, settled USD 100 gross/net and zero fees. This cell does not verify owner-side reconciliation.",
+          "evidence": []
         },
         {
           "size": "1024×768",
-          "measuredCss": null,
-          "status": "NOT RUN",
-          "summary": "Not executed in this fresh cloud run; earlier evidence retained in immutable prior snapshot.",
-          "steps": [],
-          "evidence": [],
-          "observedAt": null
+          "status": "PASS",
+          "summary": "Recipient-side existing award receipt: grant sender, controlled Investor recipient, settled USD 100 gross/net and zero fees. This cell does not verify owner-side reconciliation.",
+          "evidence": []
         },
         {
           "size": "1280×800",
-          "measuredCss": null,
-          "status": "NOT RUN",
-          "summary": "Not executed in this fresh cloud run; earlier evidence retained in immutable prior snapshot.",
-          "steps": [],
-          "evidence": [],
-          "observedAt": null
+          "status": "PASS",
+          "summary": "Recipient-side existing award receipt: grant sender, controlled Investor recipient, settled USD 100 gross/net and zero fees. This cell does not verify owner-side reconciliation.",
+          "evidence": []
         },
         {
           "size": "1440×900",
-          "measuredCss": "1440x900",
-          "status": "FAIL",
-          "summary": "Open original grant Wallet disbursement; Open Receipt CIC-7BFA04BC4127; Compare counterparty CIC Investor with receipt Recipient N/A. FAIL main visually reviewed missing recipient",
-          "steps": [
-            "Open original grant Wallet disbursement",
-            "Open Receipt CIC-7BFA04BC4127",
-            "Compare counterparty CIC Investor with receipt Recipient N/A"
-          ],
-          "evidence": [
-            {
-              "url": "assets/2026-09-14-close37-reproduced-failures/GRT017-owner-recipient-missing-1440x900.png",
-              "label": "GRT017-owner-recipient-missing-1440x900"
-            }
-          ],
-          "observedAt": "2026-09-14T20:21:32.808Z"
+          "status": "PASS",
+          "summary": "Recipient-side existing award receipt: grant sender, controlled Investor recipient, settled USD 100 gross/net and zero fees. This cell does not verify owner-side reconciliation.",
+          "evidence": []
         }
       ],
-      "evidence": [
-        {
-          "url": "assets/2026-09-14-close37-reproduced-failures/GRT017-owner-recipient-missing-1440x900.png",
-          "label": "GRT017-owner-recipient-missing-1440x900"
-        }
-      ],
-      "evidencePublication": "APPROVED_PUBLIC_EVIDENCE",
-      "limitations": "Fresh deployed evidence only. Unexecuted cells remain NOT RUN; local functional repairs are not deployed acceptance. Original owner-side receipt failure at1440 only; other five sizes unexecuted.",
-      "sourceRun": "2026-09-14-close37-reproduced-failures",
+      "evidence": [],
+      "evidencePublication": "WITHHELD_PRIVACY_REVIEW",
+      "limitations": "This independent task inspected recipient side only. Parent owns the grantor-side same-award comparison. No PDF download or fresh disbursement was executed. Screenshots remain private because wallet background can contain unrelated ledger entries. Evidence withheld pending explicit public-asset review. Private document captures, signed links and local paths are never copied automatically.",
+      "sourceRun": "2026-09-14-retest45",
       "resultSource": "receipt-results.json"
     },
     {
       "id": "ADM053-CFG-001",
       "title": "Saved grant configuration is lost on reopen",
       "status": "FAIL",
-      "summary": "Original draft workflow blocked at measured 360x800: Actions bounds left349/right413 extend past viewport width360 and clipped parent prevents opening menu; no menu appears after click. October13 date retained after one save/reload, but mobile editor cannot be reopened, so configuration acceptance remains failed. One shared header defect affects GRT005 and ADM053-CFG; other five cells not executed.",
-      "steps": [
-        "Save original draft at 360 CSS pixels",
-        "Reload and observe October13 retained",
-        "Attempt Actions to reopen editor",
-        "Observe Actions clipped left349/right413 and no menu after click"
-      ],
+      "summary": "Fresh private pitch-grant draft now retains Seed funding-stage eligibility, group/public contributions, max grantors 2, calculated USD5, voting and monthly reporting instructions after reload at six sizes. Configuration is not fully faithful: selected application deadline 2026-10-14 reopens as 2026-10-13. The individual draft similarly shifts its deadline by one day. Details also replaces saved reporting instructions with generic text although the editor retains them.",
+      "steps": [],
       "responsive": [
         {
           "size": "360×800",
-          "measuredCss": "360x800",
           "status": "FAIL",
-          "summary": "Save original draft at 360 CSS pixels; Reload and observe October13 retained; Attempt Actions to reopen editor; Observe Actions clipped left349/right413 and no menu after click. FAIL; main visually reviewed clipped Actions",
-          "steps": [
-            "Save original draft at 360 CSS pixels",
-            "Reload and observe October13 retained",
-            "Attempt Actions to reopen editor",
-            "Observe Actions clipped left349/right413 and no menu after click"
-          ],
-          "evidence": [
-            {
-              "url": "assets/2026-09-14-close37-reproduced-failures/GRT005-actions-clipped-360x800.png",
-              "label": "GRT005-actions-clipped-360x800"
-            }
-          ],
-          "observedAt": "2026-09-14T20:12:47.123Z"
+          "summary": "Fresh private pitch-grant draft now retains Seed funding-stage eligibility, group/public contributions, max grantors 2, calculated USD5, voting and monthly reporting instructions after reload at six sizes. Configuration is not fully faithful: selected application deadline 2026-10-14 reopens as 2026-10-13. The individual draft similarly shifts its deadline by one day. Details also replaces saved reporting instructions with generic text although the editor retains them.",
+          "evidence": []
         },
         {
           "size": "390×844",
-          "measuredCss": null,
-          "status": "NOT RUN",
-          "summary": "Not executed in this fresh cloud run; earlier evidence retained in immutable prior snapshot.",
-          "steps": [],
-          "evidence": [],
-          "observedAt": null
+          "status": "FAIL",
+          "summary": "Fresh private pitch-grant draft now retains Seed funding-stage eligibility, group/public contributions, max grantors 2, calculated USD5, voting and monthly reporting instructions after reload at six sizes. Configuration is not fully faithful: selected application deadline 2026-10-14 reopens as 2026-10-13. The individual draft similarly shifts its deadline by one day. Details also replaces saved reporting instructions with generic text although the editor retains them.",
+          "evidence": []
         },
         {
           "size": "768×1024",
-          "measuredCss": null,
-          "status": "NOT RUN",
-          "summary": "Not executed in this fresh cloud run; earlier evidence retained in immutable prior snapshot.",
-          "steps": [],
-          "evidence": [],
-          "observedAt": null
+          "status": "FAIL",
+          "summary": "Fresh private pitch-grant draft now retains Seed funding-stage eligibility, group/public contributions, max grantors 2, calculated USD5, voting and monthly reporting instructions after reload at six sizes. Configuration is not fully faithful: selected application deadline 2026-10-14 reopens as 2026-10-13. The individual draft similarly shifts its deadline by one day. Details also replaces saved reporting instructions with generic text although the editor retains them.",
+          "evidence": []
         },
         {
           "size": "1024×768",
-          "measuredCss": null,
-          "status": "NOT RUN",
-          "summary": "Not executed in this fresh cloud run; earlier evidence retained in immutable prior snapshot.",
-          "steps": [],
-          "evidence": [],
-          "observedAt": null
+          "status": "FAIL",
+          "summary": "Fresh private pitch-grant draft now retains Seed funding-stage eligibility, group/public contributions, max grantors 2, calculated USD5, voting and monthly reporting instructions after reload at six sizes. Configuration is not fully faithful: selected application deadline 2026-10-14 reopens as 2026-10-13. The individual draft similarly shifts its deadline by one day. Details also replaces saved reporting instructions with generic text although the editor retains them.",
+          "evidence": []
         },
         {
           "size": "1280×800",
-          "measuredCss": null,
-          "status": "NOT RUN",
-          "summary": "Not executed in this fresh cloud run; earlier evidence retained in immutable prior snapshot.",
-          "steps": [],
-          "evidence": [],
-          "observedAt": null
+          "status": "FAIL",
+          "summary": "Fresh private pitch-grant draft now retains Seed funding-stage eligibility, group/public contributions, max grantors 2, calculated USD5, voting and monthly reporting instructions after reload at six sizes. Configuration is not fully faithful: selected application deadline 2026-10-14 reopens as 2026-10-13. The individual draft similarly shifts its deadline by one day. Details also replaces saved reporting instructions with generic text although the editor retains them.",
+          "evidence": []
         },
         {
           "size": "1440×900",
-          "measuredCss": null,
-          "status": "NOT RUN",
-          "summary": "Not executed in this fresh cloud run; earlier evidence retained in immutable prior snapshot.",
-          "steps": [],
-          "evidence": [],
-          "observedAt": null
+          "status": "FAIL",
+          "summary": "Fresh private pitch-grant draft now retains Seed funding-stage eligibility, group/public contributions, max grantors 2, calculated USD5, voting and monthly reporting instructions after reload at six sizes. Configuration is not fully faithful: selected application deadline 2026-10-14 reopens as 2026-10-13. The individual draft similarly shifts its deadline by one day. Details also replaces saved reporting instructions with generic text although the editor retains them.",
+          "evidence": []
         }
       ],
-      "evidence": [
-        {
-          "url": "assets/2026-09-14-close37-reproduced-failures/GRT005-actions-clipped-360x800.png",
-          "label": "GRT005-actions-clipped-360x800"
-        }
-      ],
-      "evidencePublication": "APPROVED_PUBLIC_EVIDENCE",
-      "limitations": "Fresh deployed evidence only. Unexecuted cells remain NOT RUN; local functional repairs are not deployed acceptance. Screenshot corroborates clipped layout; measured bounds349..413 and failed normal click establish inaccessible Actions. Other five sizes unexecuted.",
-      "sourceRun": "2026-09-14-close37-reproduced-failures",
+      "evidence": [],
+      "evidencePublication": "WITHHELD_PRIVACY_REVIEW",
+      "limitations": "Original missing funding-stage/group flags no longer reproduced, but date round-trip and Details/editor inconsistency prevent configuration closure. Neither draft was published or funded. Evidence withheld pending explicit public-asset review. Private document captures, signed links and local paths are never copied automatically.",
+      "sourceRun": "2026-09-14-retest45",
       "resultSource": "results.json"
     },
     {
@@ -1122,8 +1052,8 @@
   "browser": "Google Chrome",
   "frontend": "https://planar-truck-361704.uc.r.appspot.com",
   "api": "https://cicdevapi.uc.r.appspot.com",
-  "runId": "2026-09-14-close37-reproduced-failures",
-  "state": "RETEST PARTIAL — completed targeted batch published; remaining findings retain their latest recorded outcomes",
-  "updatedAt": "2026-09-14T21:24:37.042Z",
-  "scope": "Chrome-only targeted defect acceptance on the recorded deployed versions. New results are limited to explicitly supplied findings and six measured CSS sizes. Historical scenarios and unexecuted lifecycle branches are not promoted to PASS."
+  "runId": "2026-09-14-retest45",
+  "state": "RETEST PARTIAL — all 45 dispositioned; incomplete workflows explicitly blocked or partial",
+  "updatedAt": "2026-09-14T07:08:29.535Z",
+  "scope": "Chrome-only targeted retest of the 45 originally unclosed critical/high defects. Dispositioned does not mean fully executed: blocked, partial and unexecuted viewport checks remain explicit. Historical campaign findings remain unchanged. Targeted PASS does not assert broader unexecuted lifecycle coverage."
 }
