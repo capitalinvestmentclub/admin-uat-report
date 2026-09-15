@@ -1,0 +1,298 @@
+{
+  "repairBatch": {
+    "runId": "2026-09-14-close37-live-verification",
+    "updatedAt": "2026-09-15T00:41:27.524Z",
+    "state": "MERGED AND LIVE — targeted cloud verification progressing",
+    "executionMode": "cloud",
+    "browser": "Google Chrome",
+    "sizes": [
+      "360×800",
+      "390×844",
+      "768×1024",
+      "1024×768",
+      "1280×800",
+      "1440×900"
+    ],
+    "mergeStatus": "MERGED",
+    "deploymentStatus": "LIVE — both services promoted",
+    "cloudRetestStatus": "PARTIAL",
+    "scope": "Five findings, three shared causes: mobile grant Actions, grant receipt recipient, organization calendar timezone. Code delivery is separate from deployed acceptance; no finding status or viewport result changed.",
+    "releaseGate": "Recorded merge commits are live. Cloud closure below is limited to explicit targeted results with six measured CSS viewport outcomes; merged code alone never closes other findings.",
+    "candidates": {
+      "webapp": "f6e0fb4c345658bd12011516d67b95ba2421d393",
+      "webapi": "4e9ac2680d49156a59e9bf447db0f8e3f73e8c04"
+    },
+    "pullRequests": [
+      {
+        "url": "https://github.com/capitalinvestmentclub/webapp/pull/2346",
+        "label": "Frontend PR #2346 — MERGED; f5a4396d8cfbfd4c9abad90e44fc8aaf10b22ca4"
+      },
+      {
+        "url": "https://github.com/capitalinvestmentclub/webapi/pull/738",
+        "label": "API PR #738 — MERGED; de320d4539f95415a84a3928fce77ee16633ca8f"
+      },
+      {
+        "url": "https://github.com/capitalinvestmentclub/webapi/actions/runs/34910303346",
+        "label": "API exact-version live promotion — SUCCESS"
+      },
+      {
+        "url": "https://github.com/capitalinvestmentclub/webapp/actions/runs/34910414295",
+        "label": "Frontend exact-version live promotion — SUCCESS"
+      }
+    ],
+    "deployments": {
+      "webapp": {
+        "version": "auth-34904805743-1",
+        "commit": "f5a4396d8cfbfd4c9abad90e44fc8aaf10b22ca4",
+        "promotionRun": "34910414295",
+        "promotedAt": "2026-09-14T23:48:05Z",
+        "status": "LIVE"
+      },
+      "webapi": {
+        "version": "policy-34904590658-1",
+        "commit": "de320d4539f95415a84a3928fce77ee16633ca8f",
+        "promotionRun": "34910303346",
+        "promotedAt": "2026-09-14T23:46:36Z",
+        "status": "LIVE"
+      },
+      "buildId": "rwHF6H9jwBWTjB7AhtWo1",
+      "verifiedBy": "/root"
+    },
+    "frontendTests": "Required, focused and CodeQL checks passed; no open review threads. Local visual screenshot acceptance remains deferred, not passed.",
+    "apiTests": "Required CI passed; substantive review resolved; nine review-delta tests passed. Full local suite last checkpoint250 of471 suites/3281 assertions passed,zero failures,still unfinished.",
+    "findings": [
+      {
+        "id": "ADM053-REC-001",
+        "status": "FAIL",
+        "classification": "PRODUCT_FIX_LIVE_AWAITING_ACCEPTANCE",
+        "summary": "At measured1024x768, Admin Ledger exact recipient-reference search returns zero journals; Reset Filters then grant-description-only search returns only initial Grant Creation Sole journal, no award. Existing wallet debit/credit and six-size receipt proof remain passing, but required Admin ledger reconciliation fails. Source confirms approval award path omits Admin ledger posting while separate explicit-disbursement path posts. No backfill or financial mutation performed.",
+        "cloudRetestStatus": "FAIL"
+      },
+      {
+        "id": "ADM053-CFG-001",
+        "status": "FAIL",
+        "classification": "PRODUCT_FIX_LIVE_AWAITING_ACCEPTANCE",
+        "summary": "Recorded repair merged and deployed. Latest cloud acceptance remains FAIL; exact-release complete acceptance still pending.",
+        "cloudRetestStatus": "FAIL"
+      }
+    ],
+    "previousBatchRunId": "2026-09-14-close37-pr-open",
+    "mergeCommits": {
+      "webapp": "f5a4396d8cfbfd4c9abad90e44fc8aaf10b22ca4",
+      "webapi": "de320d4539f95415a84a3928fce77ee16633ca8f"
+    },
+    "cloudRetestSummary": "Latest targeted batch 2026-09-14-close37-admin-award-ledger-fail: ADM053-REC-001 FAIL. Other findings retain prior evidence; this is not full-scenario closure."
+  },
+  "findings": [
+    {
+      "id": "ADM053-REPORT-001",
+      "title": "Grant detail invents comment and reporting obligations",
+      "status": "PARTIAL",
+      "summary": "Authored reporting instructions PASS six independent enabled edit/save/full reload/editor rereads, including newline, Unicode and long-reference wrapping. Disabled state persisted once and checked at six sizes. Original text/enabled state restored and confirmed after full reload. Whole finding PARTIAL: recipient award/comment comparison remains unexecuted. Additional six-size grantor Details and Disbursed-row checks show existing award reporting inactive/not required, consistent with disabled configuration. This is grantor viewing recipient row, not independent recipient-role or enabled-award verification.",
+      "steps": [
+        "Read Details tracking/reporting disabled",
+        "Open Disbursed tab and expand existing recipient row",
+        "Read Reporting is not required"
+      ],
+      "responsive": [
+        {
+          "size": "360×800",
+          "measuredCss": "360x800",
+          "status": "PARTIAL",
+          "summary": "Grantor award-off Details and actual Disbursed tab/row expansion PASS; independent recipient and enabled-award comparison incomplete.",
+          "steps": [
+            "Read Details tracking/reporting disabled",
+            "Open Disbursed tab and expand existing recipient row",
+            "Read Reporting is not required"
+          ],
+          "reportingInstructionsStatus": "PASS",
+          "evidence": [
+            {
+              "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-360.png",
+              "label": "cloud-reporting-fixed-360; shared approved evidence, size as filename"
+            },
+            {
+              "url": "assets/2026-09-14-close37-kyc-award-partial/cloud-award-reporting-inactive-1440.png",
+              "label": "Shared1440 grantor award-off row; six-size actions documented as text"
+            }
+          ],
+          "grantorAwardOffStatus": "PASS"
+        },
+        {
+          "size": "390×844",
+          "measuredCss": "390x844",
+          "status": "PARTIAL",
+          "summary": "Grantor award-off Details and actual Disbursed tab/row expansion PASS; independent recipient and enabled-award comparison incomplete.",
+          "steps": [
+            "Read Details tracking/reporting disabled",
+            "Open Disbursed tab and expand existing recipient row",
+            "Read Reporting is not required"
+          ],
+          "reportingInstructionsStatus": "PASS",
+          "evidence": [
+            {
+              "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-390.png",
+              "label": "cloud-reporting-fixed-390; shared approved evidence, size as filename"
+            },
+            {
+              "url": "assets/2026-09-14-close37-kyc-award-partial/cloud-award-reporting-inactive-1440.png",
+              "label": "Shared1440 grantor award-off row; six-size actions documented as text"
+            }
+          ],
+          "grantorAwardOffStatus": "PASS"
+        },
+        {
+          "size": "768×1024",
+          "measuredCss": "768x1024",
+          "status": "PARTIAL",
+          "summary": "Grantor award-off Details and actual Disbursed tab/row expansion PASS; independent recipient and enabled-award comparison incomplete.",
+          "steps": [
+            "Read Details tracking/reporting disabled",
+            "Open Disbursed tab and expand existing recipient row",
+            "Read Reporting is not required"
+          ],
+          "reportingInstructionsStatus": "PASS",
+          "evidence": [
+            {
+              "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-768.png",
+              "label": "cloud-reporting-fixed-768; shared approved evidence, size as filename"
+            },
+            {
+              "url": "assets/2026-09-14-close37-kyc-award-partial/cloud-award-reporting-inactive-1440.png",
+              "label": "Shared1440 grantor award-off row; six-size actions documented as text"
+            }
+          ],
+          "grantorAwardOffStatus": "PASS"
+        },
+        {
+          "size": "1024×768",
+          "measuredCss": "1024x768",
+          "status": "PARTIAL",
+          "summary": "Grantor award-off Details and actual Disbursed tab/row expansion PASS; independent recipient and enabled-award comparison incomplete.",
+          "steps": [
+            "Read Details tracking/reporting disabled",
+            "Open Disbursed tab and expand existing recipient row",
+            "Read Reporting is not required"
+          ],
+          "reportingInstructionsStatus": "PASS",
+          "evidence": [
+            {
+              "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-768.png",
+              "label": "cloud-reporting-fixed-768; shared approved evidence, size as filename"
+            },
+            {
+              "url": "assets/2026-09-14-close37-kyc-award-partial/cloud-award-reporting-inactive-1440.png",
+              "label": "Shared1440 grantor award-off row; six-size actions documented as text"
+            }
+          ],
+          "grantorAwardOffStatus": "PASS"
+        },
+        {
+          "size": "1280×800",
+          "measuredCss": "1280x800",
+          "status": "PARTIAL",
+          "summary": "Grantor award-off Details and actual Disbursed tab/row expansion PASS; independent recipient and enabled-award comparison incomplete.",
+          "steps": [
+            "Read Details tracking/reporting disabled",
+            "Open Disbursed tab and expand existing recipient row",
+            "Read Reporting is not required"
+          ],
+          "reportingInstructionsStatus": "PASS",
+          "evidence": [
+            {
+              "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-768.png",
+              "label": "cloud-reporting-fixed-768; shared approved evidence, size as filename"
+            },
+            {
+              "url": "assets/2026-09-14-close37-kyc-award-partial/cloud-award-reporting-inactive-1440.png",
+              "label": "Shared1440 grantor award-off row; six-size actions documented as text"
+            }
+          ],
+          "grantorAwardOffStatus": "PASS"
+        },
+        {
+          "size": "1440×900",
+          "measuredCss": "1440x900",
+          "status": "PARTIAL",
+          "summary": "Grantor award-off Details and actual Disbursed tab/row expansion PASS; independent recipient and enabled-award comparison incomplete.",
+          "steps": [
+            "Read Details tracking/reporting disabled",
+            "Open Disbursed tab and expand existing recipient row",
+            "Read Reporting is not required"
+          ],
+          "reportingInstructionsStatus": "PASS",
+          "evidence": [
+            {
+              "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-768.png",
+              "label": "cloud-reporting-fixed-768; shared approved evidence, size as filename"
+            },
+            {
+              "url": "assets/2026-09-14-close37-kyc-award-partial/cloud-award-reporting-inactive-1440.png",
+              "label": "Shared1440 grantor award-off row; six-size actions documented as text"
+            }
+          ],
+          "grantorAwardOffStatus": "PASS"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-360.png",
+          "label": "cloud-reporting-fixed-360; shared approved evidence, size as filename"
+        },
+        {
+          "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-390.png",
+          "label": "cloud-reporting-fixed-390; shared approved evidence, size as filename"
+        },
+        {
+          "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-768.png",
+          "label": "cloud-reporting-fixed-768; shared approved evidence, size as filename"
+        },
+        {
+          "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-disabled-360.png",
+          "label": "cloud-reporting-disabled-360; shared approved evidence, size as filename"
+        },
+        {
+          "url": "assets/2026-09-14-close37-kyc-award-partial/cloud-award-reporting-inactive-1440.png",
+          "label": "Shared1440 grantor award-off row; six-size actions documented as text"
+        }
+      ],
+      "evidencePublication": "APPROVED_PUBLIC_EVIDENCE",
+      "limitations": "Existing authored-instruction six-size proof preserved; one disabled save plus six controls is not six saves. New six-size award-off checks are grantor-side only; independent recipient/enabled-award comparison remains outstanding.",
+      "sourceRun": "2026-09-14-close37-kyc-award-partial",
+      "resultSource": "results.json",
+      "deployments": {
+        "webapp": {
+          "version": "auth-34913946226-1",
+          "commit": "a2d485d57a0456f9e6f038cdfc73dfb467d9a9dd",
+          "status": "EXECUTION_VERSION"
+        },
+        "webapi": {
+          "version": "policy-34904590658-1",
+          "commit": "de320d4539f95415a84a3928fce77ee16633ca8f",
+          "status": "EXECUTION_VERSION"
+        },
+        "buildId": "GPbRknNf6FXNHRtHOGCPF"
+      }
+    }
+  ],
+  "browser": "Google Chrome",
+  "frontend": "https://planar-truck-361704.uc.r.appspot.com",
+  "api": "https://cicdevapi.uc.r.appspot.com",
+  "runId": "2026-09-14-close37-kyc-award-partial",
+  "state": "RETEST PARTIAL — completed targeted batch published; remaining findings retain their latest recorded outcomes",
+  "updatedAt": "2026-09-15T02:04:35.489Z",
+  "scope": "Chrome-only targeted defect acceptance on the recorded deployed versions. New results are limited to explicitly supplied findings and six measured CSS sizes. Historical scenarios and unexecuted lifecycle branches are not promoted to PASS.",
+  "currentRelease": {
+    "webapp": {
+      "version": "auth-34913946226-1",
+      "commit": "a2d485d57a0456f9e6f038cdfc73dfb467d9a9dd",
+      "status": "LIVE"
+    },
+    "webapi": {
+      "version": "policy-34904590658-1",
+      "commit": "de320d4539f95415a84a3928fce77ee16633ca8f",
+      "status": "LIVE"
+    },
+    "buildId": "GPbRknNf6FXNHRtHOGCPF"
+  }
+}
