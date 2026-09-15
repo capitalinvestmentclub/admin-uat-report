@@ -1,7 +1,7 @@
 {
   "repairBatch": {
     "runId": "2026-09-14-close37-live-verification",
-    "updatedAt": "2026-09-15T00:41:27.524Z",
+    "updatedAt": "2026-09-15T00:33:07.121Z",
     "state": "MERGED AND LIVE — targeted cloud verification progressing",
     "executionMode": "cloud",
     "browser": "Google Chrome",
@@ -65,8 +65,8 @@
         "id": "ADM053-REC-001",
         "status": "FAIL",
         "classification": "PRODUCT_FIX_LIVE_AWAITING_ACCEPTANCE",
-        "summary": "At measured1024x768, Admin Ledger exact recipient-reference search returns zero journals; Reset Filters then grant-description-only search returns only initial Grant Creation Sole journal, no award. Existing wallet debit/credit and six-size receipt proof remain passing, but required Admin ledger reconciliation fails. Source confirms approval award path omits Admin ledger posting while separate explicit-disbursement path posts. No backfill or financial mutation performed.",
-        "cloudRetestStatus": "FAIL"
+        "summary": "Original settled award reconciled through actual Chrome Pitcher: six measured owner and recipient Receipt openings/readbacks/visual reviews, creator funding receipt controls at six sizes, and full reload persistence. Grant disbursement debit100USD and recipient credit100USD match grant sender/Investor recipient, settled grant_disbursement, September1 01:22UTC, gross/net100USD and fee0. Creator funding debit and grant credit100USD correlate August19 04:54UTC. Separate receipt/ledger references retained; documents are not claimed identical. Admin ledger remains unverified; ADM053 not closed.",
+        "cloudRetestStatus": "PARTIAL"
       },
       {
         "id": "ADM053-CFG-001",
@@ -81,7 +81,7 @@
       "webapp": "f5a4396d8cfbfd4c9abad90e44fc8aaf10b22ca4",
       "webapi": "de320d4539f95415a84a3928fce77ee16633ca8f"
     },
-    "cloudRetestSummary": "Latest targeted batch 2026-09-14-close37-admin-award-ledger-fail: ADM053-REC-001 FAIL. Other findings retain prior evidence; this is not full-scenario closure."
+    "cloudRetestSummary": "Latest targeted batch 2026-09-14-close37-receipt-reconciled: ADM053-REC-001 PARTIAL. Other findings retain prior evidence; this is not full-scenario closure."
   },
   "findings": [
     {
@@ -511,14 +511,13 @@
     {
       "id": "ADM053-REC-001",
       "title": "Grant award receipt reverses sender and recipient",
-      "status": "FAIL",
-      "summary": "At measured1024x768, Admin Ledger exact recipient-reference search returns zero journals; Reset Filters then grant-description-only search returns only initial Grant Creation Sole journal, no award. Existing wallet debit/credit and six-size receipt proof remain passing, but required Admin ledger reconciliation fails. Source confirms approval award path omits Admin ledger posting while separate explicit-disbursement path posts. No backfill or financial mutation performed.",
+      "status": "PARTIAL",
+      "summary": "Original settled award reconciled through actual Chrome Pitcher: six measured owner and recipient Receipt openings/readbacks/visual reviews, creator funding receipt controls at six sizes, and full reload persistence. Grant disbursement debit100USD and recipient credit100USD match grant sender/Investor recipient, settled grant_disbursement, September1 01:22UTC, gross/net100USD and fee0. Creator funding debit and grant credit100USD correlate August19 04:54UTC. Separate receipt/ledger references retained; documents are not claimed identical. Admin ledger remains unverified; ADM053 not closed.",
       "steps": [
         "Open owner grant disbursement receipt; read parties/type/date/gross/fee/net and wallet debit.",
         "Open creator funding receipt and reconcile creator debit with grant credit.",
         "Normal Investor login; open recipient receipt and reconcile credit/parties/type/date/amounts.",
-        "Full wallet reload and receipt readback confirm persisted fields.",
-        "Search Admin Ledger exact reference, then reset and description-only grant search."
+        "Full wallet reload and receipt readback confirm persisted fields."
       ],
       "responsive": [
         {
@@ -609,33 +608,28 @@
         },
         {
           "size": "1024×768",
-          "status": "FAIL",
+          "status": "PARTIAL",
           "measuredCss": "1024x768",
-          "summary": "One1024 Admin-ledger branch failure only. Other Admin ledger cells NOT RUN, with previous receipt/wallet proof preserved. GRT017 targeted receipt PASS unaffected. Screenshot does not show horizontally hidden account columns. No backfill performed; repair/historical correction not yet verified.",
+          "summary": "PASS owner and recipient visual review at actual measured size; creator controls/readback and reload confirmed. Recipient screenshot privately reviewed but withheld for unrelated background balance; approved owner image is public support, not substituted recipient execution.",
           "steps": [
             "Open owner grant disbursement receipt; read parties/type/date/gross/fee/net and wallet debit.",
             "Open creator funding receipt and reconcile creator debit with grant credit.",
             "Normal Investor login; open recipient receipt and reconcile credit/parties/type/date/amounts.",
-            "Full wallet reload and receipt readback confirm persisted fields.",
-            "Admin exact reference returns0; reset+description returns creation journal only."
+            "Full wallet reload and receipt readback confirm persisted fields."
           ],
           "evidence": [
             {
               "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-owner-receipt-1024.png",
               "label": "cloud-owner-receipt-1024.png"
-            },
-            {
-              "url": "assets/2026-09-14-close37-admin-award-ledger-fail/cloud-admin-ledger-grant-description-1024.png",
-              "label": "1024 description-filter result: one creation journal, account columns outside capture"
             }
           ],
-          "observedAt": "2026-09-15T00:41:27.524Z",
+          "observedAt": "2026-09-15T00:33:07.121Z",
           "subchecks": {
             "ownerGrantWallet": "PASS",
             "creatorWallet": "PASS",
             "recipientWallet": "PASS",
             "reloadReadback": "PASS",
-            "adminLedger": "FAIL"
+            "adminLedger": "NOT RUN"
           }
         },
         {
@@ -739,15 +733,11 @@
         {
           "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-recipient-receipt-1440.png",
           "label": "cloud-recipient-receipt-1440.png"
-        },
-        {
-          "url": "assets/2026-09-14-close37-admin-award-ledger-fail/cloud-admin-ledger-grant-description-1024.png",
-          "label": "1024 description-filter result: one creation journal, account columns outside capture"
         }
       ],
       "evidencePublication": "APPROVED_PUBLIC_EVIDENCE",
-      "limitations": "One1024 Admin-ledger branch failure only. Other Admin ledger cells NOT RUN, with previous receipt/wallet proof preserved. GRT017 targeted receipt PASS unaffected. Screenshot does not show horizontally hidden account columns. No backfill performed; repair/historical correction not yet verified.",
-      "sourceRun": "2026-09-14-close37-admin-award-ledger-fail",
+      "limitations": "No PDF download or provider/fee-schedule label parity claimed. Distinct ledger/receipt references correlated, not forced identical. Recipient768/1024 captures private; invalid1024crop excluded. Admin ledger pending; not complete ADM053 acceptance.",
+      "sourceRun": "2026-09-14-close37-receipt-reconciled",
       "resultSource": "receipt-results.json"
     },
     {
@@ -1309,8 +1299,8 @@
   "browser": "Google Chrome",
   "frontend": "https://planar-truck-361704.uc.r.appspot.com",
   "api": "https://cicdevapi.uc.r.appspot.com",
-  "runId": "2026-09-14-close37-admin-award-ledger-fail",
+  "runId": "2026-09-14-close37-receipt-reconciled",
   "state": "RETEST PARTIAL — completed targeted batch published; remaining findings retain their latest recorded outcomes",
-  "updatedAt": "2026-09-15T00:41:27.524Z",
+  "updatedAt": "2026-09-15T00:33:07.121Z",
   "scope": "Chrome-only targeted defect acceptance on the recorded deployed versions. New results are limited to explicitly supplied findings and six measured CSS sizes. Historical scenarios and unexecuted lifecycle branches are not promoted to PASS."
 }

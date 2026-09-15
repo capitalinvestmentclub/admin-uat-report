@@ -1,0 +1,337 @@
+{
+  "repairBatch": {
+    "runId": "2026-09-14-close37-live-verification",
+    "updatedAt": "2026-09-15T00:41:27.524Z",
+    "state": "MERGED AND LIVE — targeted cloud verification progressing",
+    "executionMode": "cloud",
+    "browser": "Google Chrome",
+    "sizes": [
+      "360×800",
+      "390×844",
+      "768×1024",
+      "1024×768",
+      "1280×800",
+      "1440×900"
+    ],
+    "mergeStatus": "MERGED",
+    "deploymentStatus": "LIVE — both services promoted",
+    "cloudRetestStatus": "PARTIAL",
+    "scope": "Five findings, three shared causes: mobile grant Actions, grant receipt recipient, organization calendar timezone. Code delivery is separate from deployed acceptance; no finding status or viewport result changed.",
+    "releaseGate": "Recorded merge commits are live. Cloud closure below is limited to explicit targeted results with six measured CSS viewport outcomes; merged code alone never closes other findings.",
+    "candidates": {
+      "webapp": "f6e0fb4c345658bd12011516d67b95ba2421d393",
+      "webapi": "4e9ac2680d49156a59e9bf447db0f8e3f73e8c04"
+    },
+    "pullRequests": [
+      {
+        "url": "https://github.com/capitalinvestmentclub/webapp/pull/2346",
+        "label": "Frontend PR #2346 — MERGED; f5a4396d8cfbfd4c9abad90e44fc8aaf10b22ca4"
+      },
+      {
+        "url": "https://github.com/capitalinvestmentclub/webapi/pull/738",
+        "label": "API PR #738 — MERGED; de320d4539f95415a84a3928fce77ee16633ca8f"
+      },
+      {
+        "url": "https://github.com/capitalinvestmentclub/webapi/actions/runs/34910303346",
+        "label": "API exact-version live promotion — SUCCESS"
+      },
+      {
+        "url": "https://github.com/capitalinvestmentclub/webapp/actions/runs/34910414295",
+        "label": "Frontend exact-version live promotion — SUCCESS"
+      }
+    ],
+    "deployments": {
+      "webapp": {
+        "version": "auth-34904805743-1",
+        "commit": "f5a4396d8cfbfd4c9abad90e44fc8aaf10b22ca4",
+        "promotionRun": "34910414295",
+        "promotedAt": "2026-09-14T23:48:05Z",
+        "status": "LIVE"
+      },
+      "webapi": {
+        "version": "policy-34904590658-1",
+        "commit": "de320d4539f95415a84a3928fce77ee16633ca8f",
+        "promotionRun": "34910303346",
+        "promotedAt": "2026-09-14T23:46:36Z",
+        "status": "LIVE"
+      },
+      "buildId": "rwHF6H9jwBWTjB7AhtWo1",
+      "verifiedBy": "/root"
+    },
+    "frontendTests": "Required, focused and CodeQL checks passed; no open review threads. Local visual screenshot acceptance remains deferred, not passed.",
+    "apiTests": "Required CI passed; substantive review resolved; nine review-delta tests passed. Full local suite last checkpoint250 of471 suites/3281 assertions passed,zero failures,still unfinished.",
+    "findings": [
+      {
+        "id": "ADM053-REC-001",
+        "status": "FAIL",
+        "classification": "PRODUCT_FIX_LIVE_AWAITING_ACCEPTANCE",
+        "summary": "At measured1024x768, Admin Ledger exact recipient-reference search returns zero journals; Reset Filters then grant-description-only search returns only initial Grant Creation Sole journal, no award. Existing wallet debit/credit and six-size receipt proof remain passing, but required Admin ledger reconciliation fails. Source confirms approval award path omits Admin ledger posting while separate explicit-disbursement path posts. No backfill or financial mutation performed.",
+        "cloudRetestStatus": "FAIL"
+      },
+      {
+        "id": "ADM053-CFG-001",
+        "status": "FAIL",
+        "classification": "PRODUCT_FIX_LIVE_AWAITING_ACCEPTANCE",
+        "summary": "Recorded repair merged and deployed. Latest cloud acceptance remains FAIL; exact-release complete acceptance still pending.",
+        "cloudRetestStatus": "FAIL"
+      }
+    ],
+    "previousBatchRunId": "2026-09-14-close37-pr-open",
+    "mergeCommits": {
+      "webapp": "f5a4396d8cfbfd4c9abad90e44fc8aaf10b22ca4",
+      "webapi": "de320d4539f95415a84a3928fce77ee16633ca8f"
+    },
+    "cloudRetestSummary": "Latest targeted batch 2026-09-14-close37-admin-award-ledger-fail: ADM053-REC-001 FAIL. Other findings retain prior evidence; this is not full-scenario closure."
+  },
+  "findings": [
+    {
+      "id": "ADM053-REC-001",
+      "title": "Grant award receipt reverses sender and recipient",
+      "status": "FAIL",
+      "summary": "At measured1024x768, Admin Ledger exact recipient-reference search returns zero journals; Reset Filters then grant-description-only search returns only initial Grant Creation Sole journal, no award. Existing wallet debit/credit and six-size receipt proof remain passing, but required Admin ledger reconciliation fails. Source confirms approval award path omits Admin ledger posting while separate explicit-disbursement path posts. No backfill or financial mutation performed.",
+      "steps": [
+        "Open owner grant disbursement receipt; read parties/type/date/gross/fee/net and wallet debit.",
+        "Open creator funding receipt and reconcile creator debit with grant credit.",
+        "Normal Investor login; open recipient receipt and reconcile credit/parties/type/date/amounts.",
+        "Full wallet reload and receipt readback confirm persisted fields.",
+        "Search Admin Ledger exact reference, then reset and description-only grant search."
+      ],
+      "responsive": [
+        {
+          "size": "360×800",
+          "status": "PARTIAL",
+          "measuredCss": "360x800",
+          "summary": "PASS owner and recipient visual review at actual measured size; creator controls/readback and reload confirmed. ",
+          "steps": [
+            "Open owner grant disbursement receipt; read parties/type/date/gross/fee/net and wallet debit.",
+            "Open creator funding receipt and reconcile creator debit with grant credit.",
+            "Normal Investor login; open recipient receipt and reconcile credit/parties/type/date/amounts.",
+            "Full wallet reload and receipt readback confirm persisted fields."
+          ],
+          "evidence": [
+            {
+              "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-owner-receipt-360.png",
+              "label": "cloud-owner-receipt-360.png"
+            },
+            {
+              "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-recipient-receipt-360.png",
+              "label": "cloud-recipient-receipt-360.png"
+            }
+          ],
+          "observedAt": "2026-09-15T00:33:07.121Z",
+          "subchecks": {
+            "ownerGrantWallet": "PASS",
+            "creatorWallet": "PASS",
+            "recipientWallet": "PASS",
+            "reloadReadback": "PASS",
+            "adminLedger": "NOT RUN"
+          }
+        },
+        {
+          "size": "390×844",
+          "status": "PARTIAL",
+          "measuredCss": "390x844",
+          "summary": "PASS owner and recipient visual review at actual measured size; creator controls/readback and reload confirmed. ",
+          "steps": [
+            "Open owner grant disbursement receipt; read parties/type/date/gross/fee/net and wallet debit.",
+            "Open creator funding receipt and reconcile creator debit with grant credit.",
+            "Normal Investor login; open recipient receipt and reconcile credit/parties/type/date/amounts.",
+            "Full wallet reload and receipt readback confirm persisted fields."
+          ],
+          "evidence": [
+            {
+              "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-owner-receipt-390.png",
+              "label": "cloud-owner-receipt-390.png"
+            },
+            {
+              "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-recipient-receipt-390.png",
+              "label": "cloud-recipient-receipt-390.png"
+            }
+          ],
+          "observedAt": "2026-09-15T00:33:07.121Z",
+          "subchecks": {
+            "ownerGrantWallet": "PASS",
+            "creatorWallet": "PASS",
+            "recipientWallet": "PASS",
+            "reloadReadback": "PASS",
+            "adminLedger": "NOT RUN"
+          }
+        },
+        {
+          "size": "768×1024",
+          "status": "PARTIAL",
+          "measuredCss": "768x1024",
+          "summary": "PASS owner and recipient visual review at actual measured size; creator controls/readback and reload confirmed. Recipient screenshot privately reviewed but withheld for unrelated background balance; approved owner image is public support, not substituted recipient execution.",
+          "steps": [
+            "Open owner grant disbursement receipt; read parties/type/date/gross/fee/net and wallet debit.",
+            "Open creator funding receipt and reconcile creator debit with grant credit.",
+            "Normal Investor login; open recipient receipt and reconcile credit/parties/type/date/amounts.",
+            "Full wallet reload and receipt readback confirm persisted fields."
+          ],
+          "evidence": [
+            {
+              "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-owner-receipt-768.png",
+              "label": "cloud-owner-receipt-768.png"
+            }
+          ],
+          "observedAt": "2026-09-15T00:33:07.121Z",
+          "subchecks": {
+            "ownerGrantWallet": "PASS",
+            "creatorWallet": "PASS",
+            "recipientWallet": "PASS",
+            "reloadReadback": "PASS",
+            "adminLedger": "NOT RUN"
+          }
+        },
+        {
+          "size": "1024×768",
+          "status": "FAIL",
+          "measuredCss": "1024x768",
+          "summary": "One1024 Admin-ledger branch failure only. Other Admin ledger cells NOT RUN, with previous receipt/wallet proof preserved. GRT017 targeted receipt PASS unaffected. Screenshot does not show horizontally hidden account columns. No backfill performed; repair/historical correction not yet verified.",
+          "steps": [
+            "Open owner grant disbursement receipt; read parties/type/date/gross/fee/net and wallet debit.",
+            "Open creator funding receipt and reconcile creator debit with grant credit.",
+            "Normal Investor login; open recipient receipt and reconcile credit/parties/type/date/amounts.",
+            "Full wallet reload and receipt readback confirm persisted fields.",
+            "Admin exact reference returns0; reset+description returns creation journal only."
+          ],
+          "evidence": [
+            {
+              "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-owner-receipt-1024.png",
+              "label": "cloud-owner-receipt-1024.png"
+            },
+            {
+              "url": "assets/2026-09-14-close37-admin-award-ledger-fail/cloud-admin-ledger-grant-description-1024.png",
+              "label": "1024 description-filter result: one creation journal, account columns outside capture"
+            }
+          ],
+          "observedAt": "2026-09-15T00:41:27.524Z",
+          "subchecks": {
+            "ownerGrantWallet": "PASS",
+            "creatorWallet": "PASS",
+            "recipientWallet": "PASS",
+            "reloadReadback": "PASS",
+            "adminLedger": "FAIL"
+          }
+        },
+        {
+          "size": "1280×800",
+          "status": "PARTIAL",
+          "measuredCss": "1280x800",
+          "summary": "PASS owner and recipient visual review at actual measured size; creator controls/readback and reload confirmed. ",
+          "steps": [
+            "Open owner grant disbursement receipt; read parties/type/date/gross/fee/net and wallet debit.",
+            "Open creator funding receipt and reconcile creator debit with grant credit.",
+            "Normal Investor login; open recipient receipt and reconcile credit/parties/type/date/amounts.",
+            "Full wallet reload and receipt readback confirm persisted fields."
+          ],
+          "evidence": [
+            {
+              "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-owner-receipt-1280.png",
+              "label": "cloud-owner-receipt-1280.png"
+            },
+            {
+              "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-recipient-receipt-1280.png",
+              "label": "cloud-recipient-receipt-1280.png"
+            }
+          ],
+          "observedAt": "2026-09-15T00:33:07.121Z",
+          "subchecks": {
+            "ownerGrantWallet": "PASS",
+            "creatorWallet": "PASS",
+            "recipientWallet": "PASS",
+            "reloadReadback": "PASS",
+            "adminLedger": "NOT RUN"
+          }
+        },
+        {
+          "size": "1440×900",
+          "status": "PARTIAL",
+          "measuredCss": "1440x900",
+          "summary": "PASS owner and recipient visual review at actual measured size; creator controls/readback and reload confirmed. ",
+          "steps": [
+            "Open owner grant disbursement receipt; read parties/type/date/gross/fee/net and wallet debit.",
+            "Open creator funding receipt and reconcile creator debit with grant credit.",
+            "Normal Investor login; open recipient receipt and reconcile credit/parties/type/date/amounts.",
+            "Full wallet reload and receipt readback confirm persisted fields."
+          ],
+          "evidence": [
+            {
+              "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-owner-receipt-1440.png",
+              "label": "cloud-owner-receipt-1440.png"
+            },
+            {
+              "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-recipient-receipt-1440.png",
+              "label": "cloud-recipient-receipt-1440.png"
+            }
+          ],
+          "observedAt": "2026-09-15T00:33:07.121Z",
+          "subchecks": {
+            "ownerGrantWallet": "PASS",
+            "creatorWallet": "PASS",
+            "recipientWallet": "PASS",
+            "reloadReadback": "PASS",
+            "adminLedger": "NOT RUN"
+          }
+        }
+      ],
+      "evidence": [
+        {
+          "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-owner-receipt-360.png",
+          "label": "cloud-owner-receipt-360.png"
+        },
+        {
+          "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-recipient-receipt-360.png",
+          "label": "cloud-recipient-receipt-360.png"
+        },
+        {
+          "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-owner-receipt-390.png",
+          "label": "cloud-owner-receipt-390.png"
+        },
+        {
+          "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-recipient-receipt-390.png",
+          "label": "cloud-recipient-receipt-390.png"
+        },
+        {
+          "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-owner-receipt-768.png",
+          "label": "cloud-owner-receipt-768.png"
+        },
+        {
+          "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-owner-receipt-1024.png",
+          "label": "cloud-owner-receipt-1024.png"
+        },
+        {
+          "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-owner-receipt-1280.png",
+          "label": "cloud-owner-receipt-1280.png"
+        },
+        {
+          "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-recipient-receipt-1280.png",
+          "label": "cloud-recipient-receipt-1280.png"
+        },
+        {
+          "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-owner-receipt-1440.png",
+          "label": "cloud-owner-receipt-1440.png"
+        },
+        {
+          "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-recipient-receipt-1440.png",
+          "label": "cloud-recipient-receipt-1440.png"
+        },
+        {
+          "url": "assets/2026-09-14-close37-admin-award-ledger-fail/cloud-admin-ledger-grant-description-1024.png",
+          "label": "1024 description-filter result: one creation journal, account columns outside capture"
+        }
+      ],
+      "evidencePublication": "APPROVED_PUBLIC_EVIDENCE",
+      "limitations": "One1024 Admin-ledger branch failure only. Other Admin ledger cells NOT RUN, with previous receipt/wallet proof preserved. GRT017 targeted receipt PASS unaffected. Screenshot does not show horizontally hidden account columns. No backfill performed; repair/historical correction not yet verified.",
+      "sourceRun": "2026-09-14-close37-admin-award-ledger-fail",
+      "resultSource": "receipt-results.json"
+    }
+  ],
+  "browser": "Google Chrome",
+  "frontend": "https://planar-truck-361704.uc.r.appspot.com",
+  "api": "https://cicdevapi.uc.r.appspot.com",
+  "runId": "2026-09-14-close37-admin-award-ledger-fail",
+  "state": "RETEST PARTIAL — completed targeted batch published; remaining findings retain their latest recorded outcomes",
+  "updatedAt": "2026-09-15T00:41:27.524Z",
+  "scope": "Chrome-only targeted defect acceptance on the recorded deployed versions. New results are limited to explicitly supplied findings and six measured CSS sizes. Historical scenarios and unexecuted lifecycle branches are not promoted to PASS."
+}
