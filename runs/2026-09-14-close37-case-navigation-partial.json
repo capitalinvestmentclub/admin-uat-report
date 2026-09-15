@@ -1,0 +1,317 @@
+{
+  "repairBatch": {
+    "runId": "2026-09-14-close37-live-verification",
+    "updatedAt": "2026-09-15T00:41:27.524Z",
+    "state": "MERGED AND LIVE — targeted cloud verification progressing",
+    "executionMode": "cloud",
+    "browser": "Google Chrome",
+    "sizes": [
+      "360×800",
+      "390×844",
+      "768×1024",
+      "1024×768",
+      "1280×800",
+      "1440×900"
+    ],
+    "mergeStatus": "MERGED",
+    "deploymentStatus": "LIVE — both services promoted",
+    "cloudRetestStatus": "PARTIAL",
+    "scope": "Five findings, three shared causes: mobile grant Actions, grant receipt recipient, organization calendar timezone. Code delivery is separate from deployed acceptance; no finding status or viewport result changed.",
+    "releaseGate": "Recorded merge commits are live. Cloud closure below is limited to explicit targeted results with six measured CSS viewport outcomes; merged code alone never closes other findings.",
+    "candidates": {
+      "webapp": "f6e0fb4c345658bd12011516d67b95ba2421d393",
+      "webapi": "4e9ac2680d49156a59e9bf447db0f8e3f73e8c04"
+    },
+    "pullRequests": [
+      {
+        "url": "https://github.com/capitalinvestmentclub/webapp/pull/2346",
+        "label": "Frontend PR #2346 — MERGED; f5a4396d8cfbfd4c9abad90e44fc8aaf10b22ca4"
+      },
+      {
+        "url": "https://github.com/capitalinvestmentclub/webapi/pull/738",
+        "label": "API PR #738 — MERGED; de320d4539f95415a84a3928fce77ee16633ca8f"
+      },
+      {
+        "url": "https://github.com/capitalinvestmentclub/webapi/actions/runs/34910303346",
+        "label": "API exact-version live promotion — SUCCESS"
+      },
+      {
+        "url": "https://github.com/capitalinvestmentclub/webapp/actions/runs/34910414295",
+        "label": "Frontend exact-version live promotion — SUCCESS"
+      }
+    ],
+    "deployments": {
+      "webapp": {
+        "version": "auth-34904805743-1",
+        "commit": "f5a4396d8cfbfd4c9abad90e44fc8aaf10b22ca4",
+        "promotionRun": "34910414295",
+        "promotedAt": "2026-09-14T23:48:05Z",
+        "status": "LIVE"
+      },
+      "webapi": {
+        "version": "policy-34904590658-1",
+        "commit": "de320d4539f95415a84a3928fce77ee16633ca8f",
+        "promotionRun": "34910303346",
+        "promotedAt": "2026-09-14T23:46:36Z",
+        "status": "LIVE"
+      },
+      "buildId": "rwHF6H9jwBWTjB7AhtWo1",
+      "verifiedBy": "/root"
+    },
+    "frontendTests": "Required, focused and CodeQL checks passed; no open review threads. Local visual screenshot acceptance remains deferred, not passed.",
+    "apiTests": "Required CI passed; substantive review resolved; nine review-delta tests passed. Full local suite last checkpoint250 of471 suites/3281 assertions passed,zero failures,still unfinished.",
+    "findings": [
+      {
+        "id": "ADM053-REC-001",
+        "status": "FAIL",
+        "classification": "PRODUCT_FIX_LIVE_AWAITING_ACCEPTANCE",
+        "summary": "At measured1024x768, Admin Ledger exact recipient-reference search returns zero journals; Reset Filters then grant-description-only search returns only initial Grant Creation Sole journal, no award. Existing wallet debit/credit and six-size receipt proof remain passing, but required Admin ledger reconciliation fails. Source confirms approval award path omits Admin ledger posting while separate explicit-disbursement path posts. No backfill or financial mutation performed.",
+        "cloudRetestStatus": "FAIL"
+      },
+      {
+        "id": "ADM053-CFG-001",
+        "status": "FAIL",
+        "classification": "PRODUCT_FIX_LIVE_AWAITING_ACCEPTANCE",
+        "summary": "Recorded repair merged and deployed. Latest cloud acceptance remains FAIL; exact-release complete acceptance still pending.",
+        "cloudRetestStatus": "FAIL"
+      }
+    ],
+    "previousBatchRunId": "2026-09-14-close37-pr-open",
+    "mergeCommits": {
+      "webapp": "f5a4396d8cfbfd4c9abad90e44fc8aaf10b22ca4",
+      "webapi": "de320d4539f95415a84a3928fce77ee16633ca8f"
+    },
+    "cloudRetestSummary": "Latest targeted batch 2026-09-14-close37-admin-award-ledger-fail: ADM053-REC-001 FAIL. Other findings retain prior evidence; this is not full-scenario closure."
+  },
+  "findings": [
+    {
+      "id": "ADM046-LINK-001",
+      "title": "Moderation, support and feedback cannot be linked",
+      "status": "PARTIAL",
+      "summary": "All18 normal Support, Feedback and Moderation source-control journeys at six measured Chrome sizes reached existing CASE-20260914-0BDDAF, closed/version17, without duplicate creation. Shared1440 reload retained canonical links and immutable history. Feedback1024 layout readable. Full acceptance remains PARTIAL with explicit linking/authorization/reload limits.",
+      "steps": [
+        "Open controlled Support, Feedback and Moderation source details",
+        "Click Link operational case or Open linked case normally",
+        "Confirm same existing case, closed/version17 and no new-case dialog"
+      ],
+      "responsive": [
+        {
+          "size": "360×800",
+          "measuredCss": "360x800",
+          "status": "PARTIAL",
+          "summary": "Three source-control navigation subchecks PASS; overall finding remains PARTIAL. No separate full destination reload claimed.",
+          "steps": [
+            "Open controlled Support, Feedback and Moderation source details",
+            "Click Link operational case or Open linked case normally",
+            "Confirm same existing case, closed/version17 and no new-case dialog"
+          ],
+          "evidence": [
+            {
+              "url": "assets/2026-09-14-close37-case-navigation-partial/cloud-support-existing-case-360.png",
+              "label": "Shared support destination 360×800; approved visual"
+            }
+          ],
+          "navigationStatus": "PASS",
+          "sourceControlExecutions": 3
+        },
+        {
+          "size": "390×844",
+          "measuredCss": "390x844",
+          "status": "PARTIAL",
+          "summary": "Three source-control navigation subchecks PASS; overall finding remains PARTIAL. No separate full destination reload claimed.",
+          "steps": [
+            "Open controlled Support, Feedback and Moderation source details",
+            "Click Link operational case or Open linked case normally",
+            "Confirm same existing case, closed/version17 and no new-case dialog"
+          ],
+          "evidence": [
+            {
+              "url": "assets/2026-09-14-close37-case-navigation-partial/cloud-support-existing-case-390.png",
+              "label": "Shared support destination 390×844; approved visual"
+            }
+          ],
+          "navigationStatus": "PASS",
+          "sourceControlExecutions": 3
+        },
+        {
+          "size": "768×1024",
+          "measuredCss": "768x1024",
+          "status": "PARTIAL",
+          "summary": "Three source-control navigation subchecks PASS; overall finding remains PARTIAL. No separate full destination reload claimed.",
+          "steps": [
+            "Open controlled Support, Feedback and Moderation source details",
+            "Click Link operational case or Open linked case normally",
+            "Confirm same existing case, closed/version17 and no new-case dialog"
+          ],
+          "evidence": [
+            {
+              "url": "assets/2026-09-14-close37-case-navigation-partial/cloud-support-existing-case-768.png",
+              "label": "Shared support destination 768×1024; approved visual"
+            }
+          ],
+          "navigationStatus": "PASS",
+          "sourceControlExecutions": 3
+        },
+        {
+          "size": "1024×768",
+          "measuredCss": "1024x768",
+          "status": "PARTIAL",
+          "summary": "Three source-control navigation subchecks PASS; overall finding remains PARTIAL. No separate full destination reload claimed.",
+          "steps": [
+            "Open controlled Support, Feedback and Moderation source details",
+            "Click Link operational case or Open linked case normally",
+            "Confirm same existing case, closed/version17 and no new-case dialog"
+          ],
+          "evidence": [
+            {
+              "url": "assets/2026-09-14-close37-case-navigation-partial/cloud-support-existing-case-1024.png",
+              "label": "Shared support destination 1024×768; approved visual"
+            }
+          ],
+          "navigationStatus": "PASS",
+          "sourceControlExecutions": 3
+        },
+        {
+          "size": "1280×800",
+          "measuredCss": "1280x800",
+          "status": "PARTIAL",
+          "summary": "Three source-control navigation subchecks PASS; overall finding remains PARTIAL. No separate full destination reload claimed.",
+          "steps": [
+            "Open controlled Support, Feedback and Moderation source details",
+            "Click Link operational case or Open linked case normally",
+            "Confirm same existing case, closed/version17 and no new-case dialog"
+          ],
+          "evidence": [
+            {
+              "url": "assets/2026-09-14-close37-case-navigation-partial/cloud-support-existing-case-1280.png",
+              "label": "Shared support destination 1280×800; approved visual"
+            }
+          ],
+          "navigationStatus": "PASS",
+          "sourceControlExecutions": 3
+        },
+        {
+          "size": "1440×900",
+          "measuredCss": "1440x900",
+          "status": "PARTIAL",
+          "summary": "Three source-control navigation subchecks PASS; overall finding remains PARTIAL. Shared full reload/history PASS.",
+          "steps": [
+            "Open controlled Support, Feedback and Moderation source details",
+            "Click Link operational case or Open linked case normally",
+            "Confirm same existing case, closed/version17 and no new-case dialog"
+          ],
+          "evidence": [
+            {
+              "url": "assets/2026-09-14-close37-case-navigation-partial/cloud-support-existing-case-1440.png",
+              "label": "Shared support destination 1440×900; approved visual"
+            }
+          ],
+          "navigationStatus": "PASS",
+          "sourceControlExecutions": 3
+        }
+      ],
+      "evidence": [
+        {
+          "url": "assets/2026-09-14-close37-case-navigation-partial/cloud-support-existing-case-360.png",
+          "label": "Shared support destination 360×800; approved visual"
+        },
+        {
+          "url": "assets/2026-09-14-close37-case-navigation-partial/cloud-support-existing-case-390.png",
+          "label": "Shared support destination 390×844; approved visual"
+        },
+        {
+          "url": "assets/2026-09-14-close37-case-navigation-partial/cloud-support-existing-case-768.png",
+          "label": "Shared support destination 768×1024; approved visual"
+        },
+        {
+          "url": "assets/2026-09-14-close37-case-navigation-partial/cloud-support-existing-case-1024.png",
+          "label": "Shared support destination 1024×768; approved visual"
+        },
+        {
+          "url": "assets/2026-09-14-close37-case-navigation-partial/cloud-support-existing-case-1280.png",
+          "label": "Shared support destination 1280×800; approved visual"
+        },
+        {
+          "url": "assets/2026-09-14-close37-case-navigation-partial/cloud-support-existing-case-1440.png",
+          "label": "Shared support destination 1440×900; approved visual"
+        }
+      ],
+      "evidencePublication": "APPROVED_PUBLIC_EVIDENCE",
+      "limitations": "PARTIAL: legitimately unlinked record-to-existing-case linking remains unexecuted. Original18authorized source journeys had one shared1440 full reload, not18 per-cell reloads. Subsequent wrong-role denial passed six full reloads on newer reporting-only FE a2d485d; do not conflate execution versions. One unlinked source opened new-case form and was cancelled; central Link record flow remains to test, not a newly confirmed product defect. Only approved support destination and wrong-role1440 screenshots public; feedback/moderation captures private.",
+      "sourceRun": "2026-09-14-close37-case-navigation-partial",
+      "resultSource": "ops-results.json",
+      "deployments": {
+        "webapp": {
+          "version": "auth-34904805743-1",
+          "commit": "f5a4396d8cfbfd4c9abad90e44fc8aaf10b22ca4",
+          "status": "EXECUTION_VERSION"
+        },
+        "webapi": {
+          "version": "policy-34904590658-1",
+          "commit": "de320d4539f95415a84a3928fce77ee16633ca8f",
+          "status": "EXECUTION_VERSION"
+        },
+        "buildId": "rwHF6H9jwBWTjB7AhtWo1"
+      },
+      "currentRelease": {
+        "webapp": {
+          "version": "auth-34913946226-1",
+          "commit": "a2d485d57a0456f9e6f038cdfc73dfb467d9a9dd",
+          "promotionRun": "34914731385",
+          "buildId": "GPbRknNf6FXNHRtHOGCPF",
+          "status": "LIVE"
+        },
+        "webapi": {
+          "version": "policy-34904590658-1",
+          "commit": "de320d4539f95415a84a3928fce77ee16633ca8f",
+          "status": "LIVE"
+        },
+        "note": "Reporting-only frontend promotion followed these executions; no case test is attributed to the newer release."
+      },
+      "authorizationCheckpoint": {
+        "status": "PASS",
+        "sizes": [
+          "360x800",
+          "390x844",
+          "768x1024",
+          "1024x768",
+          "1280x800",
+          "1440x900"
+        ],
+        "actor": "Controlled Pitcher",
+        "behavior": "Six normal full reloads show role-unavailable heading and no Admin case contents.",
+        "webappCommit": "a2d485d57a0456f9e6f038cdfc73dfb467d9a9dd",
+        "webappVersion": "auth-34913946226-1",
+        "buildId": "GPbRknNf6FXNHRtHOGCPF",
+        "evidence": [
+          {
+            "url": "assets/2026-09-14-close37-case-navigation-partial/cloud-case-wrong-role-1440.png",
+            "label": "Shared wrong-role denial visual1440; six measured reloads executed"
+          }
+        ]
+      }
+    }
+  ],
+  "browser": "Google Chrome",
+  "frontend": "https://planar-truck-361704.uc.r.appspot.com",
+  "api": "https://cicdevapi.uc.r.appspot.com",
+  "runId": "2026-09-14-close37-case-navigation-partial",
+  "state": "RETEST PARTIAL — completed targeted batch published; remaining findings retain their latest recorded outcomes",
+  "updatedAt": "2026-09-15T00:53:41.302Z",
+  "scope": "Chrome-only targeted defect acceptance on the recorded deployed versions. New results are limited to explicitly supplied findings and six measured CSS sizes. Historical scenarios and unexecuted lifecycle branches are not promoted to PASS.",
+  "currentRelease": {
+    "webapp": {
+      "version": "auth-34913946226-1",
+      "commit": "a2d485d57a0456f9e6f038cdfc73dfb467d9a9dd",
+      "promotionRun": "34914731385",
+      "buildId": "GPbRknNf6FXNHRtHOGCPF",
+      "status": "LIVE"
+    },
+    "webapi": {
+      "version": "policy-34904590658-1",
+      "commit": "de320d4539f95415a84a3928fce77ee16633ca8f",
+      "status": "LIVE"
+    },
+    "note": "Reporting-only frontend promotion followed these executions; no case test is attributed to the newer release."
+  }
+}
