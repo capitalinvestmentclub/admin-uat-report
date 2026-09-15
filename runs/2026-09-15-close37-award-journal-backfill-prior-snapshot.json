@@ -1,8 +1,8 @@
 {
   "repairBatch": {
-    "runId": "2026-09-15-close37-award-journal-backfill",
-    "updatedAt": "2026-09-15T06:39:44Z",
-    "state": "MERGED + LIVE DATA CORRECTED + SIX-SIZE VERIFIED",
+    "runId": "2026-09-14-close37-release-deployed-pending",
+    "updatedAt": "2026-09-15T04:45:48.446Z",
+    "state": "MERGED AND LIVE — focused deployed acceptance pending",
     "executionMode": "cloud",
     "browser": "Google Chrome",
     "sizes": [
@@ -13,15 +13,14 @@
       "1280×800",
       "1440×900"
     ],
-    "mergeStatus": "MERGED — API PR #741",
-    "deploymentStatus": "LIVE DATA CORRECTION; operational API candidate staged; runtime promotion not required",
+    "mergeStatus": "MERGED",
+    "deploymentStatus": "LIVE — API promoted before frontend",
     "cloudRetestStatus": "PARTIAL",
-    "scope": "ADM053-REC-001 historical award journal correction and six-size Chrome verification. Other findings retain their prior statuses.",
-    "releaseGate": "API PR #741 merged after green checks. The exact-scoped utility created one live journal and two entries, its second run made zero writes, and the deployed Admin Ledger returned one Valid row at all six sizes after an additional full reload.",
+    "scope": "Five unique critical/high findings across five reports. This publication records the single coordinated release batch and preserves every prior outcome until the affected Chrome checks complete at all six measured CSS sizes.",
+    "releaseGate": "API PR #740 and frontend PR #2354 are merged. Exact candidates are live. Local focused acceptance passed; cloud status remains unchanged where role access, a missing retained fixture, or the historical journal prevents complete verification.",
     "candidates": {
       "webapp": "7bb5dfcf010415922688bb659e23992f7723bf83",
-      "webapi": "45b94ccb37efeb612247254f646d0bc2c48a9ebf",
-      "operationalCorrectionMerge": "83924ed6fec3deb83073c8cf619e03e3f8565893"
+      "webapi": "45b94ccb37efeb612247254f646d0bc2c48a9ebf"
     },
     "pullRequests": [
       {
@@ -39,14 +38,6 @@
       {
         "url": "https://github.com/capitalinvestmentclub/webapp/actions/runs/34929292626",
         "label": "Frontend exact-version live promotion — SUCCESS"
-      },
-      {
-        "url": "https://github.com/capitalinvestmentclub/webapi/pull/741",
-        "label": "API PR #741 — MERGED; exact-scoped historical journal correction"
-      },
-      {
-        "url": "https://github.com/capitalinvestmentclub/webapi/actions/runs/34937326329",
-        "label": "Merged operational candidate deployment — SUCCESS; no runtime promotion required"
       }
     ],
     "deployments": {
@@ -68,14 +59,14 @@
       "verifiedBy": "/root"
     },
     "frontendTests": "Merged candidate passed the complete local frontend suite previously recorded for this release line; exact staged build ZbjuA6xlxenb7ANeOMWjU was promoted and visually identified on the live site.",
-    "apiTests": "54/54 related grant and ledger regressions passed. The focused backfill suite also passed 4/4 including conflict refusal, idempotency, source immutability, and transaction rollback.",
+    "apiTests": "Exact repaired head passed 4 focused suites / 93 tests, 14 affected suites / 177 tests, fresh preflight, required GitHub checks, and a normal separate-role local Chrome award/receipt journey.",
     "findings": [
       {
         "id": "ADM053-REC-001",
-        "status": "PASS",
-        "classification": "VERIFIED_CLOSED",
-        "summary": "PASS: the user-authorized historical correction created one balanced USD award journal and two entries for the exact controlled award. Chrome exact-reference search returns one Valid Grant Approval row with Grant +100 and Investor Personal -100 at all six measured CSS sizes. Full reload and a fresh search preserve the same row; a second backfill execution is a zero-write no-op.",
-        "cloudRetestStatus": "PASS"
+        "status": "FAIL",
+        "classification": "PRODUCT_FIX_LIVE_AWAITING_ACCEPTANCE",
+        "summary": "At measured1024x768, Admin Ledger exact recipient-reference search returns zero journals; Reset Filters then grant-description-only search returns only initial Grant Creation Sole journal, no award. Existing wallet debit/credit and six-size receipt proof remain passing, but required Admin ledger reconciliation fails. Source confirms approval award path omits Admin ledger posting while separate explicit-disbursement path posts. No backfill or financial mutation performed. Latest coordinated API and frontend repairs are merged and live, but no previous failure is relabelled: the Pitcher session cannot access admin-only feedback checks, the retained Seed fixture is unavailable, and the original historical award journal remains uncorrected.",
+        "cloudRetestStatus": "FAIL"
       },
       {
         "id": "ADM053-CFG-001",
@@ -92,12 +83,12 @@
         "summary": "All18 normal Support, Feedback and Moderation source-control journeys at six measured Chrome sizes reached existing CASE-20260914-0BDDAF, closed/version17, without duplicate creation. Shared1440 reload retained canonical links and immutable history. Feedback1024 layout readable. Full acceptance remains PARTIAL with explicit linking/authorization/reload limits. Latest coordinated API and frontend repairs are merged and live, but no previous failure is relabelled: the Pitcher session cannot access admin-only feedback checks, the retained Seed fixture is unavailable, and the original historical award journal remains uncorrected."
       }
     ],
-    "previousBatchRunId": "2026-09-14-close37-release-deployed-pending",
+    "previousBatchRunId": "2026-09-14-close37-kyc-award-partial",
     "mergeCommits": {
       "webapp": "7bb5dfcf010415922688bb659e23992f7723bf83",
       "webapi": "45b94ccb37efeb612247254f646d0bc2c48a9ebf"
     },
-    "cloudRetestSummary": "ADM053-REC-001 is verified closed at all six Chrome sizes with reload persistence. Other findings remain unchanged."
+    "cloudRetestSummary": "Release delivery is complete. Acceptance remains intentionally open: the retained Seed fixture returned unavailable, Pitcher cannot enter admin feedback operations, and no historical award-journal mutation was authorized."
   },
   "findings": [
     {
@@ -527,29 +518,26 @@
     {
       "id": "ADM053-REC-001",
       "title": "Grant award receipt reverses sender and recipient",
-      "status": "PASS",
-      "summary": "PASS: the user-authorized historical correction created one balanced USD award journal and two entries for the exact controlled award. Chrome exact-reference search returns one Valid Grant Approval row with Grant +100 and Investor Personal -100 at all six measured CSS sizes. Full reload and a fresh search preserve the same row; a second backfill execution is a zero-write no-op.",
+      "status": "FAIL",
+      "summary": "At measured1024x768, Admin Ledger exact recipient-reference search returns zero journals; Reset Filters then grant-description-only search returns only initial Grant Creation Sole journal, no award. Existing wallet debit/credit and six-size receipt proof remain passing, but required Admin ledger reconciliation fails. Source confirms approval award path omits Admin ledger posting while separate explicit-disbursement path posts. No backfill or financial mutation performed.",
       "steps": [
-        "Reconcile the exact completed award, approved application, paired grant debit and Investor credit.",
-        "Execute the exact-scoped, user-authorized correction from merged commit 83924ed6.",
-        "Rerun the correction and verify existing-no-op with zero created records.",
-        "In signed-in Tolu Chrome, search Admin Ledger for CIC-TXN-20260901-DP79280KHG16.",
-        "At each measured size confirm one USD Grant Approval row, Grant +100.00, Investor Personal -100.00, and Valid control.",
-        "Fully reload, repeat the exact search, and confirm the same single row persists."
+        "Open owner grant disbursement receipt; read parties/type/date/gross/fee/net and wallet debit.",
+        "Open creator funding receipt and reconcile creator debit with grant credit.",
+        "Normal Investor login; open recipient receipt and reconcile credit/parties/type/date/amounts.",
+        "Full wallet reload and receipt readback confirm persisted fields.",
+        "Search Admin Ledger exact reference, then reset and description-only grant search."
       ],
       "responsive": [
         {
           "size": "360×800",
-          "status": "PASS",
+          "status": "PARTIAL",
           "measuredCss": "360x800",
-          "summary": "PASS: exact journal description/reference and Valid control visible; server result 1-1 of 1; document scroll width 345px did not exceed 360px viewport width.",
+          "summary": "PASS owner and recipient visual review at actual measured size; creator controls/readback and reload confirmed. ",
           "steps": [
-            "Reconcile the exact completed award, approved application, paired grant debit and Investor credit.",
-            "Execute the exact-scoped, user-authorized correction from merged commit 83924ed6.",
-            "Rerun the correction and verify existing-no-op with zero created records.",
-            "In signed-in Tolu Chrome, search Admin Ledger for CIC-TXN-20260901-DP79280KHG16.",
-            "At each measured size confirm one USD Grant Approval row, Grant +100.00, Investor Personal -100.00, and Valid control.",
-            "Fully reload, repeat the exact search, and confirm the same single row persists."
+            "Open owner grant disbursement receipt; read parties/type/date/gross/fee/net and wallet debit.",
+            "Open creator funding receipt and reconcile creator debit with grant credit.",
+            "Normal Investor login; open recipient receipt and reconcile credit/parties/type/date/amounts.",
+            "Full wallet reload and receipt readback confirm persisted fields."
           ],
           "evidence": [
             {
@@ -559,33 +547,27 @@
             {
               "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-recipient-receipt-360.png",
               "label": "cloud-recipient-receipt-360.png"
-            },
-            {
-              "url": "assets/2026-09-15-close37-award-journal-backfill/admin-ledger-backfill-verification.json",
-              "label": "Public-safe structured six-size journal verification"
             }
           ],
-          "observedAt": "2026-09-15T06:39:44Z",
+          "observedAt": "2026-09-15T00:33:07.121Z",
           "subchecks": {
             "ownerGrantWallet": "PASS",
             "creatorWallet": "PASS",
             "recipientWallet": "PASS",
             "reloadReadback": "PASS",
-            "adminLedger": "PASS"
+            "adminLedger": "NOT RUN"
           }
         },
         {
           "size": "390×844",
-          "status": "PASS",
+          "status": "PARTIAL",
           "measuredCss": "390x844",
-          "summary": "PASS: exact journal description/reference and Valid control visible; server result 1-1 of 1; document scroll width 375px did not exceed 390px viewport width.",
+          "summary": "PASS owner and recipient visual review at actual measured size; creator controls/readback and reload confirmed. ",
           "steps": [
-            "Reconcile the exact completed award, approved application, paired grant debit and Investor credit.",
-            "Execute the exact-scoped, user-authorized correction from merged commit 83924ed6.",
-            "Rerun the correction and verify existing-no-op with zero created records.",
-            "In signed-in Tolu Chrome, search Admin Ledger for CIC-TXN-20260901-DP79280KHG16.",
-            "At each measured size confirm one USD Grant Approval row, Grant +100.00, Investor Personal -100.00, and Valid control.",
-            "Fully reload, repeat the exact search, and confirm the same single row persists."
+            "Open owner grant disbursement receipt; read parties/type/date/gross/fee/net and wallet debit.",
+            "Open creator funding receipt and reconcile creator debit with grant credit.",
+            "Normal Investor login; open recipient receipt and reconcile credit/parties/type/date/amounts.",
+            "Full wallet reload and receipt readback confirm persisted fields."
           ],
           "evidence": [
             {
@@ -595,65 +577,54 @@
             {
               "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-recipient-receipt-390.png",
               "label": "cloud-recipient-receipt-390.png"
-            },
-            {
-              "url": "assets/2026-09-15-close37-award-journal-backfill/admin-ledger-backfill-verification.json",
-              "label": "Public-safe structured six-size journal verification"
             }
           ],
-          "observedAt": "2026-09-15T06:39:44Z",
+          "observedAt": "2026-09-15T00:33:07.121Z",
           "subchecks": {
             "ownerGrantWallet": "PASS",
             "creatorWallet": "PASS",
             "recipientWallet": "PASS",
             "reloadReadback": "PASS",
-            "adminLedger": "PASS"
+            "adminLedger": "NOT RUN"
           }
         },
         {
           "size": "768×1024",
-          "status": "PASS",
+          "status": "PARTIAL",
           "measuredCss": "768x1024",
-          "summary": "PASS: exact journal description/reference and Valid control visible; server result 1-1 of 1; document scroll width 753px did not exceed 768px viewport width.",
+          "summary": "PASS owner and recipient visual review at actual measured size; creator controls/readback and reload confirmed. Recipient screenshot privately reviewed but withheld for unrelated background balance; approved owner image is public support, not substituted recipient execution.",
           "steps": [
-            "Reconcile the exact completed award, approved application, paired grant debit and Investor credit.",
-            "Execute the exact-scoped, user-authorized correction from merged commit 83924ed6.",
-            "Rerun the correction and verify existing-no-op with zero created records.",
-            "In signed-in Tolu Chrome, search Admin Ledger for CIC-TXN-20260901-DP79280KHG16.",
-            "At each measured size confirm one USD Grant Approval row, Grant +100.00, Investor Personal -100.00, and Valid control.",
-            "Fully reload, repeat the exact search, and confirm the same single row persists."
+            "Open owner grant disbursement receipt; read parties/type/date/gross/fee/net and wallet debit.",
+            "Open creator funding receipt and reconcile creator debit with grant credit.",
+            "Normal Investor login; open recipient receipt and reconcile credit/parties/type/date/amounts.",
+            "Full wallet reload and receipt readback confirm persisted fields."
           ],
           "evidence": [
             {
               "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-owner-receipt-768.png",
               "label": "cloud-owner-receipt-768.png"
-            },
-            {
-              "url": "assets/2026-09-15-close37-award-journal-backfill/admin-ledger-backfill-verification.json",
-              "label": "Public-safe structured six-size journal verification"
             }
           ],
-          "observedAt": "2026-09-15T06:39:44Z",
+          "observedAt": "2026-09-15T00:33:07.121Z",
           "subchecks": {
             "ownerGrantWallet": "PASS",
             "creatorWallet": "PASS",
             "recipientWallet": "PASS",
             "reloadReadback": "PASS",
-            "adminLedger": "PASS"
+            "adminLedger": "NOT RUN"
           }
         },
         {
           "size": "1024×768",
-          "status": "PASS",
+          "status": "FAIL",
           "measuredCss": "1024x768",
-          "summary": "PASS: exact journal description/reference and Valid control visible; server result 1-1 of 1; document scroll width 1009px did not exceed 1024px viewport width.",
+          "summary": "One1024 Admin-ledger branch failure only. Other Admin ledger cells NOT RUN, with previous receipt/wallet proof preserved. GRT017 targeted receipt PASS unaffected. Screenshot does not show horizontally hidden account columns. No backfill performed; repair/historical correction not yet verified.",
           "steps": [
-            "Reconcile the exact completed award, approved application, paired grant debit and Investor credit.",
-            "Execute the exact-scoped, user-authorized correction from merged commit 83924ed6.",
-            "Rerun the correction and verify existing-no-op with zero created records.",
-            "In signed-in Tolu Chrome, search Admin Ledger for CIC-TXN-20260901-DP79280KHG16.",
-            "At each measured size confirm one USD Grant Approval row, Grant +100.00, Investor Personal -100.00, and Valid control.",
-            "Fully reload, repeat the exact search, and confirm the same single row persists."
+            "Open owner grant disbursement receipt; read parties/type/date/gross/fee/net and wallet debit.",
+            "Open creator funding receipt and reconcile creator debit with grant credit.",
+            "Normal Investor login; open recipient receipt and reconcile credit/parties/type/date/amounts.",
+            "Full wallet reload and receipt readback confirm persisted fields.",
+            "Admin exact reference returns0; reset+description returns creation journal only."
           ],
           "evidence": [
             {
@@ -663,33 +634,27 @@
             {
               "url": "assets/2026-09-14-close37-admin-award-ledger-fail/cloud-admin-ledger-grant-description-1024.png",
               "label": "1024 description-filter result: one creation journal, account columns outside capture"
-            },
-            {
-              "url": "assets/2026-09-15-close37-award-journal-backfill/admin-ledger-backfill-verification.json",
-              "label": "Public-safe structured six-size journal verification"
             }
           ],
-          "observedAt": "2026-09-15T06:39:44Z",
+          "observedAt": "2026-09-15T00:41:27.524Z",
           "subchecks": {
             "ownerGrantWallet": "PASS",
             "creatorWallet": "PASS",
             "recipientWallet": "PASS",
             "reloadReadback": "PASS",
-            "adminLedger": "PASS"
+            "adminLedger": "FAIL"
           }
         },
         {
           "size": "1280×800",
-          "status": "PASS",
+          "status": "PARTIAL",
           "measuredCss": "1280x800",
-          "summary": "PASS: exact journal description/reference and Valid control visible; server result 1-1 of 1; document scroll width 1265px did not exceed 1280px viewport width.",
+          "summary": "PASS owner and recipient visual review at actual measured size; creator controls/readback and reload confirmed. ",
           "steps": [
-            "Reconcile the exact completed award, approved application, paired grant debit and Investor credit.",
-            "Execute the exact-scoped, user-authorized correction from merged commit 83924ed6.",
-            "Rerun the correction and verify existing-no-op with zero created records.",
-            "In signed-in Tolu Chrome, search Admin Ledger for CIC-TXN-20260901-DP79280KHG16.",
-            "At each measured size confirm one USD Grant Approval row, Grant +100.00, Investor Personal -100.00, and Valid control.",
-            "Fully reload, repeat the exact search, and confirm the same single row persists."
+            "Open owner grant disbursement receipt; read parties/type/date/gross/fee/net and wallet debit.",
+            "Open creator funding receipt and reconcile creator debit with grant credit.",
+            "Normal Investor login; open recipient receipt and reconcile credit/parties/type/date/amounts.",
+            "Full wallet reload and receipt readback confirm persisted fields."
           ],
           "evidence": [
             {
@@ -699,33 +664,27 @@
             {
               "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-recipient-receipt-1280.png",
               "label": "cloud-recipient-receipt-1280.png"
-            },
-            {
-              "url": "assets/2026-09-15-close37-award-journal-backfill/admin-ledger-backfill-verification.json",
-              "label": "Public-safe structured six-size journal verification"
             }
           ],
-          "observedAt": "2026-09-15T06:39:44Z",
+          "observedAt": "2026-09-15T00:33:07.121Z",
           "subchecks": {
             "ownerGrantWallet": "PASS",
             "creatorWallet": "PASS",
             "recipientWallet": "PASS",
             "reloadReadback": "PASS",
-            "adminLedger": "PASS"
+            "adminLedger": "NOT RUN"
           }
         },
         {
           "size": "1440×900",
-          "status": "PASS",
+          "status": "PARTIAL",
           "measuredCss": "1440x900",
-          "summary": "PASS: exact journal description/reference and Valid control visible; server result 1-1 of 1; document scroll width 1425px did not exceed 1440px viewport width.",
+          "summary": "PASS owner and recipient visual review at actual measured size; creator controls/readback and reload confirmed. ",
           "steps": [
-            "Reconcile the exact completed award, approved application, paired grant debit and Investor credit.",
-            "Execute the exact-scoped, user-authorized correction from merged commit 83924ed6.",
-            "Rerun the correction and verify existing-no-op with zero created records.",
-            "In signed-in Tolu Chrome, search Admin Ledger for CIC-TXN-20260901-DP79280KHG16.",
-            "At each measured size confirm one USD Grant Approval row, Grant +100.00, Investor Personal -100.00, and Valid control.",
-            "Fully reload, repeat the exact search, and confirm the same single row persists."
+            "Open owner grant disbursement receipt; read parties/type/date/gross/fee/net and wallet debit.",
+            "Open creator funding receipt and reconcile creator debit with grant credit.",
+            "Normal Investor login; open recipient receipt and reconcile credit/parties/type/date/amounts.",
+            "Full wallet reload and receipt readback confirm persisted fields."
           ],
           "evidence": [
             {
@@ -735,19 +694,15 @@
             {
               "url": "assets/2026-09-14-close37-receipt-reconciled/cloud-recipient-receipt-1440.png",
               "label": "cloud-recipient-receipt-1440.png"
-            },
-            {
-              "url": "assets/2026-09-15-close37-award-journal-backfill/admin-ledger-backfill-verification.json",
-              "label": "Public-safe structured six-size journal verification"
             }
           ],
-          "observedAt": "2026-09-15T06:39:44Z",
+          "observedAt": "2026-09-15T00:33:07.121Z",
           "subchecks": {
             "ownerGrantWallet": "PASS",
             "creatorWallet": "PASS",
             "recipientWallet": "PASS",
             "reloadReadback": "PASS",
-            "adminLedger": "PASS"
+            "adminLedger": "NOT RUN"
           }
         }
       ],
@@ -795,16 +750,12 @@
         {
           "url": "assets/2026-09-14-close37-admin-award-ledger-fail/cloud-admin-ledger-grant-description-1024.png",
           "label": "1024 description-filter result: one creation journal, account columns outside capture"
-        },
-        {
-          "url": "assets/2026-09-15-close37-award-journal-backfill/admin-ledger-backfill-verification.json",
-          "label": "Public-safe structured six-size journal verification"
         }
       ],
-      "evidencePublication": "PUBLIC_SAFE_STRUCTURED_EVIDENCE",
-      "limitations": "Historical correction only. No source grant, award, application, transaction, wallet balance, fee, or recipient identity was changed. No PDF/provider-label behavior is newly claimed.",
-      "sourceRun": "2026-09-15-close37-award-journal-backfill",
-      "resultSource": "register.json and visible Chrome verification"
+      "evidencePublication": "APPROVED_PUBLIC_EVIDENCE",
+      "limitations": "One1024 Admin-ledger branch failure only. Other Admin ledger cells NOT RUN, with previous receipt/wallet proof preserved. GRT017 targeted receipt PASS unaffected. Screenshot does not show horizontally hidden account columns. No backfill performed; repair/historical correction not yet verified.",
+      "sourceRun": "2026-09-14-close37-admin-award-ledger-fail",
+      "resultSource": "receipt-results.json"
     },
     {
       "id": "ADM053-CFG-001",
@@ -1688,10 +1639,10 @@
   "browser": "Google Chrome",
   "frontend": "https://planar-truck-361704.uc.r.appspot.com",
   "api": "https://cicdevapi.uc.r.appspot.com",
-  "runId": "2026-09-15-close37-award-journal-backfill",
-  "state": "RETEST PARTIAL — ADM053 receipt and ledger reconciliation closed; other focused acceptance remains open",
-  "updatedAt": "2026-09-15T06:39:44Z",
-  "scope": "Append-only closure of ADM053-REC-001 after an authorized historical journal correction. Every other finding and historical result is preserved.",
+  "runId": "2026-09-14-close37-release-deployed-pending",
+  "state": "RETEST PARTIAL — coordinated repairs are merged and live; focused cloud acceptance remains open",
+  "updatedAt": "2026-09-15T04:45:48.446Z",
+  "scope": "Chrome-only targeted defect acceptance on the recorded deployed versions. New results are limited to explicitly supplied findings and six measured CSS sizes. Historical scenarios and unexecuted lifecycle branches are not promoted to PASS.",
   "currentRelease": {
     "webapp": {
       "version": "auth-34913946226-1",
@@ -1703,16 +1654,6 @@
       "commit": "de320d4539f95415a84a3928fce77ee16633ca8f",
       "status": "LIVE"
     },
-    "buildId": "GPbRknNf6FXNHRtHOGCPF",
-    "operationalCorrection": {
-      "pullRequest": "https://github.com/capitalinvestmentclub/webapi/pull/741",
-      "mergeCommit": "83924ed6fec3deb83073c8cf619e03e3f8565893",
-      "candidateVersion": "policy-34937326329-1",
-      "deploymentRun": "https://github.com/capitalinvestmentclub/webapi/actions/runs/34937326329",
-      "liveDataJournalId": "6aa8e65bac0f372e5fcfcbbb",
-      "status": "APPLIED_AND_VERIFIED",
-      "runtimePromotionRequired": false
-    }
-  },
-  "publicationNote": "ADM053-REC-001 is now verified closed. This publication does not change unrelated findings."
+    "buildId": "GPbRknNf6FXNHRtHOGCPF"
+  }
 }
