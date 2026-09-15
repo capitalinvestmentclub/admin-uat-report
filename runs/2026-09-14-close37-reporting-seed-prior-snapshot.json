@@ -754,331 +754,193 @@
       "id": "ADM053-CFG-001",
       "title": "Saved grant configuration is lost on reopen",
       "status": "FAIL",
-      "summary": "Saved reporting instructions now agree across editor and Details at six Chrome sizes. Fresh original pitch-draft failure at360x800: Funding Stage Seed survives edit/save/full reload and editor reopen, but Details Criteria remains empty. Configuration finding remains FAIL for Seed display, not the repaired authored instructions.",
+      "summary": "Fresh exact-live-release360x800 enabled-reporting check: authored instructions \"Close37 verified 360: report progress, challenges and next steps monthly. Synthetic draft only.\" persist after save/reload/reopen editor, but Details replaces them with \"This grantor requires monthly reporting.\" One shared display/configuration mismatch; other five sizes not executed for this fresh branch. No funding or publication.",
       "steps": [
-        "Normal Actions/Edit and Next",
-        "Save controlled private draft",
-        "Full reload then Details and editor readback"
+        "Open original private synthetic matrix draft with reporting enabled.",
+        "Save authored monthly reporting instructions.",
+        "Reload and reopen editor; authored text retained.",
+        "Compare Details, which substitutes generic monthly reporting sentence."
       ],
       "responsive": [
         {
           "size": "360×800",
           "measuredCss": "360x800",
           "status": "FAIL",
-          "summary": "Seed remains selected after save/reload in editor but omitted from Details; reporting subcheck PASS.",
+          "summary": "Fresh exact-live-release360x800 enabled-reporting check: authored instructions \"Close37 verified 360: report progress, challenges and next steps monthly. Synthetic draft only.\" persist after save/reload/reopen editor, but Details replaces them with \"This grantor requires monthly reporting.\" One shared display/configuration mismatch; other five sizes not executed for this fresh branch. No funding or publication.",
           "steps": [
-            "Normal Actions/Edit and Next",
-            "Save controlled private draft",
-            "Full reload then Details and editor readback"
+            "Open original private synthetic matrix draft with reporting enabled.",
+            "Save authored monthly reporting instructions.",
+            "Reload and reopen editor; authored text retained.",
+            "Compare Details, which substitutes generic monthly reporting sentence."
           ],
-          "reportingInstructionsStatus": "PASS",
-          "seedEligibilityStatus": "FAIL",
           "evidence": [
             {
-              "url": "assets/2026-09-14-close37-reporting-seed/cloud-seed-editor-360.png",
-              "label": "cloud-seed-editor-360; shared approved evidence, size as filename"
+              "url": "assets/2026-09-14-close37-live-authored-reporting/cloud-reporting-editor-reloaded-360.png",
+              "label": "cloud-reporting-editor-reloaded-360.png"
             },
             {
-              "url": "assets/2026-09-14-close37-reporting-seed/cloud-seed-details-missing-360.png",
-              "label": "cloud-seed-details-missing-360; shared approved evidence, size as filename"
+              "url": "assets/2026-09-14-close37-live-authored-reporting/cloud-reporting-details-mismatch-360.png",
+              "label": "cloud-reporting-details-mismatch-360.png"
             }
-          ]
+          ],
+          "observedAt": "2026-09-14T23:56:33.561Z"
         },
         {
           "size": "390×844",
-          "measuredCss": "390x844",
-          "status": "PARTIAL",
-          "summary": "Reporting saved/read back PASS; Seed eligibility comparison NOT RUN at this size.",
-          "steps": [
-            "Normal Actions/Edit and Next",
-            "Save controlled private draft",
-            "Full reload then Details and editor readback"
-          ],
-          "reportingInstructionsStatus": "PASS",
-          "seedEligibilityStatus": "NOT RUN",
-          "evidence": [
-            {
-              "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-390.png",
-              "label": "cloud-reporting-fixed-390; shared approved evidence, size as filename"
-            }
-          ]
+          "measuredCss": null,
+          "status": "NOT RUN",
+          "summary": "Not executed for this fresh exact-release enabled-reporting branch; historical results preserved.",
+          "steps": [],
+          "evidence": [],
+          "observedAt": "2026-09-14T23:56:33.561Z"
         },
         {
           "size": "768×1024",
-          "measuredCss": "768x1024",
-          "status": "PARTIAL",
-          "summary": "Reporting saved/read back PASS; Seed eligibility comparison NOT RUN at this size.",
-          "steps": [
-            "Normal Actions/Edit and Next",
-            "Save controlled private draft",
-            "Full reload then Details and editor readback"
-          ],
-          "reportingInstructionsStatus": "PASS",
-          "seedEligibilityStatus": "NOT RUN",
-          "evidence": [
-            {
-              "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-768.png",
-              "label": "cloud-reporting-fixed-768; shared approved evidence, size as filename"
-            }
-          ]
+          "measuredCss": null,
+          "status": "NOT RUN",
+          "summary": "Not executed for this fresh exact-release enabled-reporting branch; historical results preserved.",
+          "steps": [],
+          "evidence": [],
+          "observedAt": "2026-09-14T23:56:33.561Z"
         },
         {
           "size": "1024×768",
-          "measuredCss": "1024x768",
-          "status": "PARTIAL",
-          "summary": "Reporting saved/read back PASS; Seed eligibility comparison NOT RUN at this size.",
-          "steps": [
-            "Normal Actions/Edit and Next",
-            "Save controlled private draft",
-            "Full reload then Details and editor readback"
-          ],
-          "reportingInstructionsStatus": "PASS",
-          "seedEligibilityStatus": "NOT RUN",
-          "evidence": [
-            {
-              "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-768.png",
-              "label": "cloud-reporting-fixed-768; shared approved evidence, size as filename"
-            }
-          ]
+          "measuredCss": null,
+          "status": "NOT RUN",
+          "summary": "Not executed for this fresh exact-release enabled-reporting branch; historical results preserved.",
+          "steps": [],
+          "evidence": [],
+          "observedAt": "2026-09-14T23:56:33.561Z"
         },
         {
           "size": "1280×800",
-          "measuredCss": "1280x800",
-          "status": "PARTIAL",
-          "summary": "Reporting saved/read back PASS; Seed eligibility comparison NOT RUN at this size.",
-          "steps": [
-            "Normal Actions/Edit and Next",
-            "Save controlled private draft",
-            "Full reload then Details and editor readback"
-          ],
-          "reportingInstructionsStatus": "PASS",
-          "seedEligibilityStatus": "NOT RUN",
-          "evidence": [
-            {
-              "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-768.png",
-              "label": "cloud-reporting-fixed-768; shared approved evidence, size as filename"
-            }
-          ]
+          "measuredCss": null,
+          "status": "NOT RUN",
+          "summary": "Not executed for this fresh exact-release enabled-reporting branch; historical results preserved.",
+          "steps": [],
+          "evidence": [],
+          "observedAt": "2026-09-14T23:56:33.561Z"
         },
         {
           "size": "1440×900",
-          "measuredCss": "1440x900",
-          "status": "PARTIAL",
-          "summary": "Reporting saved/read back PASS; Seed eligibility comparison NOT RUN at this size.",
-          "steps": [
-            "Normal Actions/Edit and Next",
-            "Save controlled private draft",
-            "Full reload then Details and editor readback"
-          ],
-          "reportingInstructionsStatus": "PASS",
-          "seedEligibilityStatus": "NOT RUN",
-          "evidence": [
-            {
-              "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-768.png",
-              "label": "cloud-reporting-fixed-768; shared approved evidence, size as filename"
-            }
-          ]
+          "measuredCss": null,
+          "status": "NOT RUN",
+          "summary": "Not executed for this fresh exact-release enabled-reporting branch; historical results preserved.",
+          "steps": [],
+          "evidence": [],
+          "observedAt": "2026-09-14T23:56:33.561Z"
         }
       ],
       "evidence": [
         {
-          "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-360.png",
-          "label": "cloud-reporting-fixed-360; shared approved evidence, size as filename"
+          "url": "assets/2026-09-14-close37-live-authored-reporting/cloud-reporting-editor-reloaded-360.png",
+          "label": "cloud-reporting-editor-reloaded-360.png"
         },
         {
-          "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-390.png",
-          "label": "cloud-reporting-fixed-390; shared approved evidence, size as filename"
-        },
-        {
-          "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-768.png",
-          "label": "cloud-reporting-fixed-768; shared approved evidence, size as filename"
-        },
-        {
-          "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-disabled-360.png",
-          "label": "cloud-reporting-disabled-360; shared approved evidence, size as filename"
-        },
-        {
-          "url": "assets/2026-09-14-close37-reporting-seed/cloud-seed-editor-360.png",
-          "label": "cloud-seed-editor-360; shared approved evidence, size as filename"
-        },
-        {
-          "url": "assets/2026-09-14-close37-reporting-seed/cloud-seed-details-missing-360.png",
-          "label": "cloud-seed-details-missing-360; shared approved evidence, size as filename"
+          "url": "assets/2026-09-14-close37-live-authored-reporting/cloud-reporting-details-mismatch-360.png",
+          "label": "cloud-reporting-details-mismatch-360.png"
         }
       ],
       "evidencePublication": "APPROVED_PUBLIC_EVIDENCE",
-      "limitations": "Seed tested at360 only; other five Seed cells NOT RUN. Reporting subcheck PASS all six. No published grant, invitation or financial mutation.",
-      "sourceRun": "2026-09-14-close37-reporting-seed",
-      "resultSource": "results.json",
-      "deployments": {
-        "webapp": {
-          "version": "auth-34913946226-1",
-          "commit": "a2d485d57a0456f9e6f038cdfc73dfb467d9a9dd",
-          "status": "LIVE"
-        },
-        "webapi": {
-          "version": "policy-34904590658-1",
-          "commit": "de320d4539f95415a84a3928fce77ee16633ca8f",
-          "status": "LIVE"
-        },
-        "buildId": "GPbRknNf6FXNHRtHOGCPF"
-      }
+      "limitations": "Fresh360 authored-reporting mismatch only, on recorded live versions. Other five cells NOT RUN for this branch; previous results preserved in archive. Existing OFF-reporting evidence is not invalidated. No complete six-size acceptance claimed.",
+      "sourceRun": "2026-09-14-close37-live-authored-reporting",
+      "resultSource": "results.json"
     },
     {
       "id": "ADM053-REPORT-001",
       "title": "Grant detail invents comment and reporting obligations",
-      "status": "PARTIAL",
-      "summary": "Authored reporting instructions PASS six independent enabled edit/save/full reload/editor rereads, including newline, Unicode and long-reference wrapping. Disabled state persisted once and checked at six sizes. Original text/enabled state restored and confirmed after full reload. Whole finding PARTIAL: recipient award/comment comparison remains unexecuted.",
+      "status": "FAIL",
+      "summary": "Fresh exact-live-release360x800 enabled-reporting check: authored instructions \"Close37 verified360: report progress, challenges and next steps monthly. Synthetic draft only.\" persist after save/reload/reopen editor, but Details replaces them with \"This grantor requires monthly reporting.\" One shared display/configuration mismatch; other five sizes not executed for this fresh branch. No funding or publication.",
       "steps": [
-        "Normal Actions/Edit and Next",
-        "Save controlled private draft",
-        "Full reload then Details and editor readback"
+        "Open original private synthetic matrix draft with reporting enabled.",
+        "Save authored monthly reporting instructions.",
+        "Reload and reopen editor; authored text retained.",
+        "Compare Details, which substitutes generic monthly reporting sentence."
       ],
       "responsive": [
         {
           "size": "360×800",
           "measuredCss": "360x800",
-          "status": "PARTIAL",
-          "summary": "Authored reporting instructions saved, full reloaded and editor reread PASS; recipient award comparison NOT RUN.",
+          "status": "FAIL",
+          "summary": "Fresh exact-live-release360x800 enabled-reporting check: authored instructions \"Close37 verified360: report progress, challenges and next steps monthly. Synthetic draft only.\" persist after save/reload/reopen editor, but Details replaces them with \"This grantor requires monthly reporting.\" One shared display/configuration mismatch; other five sizes not executed for this fresh branch. No funding or publication.",
           "steps": [
-            "Normal Actions/Edit and Next",
-            "Save controlled private draft",
-            "Full reload then Details and editor readback"
+            "Open original private synthetic matrix draft with reporting enabled.",
+            "Save authored monthly reporting instructions.",
+            "Reload and reopen editor; authored text retained.",
+            "Compare Details, which substitutes generic monthly reporting sentence."
           ],
-          "reportingInstructionsStatus": "PASS",
           "evidence": [
             {
-              "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-360.png",
-              "label": "cloud-reporting-fixed-360; shared approved evidence, size as filename"
+              "url": "assets/2026-09-14-close37-live-authored-reporting/cloud-reporting-editor-reloaded-360.png",
+              "label": "cloud-reporting-editor-reloaded-360.png"
+            },
+            {
+              "url": "assets/2026-09-14-close37-live-authored-reporting/cloud-reporting-details-mismatch-360.png",
+              "label": "cloud-reporting-details-mismatch-360.png"
             }
-          ]
+          ],
+          "observedAt": "2026-09-14T23:56:33.561Z"
         },
         {
           "size": "390×844",
-          "measuredCss": "390x844",
-          "status": "PARTIAL",
-          "summary": "Authored reporting instructions saved, full reloaded and editor reread PASS; recipient award comparison NOT RUN.",
-          "steps": [
-            "Normal Actions/Edit and Next",
-            "Save controlled private draft",
-            "Full reload then Details and editor readback"
-          ],
-          "reportingInstructionsStatus": "PASS",
-          "evidence": [
-            {
-              "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-390.png",
-              "label": "cloud-reporting-fixed-390; shared approved evidence, size as filename"
-            }
-          ]
+          "measuredCss": null,
+          "status": "NOT RUN",
+          "summary": "Not executed for this fresh exact-release enabled-reporting branch; historical results preserved.",
+          "steps": [],
+          "evidence": [],
+          "observedAt": "2026-09-14T23:56:33.561Z"
         },
         {
           "size": "768×1024",
-          "measuredCss": "768x1024",
-          "status": "PARTIAL",
-          "summary": "Authored reporting instructions saved, full reloaded and editor reread PASS; recipient award comparison NOT RUN.",
-          "steps": [
-            "Normal Actions/Edit and Next",
-            "Save controlled private draft",
-            "Full reload then Details and editor readback"
-          ],
-          "reportingInstructionsStatus": "PASS",
-          "evidence": [
-            {
-              "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-768.png",
-              "label": "cloud-reporting-fixed-768; shared approved evidence, size as filename"
-            }
-          ]
+          "measuredCss": null,
+          "status": "NOT RUN",
+          "summary": "Not executed for this fresh exact-release enabled-reporting branch; historical results preserved.",
+          "steps": [],
+          "evidence": [],
+          "observedAt": "2026-09-14T23:56:33.561Z"
         },
         {
           "size": "1024×768",
-          "measuredCss": "1024x768",
-          "status": "PARTIAL",
-          "summary": "Authored reporting instructions saved, full reloaded and editor reread PASS; recipient award comparison NOT RUN.",
-          "steps": [
-            "Normal Actions/Edit and Next",
-            "Save controlled private draft",
-            "Full reload then Details and editor readback"
-          ],
-          "reportingInstructionsStatus": "PASS",
-          "evidence": [
-            {
-              "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-768.png",
-              "label": "cloud-reporting-fixed-768; shared approved evidence, size as filename"
-            }
-          ]
+          "measuredCss": null,
+          "status": "NOT RUN",
+          "summary": "Not executed for this fresh exact-release enabled-reporting branch; historical results preserved.",
+          "steps": [],
+          "evidence": [],
+          "observedAt": "2026-09-14T23:56:33.561Z"
         },
         {
           "size": "1280×800",
-          "measuredCss": "1280x800",
-          "status": "PARTIAL",
-          "summary": "Authored reporting instructions saved, full reloaded and editor reread PASS; recipient award comparison NOT RUN.",
-          "steps": [
-            "Normal Actions/Edit and Next",
-            "Save controlled private draft",
-            "Full reload then Details and editor readback"
-          ],
-          "reportingInstructionsStatus": "PASS",
-          "evidence": [
-            {
-              "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-768.png",
-              "label": "cloud-reporting-fixed-768; shared approved evidence, size as filename"
-            }
-          ]
+          "measuredCss": null,
+          "status": "NOT RUN",
+          "summary": "Not executed for this fresh exact-release enabled-reporting branch; historical results preserved.",
+          "steps": [],
+          "evidence": [],
+          "observedAt": "2026-09-14T23:56:33.561Z"
         },
         {
           "size": "1440×900",
-          "measuredCss": "1440x900",
-          "status": "PARTIAL",
-          "summary": "Authored reporting instructions saved, full reloaded and editor reread PASS; recipient award comparison NOT RUN.",
-          "steps": [
-            "Normal Actions/Edit and Next",
-            "Save controlled private draft",
-            "Full reload then Details and editor readback"
-          ],
-          "reportingInstructionsStatus": "PASS",
-          "evidence": [
-            {
-              "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-768.png",
-              "label": "cloud-reporting-fixed-768; shared approved evidence, size as filename"
-            }
-          ]
+          "measuredCss": null,
+          "status": "NOT RUN",
+          "summary": "Not executed for this fresh exact-release enabled-reporting branch; historical results preserved.",
+          "steps": [],
+          "evidence": [],
+          "observedAt": "2026-09-14T23:56:33.561Z"
         }
       ],
       "evidence": [
         {
-          "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-360.png",
-          "label": "cloud-reporting-fixed-360; shared approved evidence, size as filename"
+          "url": "assets/2026-09-14-close37-live-authored-reporting/cloud-reporting-editor-reloaded-360.png",
+          "label": "cloud-reporting-editor-reloaded-360.png"
         },
         {
-          "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-390.png",
-          "label": "cloud-reporting-fixed-390; shared approved evidence, size as filename"
-        },
-        {
-          "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-fixed-768.png",
-          "label": "cloud-reporting-fixed-768; shared approved evidence, size as filename"
-        },
-        {
-          "url": "assets/2026-09-14-close37-reporting-seed/cloud-reporting-disabled-360.png",
-          "label": "cloud-reporting-disabled-360; shared approved evidence, size as filename"
+          "url": "assets/2026-09-14-close37-live-authored-reporting/cloud-reporting-details-mismatch-360.png",
+          "label": "cloud-reporting-details-mismatch-360.png"
         }
       ],
       "evidencePublication": "APPROVED_PUBLIC_EVIDENCE",
-      "limitations": "One disabled save/reload plus six controls/readbacks, not six independent disabled saves. Recipient award/comment branch missing. Desktop screenshots private and excluded.",
-      "sourceRun": "2026-09-14-close37-reporting-seed",
-      "resultSource": "results.json",
-      "deployments": {
-        "webapp": {
-          "version": "auth-34913946226-1",
-          "commit": "a2d485d57a0456f9e6f038cdfc73dfb467d9a9dd",
-          "status": "LIVE"
-        },
-        "webapi": {
-          "version": "policy-34904590658-1",
-          "commit": "de320d4539f95415a84a3928fce77ee16633ca8f",
-          "status": "LIVE"
-        },
-        "buildId": "GPbRknNf6FXNHRtHOGCPF"
-      }
+      "limitations": "Fresh360 authored-reporting mismatch only, on recorded live versions. Other five cells NOT RUN for this branch; previous results preserved in archive. Existing OFF-reporting evidence is not invalidated. No complete six-size acceptance claimed.",
+      "sourceRun": "2026-09-14-close37-live-authored-reporting",
+      "resultSource": "results.json"
     },
     {
       "id": "ADM054-WF-001",
@@ -1598,14 +1460,16 @@
   "browser": "Google Chrome",
   "frontend": "https://planar-truck-361704.uc.r.appspot.com",
   "api": "https://cicdevapi.uc.r.appspot.com",
-  "runId": "2026-09-14-close37-reporting-seed",
+  "runId": "2026-09-14-close37-case-navigation-partial",
   "state": "RETEST PARTIAL — completed targeted batch published; remaining findings retain their latest recorded outcomes",
-  "updatedAt": "2026-09-15T01:12:30.494Z",
+  "updatedAt": "2026-09-15T00:53:41.302Z",
   "scope": "Chrome-only targeted defect acceptance on the recorded deployed versions. New results are limited to explicitly supplied findings and six measured CSS sizes. Historical scenarios and unexecuted lifecycle branches are not promoted to PASS.",
   "currentRelease": {
     "webapp": {
       "version": "auth-34913946226-1",
       "commit": "a2d485d57a0456f9e6f038cdfc73dfb467d9a9dd",
+      "promotionRun": "34914731385",
+      "buildId": "GPbRknNf6FXNHRtHOGCPF",
       "status": "LIVE"
     },
     "webapi": {
@@ -1613,6 +1477,6 @@
       "commit": "de320d4539f95415a84a3928fce77ee16633ca8f",
       "status": "LIVE"
     },
-    "buildId": "GPbRknNf6FXNHRtHOGCPF"
+    "note": "Reporting-only frontend promotion followed these executions; no case test is attributed to the newer release."
   }
 }
