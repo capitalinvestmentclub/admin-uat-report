@@ -1,0 +1,41 @@
+{
+  "runId": "2026-09-15-close37-award-journal-backfill",
+  "observedAt": "2026-09-15T06:39:44Z",
+  "browser": "Google Chrome",
+  "profile": "Tolu",
+  "environment": "https://planar-truck-361704.uc.r.appspot.com/admin/ledger",
+  "findingId": "ADM053-REC-001",
+  "transactionReference": "CIC-TXN-20260901-DP79280KHG16",
+  "journalId": "6aa8e65bac0f372e5fcfcbbb",
+  "sourceAwardId": "6a9628cdcae07bfa04bc4127",
+  "originalEffectiveOn": "2026-09-01T01:22:21.160Z",
+  "matrix": {
+    "grant": 100,
+    "investorPersonal": -100
+  },
+  "control": "Valid",
+  "resultCount": 1,
+  "reloadPersistence": "PASS",
+  "idempotentSecondApply": {
+    "status": "existing-no-op",
+    "createdAccounts": 0,
+    "createdJournals": 0,
+    "createdEntries": 0
+  },
+  "viewports": [
+    {"size": "360x800", "status": "PASS", "descriptionVisible": true, "referenceVisible": true, "oneResult": true, "validVisible": true, "scrollWidth": 345},
+    {"size": "390x844", "status": "PASS", "descriptionVisible": true, "referenceVisible": true, "oneResult": true, "validVisible": true, "scrollWidth": 375},
+    {"size": "768x1024", "status": "PASS", "descriptionVisible": true, "referenceVisible": true, "oneResult": true, "validVisible": true, "scrollWidth": 753},
+    {"size": "1024x768", "status": "PASS", "descriptionVisible": true, "referenceVisible": true, "oneResult": true, "validVisible": true, "scrollWidth": 1009},
+    {"size": "1280x800", "status": "PASS", "descriptionVisible": true, "referenceVisible": true, "oneResult": true, "validVisible": true, "scrollWidth": 1265},
+    {"size": "1440x900", "status": "PASS", "descriptionVisible": true, "referenceVisible": true, "oneResult": true, "validVisible": true, "scrollWidth": 1425}
+  ],
+  "release": {
+    "pullRequest": "https://github.com/capitalinvestmentclub/webapi/pull/741",
+    "mergeCommit": "83924ed6fec3deb83073c8cf619e03e3f8565893",
+    "candidateVersion": "policy-34937326329-1",
+    "candidateDeploymentRun": "https://github.com/capitalinvestmentclub/webapi/actions/runs/34937326329",
+    "runtimePromotionRequired": false,
+    "runtimeNote": "The merged artifact is an exact-scoped operational correction utility. The authorized data correction was executed against the live data store; no API route or runtime behavior changed."
+  }
+}
