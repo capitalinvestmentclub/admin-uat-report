@@ -528,7 +528,7 @@
       "id": "ADM053-REC-001",
       "title": "Grant award receipt reverses sender and recipient",
       "status": "PASS",
-      "summary": "PASS: the user-authorized historical correction created one balanced USD award journal and two entries for the exact controlled award. Chrome exact-reference search returns one Valid Grant Approval row with Grant +100 and Investor Personal -100 at all six measured CSS sizes. Full reload and a fresh search preserve the same row; a second backfill execution is a zero-write no-op.",
+      "summary": "PASS: the user-authorized historical correction created one balanced USD award journal and two entries for the exact controlled award. Chrome exact-reference search returns one Valid Grant Approval row with Grant +100 and Investor Personal -100 at all six measured CSS sizes. Full reload and a fresh search preserve the same row; a second backfill execution is a zero-write no-op. Final merged hardening rejects ambiguous references, unrelated debit legs, wrong ledger accounts, malformed attribution and null audit dates.",
       "steps": [
         "Reconcile the exact completed award, approved application, paired grant debit and Investor credit.",
         "Execute the exact-scoped, user-authorized correction from merged commit 83924ed6.",
@@ -1690,7 +1690,7 @@
   "api": "https://cicdevapi.uc.r.appspot.com",
   "runId": "2026-09-15-close37-award-journal-backfill",
   "state": "RETEST PARTIAL — ADM053 receipt and ledger reconciliation closed; other focused acceptance remains open",
-  "updatedAt": "2026-09-15T06:39:44Z",
+  "updatedAt": "2026-09-15T07:06:00Z",
   "scope": "Append-only closure of ADM053-REC-001 after an authorized historical journal correction. Every other finding and historical result is preserved.",
   "currentRelease": {
     "webapp": {
@@ -1714,5 +1714,32 @@
       "runtimePromotionRequired": false
     }
   },
-  "publicationNote": "ADM053-REC-001 is now verified closed. This publication does not change unrelated findings."
+  "publicationNote": "ADM053-REC-001 is now verified closed. This publication does not change unrelated findings.",
+  "mergeStatus": "MERGED — API PRs #741, #742 and #743",
+  "deploymentStatus": "LIVE DATA CORRECTION; final hardened operational candidates staged and verified; runtime promotion not required",
+  "releaseGate": "API PRs #741, #742 and #743 merged after green checks. The exact-scoped utility created one live journal and two entries; stricter committed reruns validated the same journal with zero writes; the deployed Admin Ledger returned one Valid row at all six sizes after a full reload.",
+  "candidates": {
+    "operationalCorrectionMerge": "83924ed6fec3deb83073c8cf619e03e3f8565893",
+    "operationalHardeningMerge": "05363a6662447537d62fbfb8d0f26d267636afc4",
+    "operationalNullGuardMerge": "250602f99a56666c13dc7bf72eb8219a447c95a4"
+  },
+  "pullRequests": [
+    {
+      "url": "https://github.com/capitalinvestmentclub/webapi/pull/742",
+      "label": "API PR #742 — MERGED; exact-reference, debit, ledger-account and attribution hardening"
+    },
+    {
+      "url": "https://github.com/capitalinvestmentclub/webapi/actions/runs/34939250294",
+      "label": "PR #742 operational candidate policy-34939250294-1 — SUCCESS; no runtime promotion required"
+    },
+    {
+      "url": "https://github.com/capitalinvestmentclub/webapi/pull/743",
+      "label": "API PR #743 — MERGED; explicit null correction-date rejection"
+    },
+    {
+      "url": "https://github.com/capitalinvestmentclub/webapi/actions/runs/34939983519",
+      "label": "PR #743 operational candidate deployment — SUCCESS; no runtime promotion required"
+    }
+  ],
+  "apiTests": "58/58 related grant and ledger regressions passed for the hardening batch; the final focused suite passed 8/8, including exact-reference conflicts, exact legacy debit binding, account-ID validation, correction attribution, null-date rejection, idempotency, source immutability and transaction rollback."
 }
