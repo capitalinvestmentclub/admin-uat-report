@@ -124,57 +124,52 @@
     {
       "id": "ADM050-EMAIL-001",
       "title": "KYC confirmation link fails TLS validation",
-      "status": "PASS",
-      "summary": "A fresh reviewer-issued KYC confirmation email arrived in the controlled mailbox within about one minute. Its first-party HTTPS confirmation link opened without a certificate warning, was accepted by the deployed application, and redirected to login. The accepted result rendered without horizontal overflow at all six Chrome sizes.",
-      "steps": [
-        "Issued a fresh KYC confirmation email from the normal reviewer workflow.",
-        "Opened the newest message in the controlled recipient mailbox and followed its confirmation link without bypassing browser security.",
-        "Confirmed the deployed application accepted the link and reached the normal login route.",
-        "Checked the accepted result at all six required Chrome viewport sizes."
-      ],
+      "status": "PARTIAL",
+      "summary": "Opened the actual September 8 KYC Email Confirmation in the controlled Pitcher inbox. Tracking redirect now reaches the canonical HTTPS verification page without a Chrome certificate warning. It reports Token is Invalid or expired at all six sizes, with a login recovery link.",
+      "steps": [],
       "responsive": [
         {
           "size": "360×800",
-          "status": "PASS",
-          "summary": "Fresh confirmation reached the normal deployed login route without TLS or layout failure at this measured Chrome size.",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Opened the actual September 8 KYC Email Confirmation in the controlled Pitcher inbox. Tracking redirect now reaches the canonical HTTPS verification page without a Chrome certificate warning. It reports Token is Invalid or expired at all six sizes, with a login recovery link. No independent per-size workflow acceptance outcome supplied.",
           "evidence": []
         },
         {
           "size": "390×844",
-          "status": "PASS",
-          "summary": "Fresh confirmation reached the normal deployed login route without TLS or layout failure at this measured Chrome size.",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Opened the actual September 8 KYC Email Confirmation in the controlled Pitcher inbox. Tracking redirect now reaches the canonical HTTPS verification page without a Chrome certificate warning. It reports Token is Invalid or expired at all six sizes, with a login recovery link. No independent per-size workflow acceptance outcome supplied.",
           "evidence": []
         },
         {
           "size": "768×1024",
-          "status": "PASS",
-          "summary": "Fresh confirmation reached the normal deployed login route without TLS or layout failure at this measured Chrome size.",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Opened the actual September 8 KYC Email Confirmation in the controlled Pitcher inbox. Tracking redirect now reaches the canonical HTTPS verification page without a Chrome certificate warning. It reports Token is Invalid or expired at all six sizes, with a login recovery link. No independent per-size workflow acceptance outcome supplied.",
           "evidence": []
         },
         {
           "size": "1024×768",
-          "status": "PASS",
-          "summary": "Fresh confirmation reached the normal deployed login route without TLS or layout failure at this measured Chrome size.",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Opened the actual September 8 KYC Email Confirmation in the controlled Pitcher inbox. Tracking redirect now reaches the canonical HTTPS verification page without a Chrome certificate warning. It reports Token is Invalid or expired at all six sizes, with a login recovery link. No independent per-size workflow acceptance outcome supplied.",
           "evidence": []
         },
         {
           "size": "1280×800",
-          "status": "PASS",
-          "summary": "Fresh confirmation reached the normal deployed login route without TLS or layout failure at this measured Chrome size.",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Opened the actual September 8 KYC Email Confirmation in the controlled Pitcher inbox. Tracking redirect now reaches the canonical HTTPS verification page without a Chrome certificate warning. It reports Token is Invalid or expired at all six sizes, with a login recovery link. No independent per-size workflow acceptance outcome supplied.",
           "evidence": []
         },
         {
           "size": "1440×900",
-          "status": "PASS",
-          "summary": "Fresh confirmation reached the normal deployed login route without TLS or layout failure at this measured Chrome size.",
+          "status": "PARTIAL",
+          "summary": "Rendered state inspected: Opened the actual September 8 KYC Email Confirmation in the controlled Pitcher inbox. Tracking redirect now reaches the canonical HTTPS verification page without a Chrome certificate warning. It reports Token is Invalid or expired at all six sizes, with a login recovery link. No independent per-size workflow acceptance outcome supplied.",
           "evidence": []
         }
       ],
       "evidence": [],
       "evidencePublication": "WITHHELD_PRIVACY_REVIEW",
-      "limitations": "The controlled record was already marked email-verified before this resend, so this run proves fresh issuance, delivery, HTTPS acceptance, and responsive routing; it does not claim a second verification-state transition.",
-      "sourceRun": "2026-09-15-verify-eight-partials",
-      "resultSource": "Live Chrome verification on the deployed application"
+      "limitations": "Historical token replay only. Fresh KYC confirmation issuance, token acceptance and reviewer/approver readback are not completed. Evidence withheld pending explicit public-asset review. Private document captures, signed links and local paths are never copied automatically.",
+      "sourceRun": "2026-09-14-retest45",
+      "resultSource": "results.json"
     },
     {
       "id": "ADM052-FIN-001",
@@ -290,56 +285,51 @@
       "id": "ADM055-LEDGER-001",
       "title": "Historical bid ledger values are internally inconsistent",
       "status": "PARTIAL",
-      "summary": "The controlled Pitcher wallet freshly exposed current and available NGN balances and recent running-balance rows. The historical journal remains mathematically balanced from the prior same-release six-size verification, but the normal wallet search could not correlate the exact historical bid: one search fanned out into dozens of page requests and remained in a loading state, while an internal-record-id search returned no UI row.",
-      "steps": [
-        "Signed in through the normal controlled Pitcher account and opened Wallet.",
-        "Revealed current and available NGN balances and inspected the latest running-balance rows and counterparties.",
-        "Attempted a normal amount search and exact controlled transaction-id search.",
-        "Stopped the fan-out search after it issued dozens of historical page requests without producing the required correlated row."
-      ],
+      "summary": "Fresh controlled owner-rejection filter returned eight journal rows covering 100.00 and 100.01 submit/reject cycles. All fourteen account amounts per row sum to zero, every Control is Valid, and all account aggregates are 0.00. Mobile journal cards show the paired signs. Actual horizontal scrolling reached rightmost account/control columns; six-size images record that access.",
+      "steps": [],
       "responsive": [
         {
           "size": "360×800",
           "status": "PARTIAL",
-          "summary": "Prior same-release journal accessibility remains recorded at this size; the fresh wallet-to-historical-row correlation is still incomplete.",
+          "summary": "Rendered state inspected: Fresh controlled owner-rejection filter returned eight journal rows covering 100.00 and 100.01 submit/reject cycles. All fourteen account amounts per row sum to zero, every Control is Valid, and all account aggregates are 0.00. Mobile journal cards show the paired signs. Actual horizontal scrolling reached rightmost account/control columns; six-size images record that access. No independent per-size workflow acceptance outcome supplied.",
           "evidence": []
         },
         {
           "size": "390×844",
           "status": "PARTIAL",
-          "summary": "Prior same-release journal accessibility remains recorded at this size; the fresh wallet-to-historical-row correlation is still incomplete.",
+          "summary": "Rendered state inspected: Fresh controlled owner-rejection filter returned eight journal rows covering 100.00 and 100.01 submit/reject cycles. All fourteen account amounts per row sum to zero, every Control is Valid, and all account aggregates are 0.00. Mobile journal cards show the paired signs. Actual horizontal scrolling reached rightmost account/control columns; six-size images record that access. No independent per-size workflow acceptance outcome supplied.",
           "evidence": []
         },
         {
           "size": "768×1024",
           "status": "PARTIAL",
-          "summary": "Prior same-release journal accessibility remains recorded at this size; the fresh wallet-to-historical-row correlation is still incomplete.",
+          "summary": "Rendered state inspected: Fresh controlled owner-rejection filter returned eight journal rows covering 100.00 and 100.01 submit/reject cycles. All fourteen account amounts per row sum to zero, every Control is Valid, and all account aggregates are 0.00. Mobile journal cards show the paired signs. Actual horizontal scrolling reached rightmost account/control columns; six-size images record that access. No independent per-size workflow acceptance outcome supplied.",
           "evidence": []
         },
         {
           "size": "1024×768",
           "status": "PARTIAL",
-          "summary": "Prior same-release journal accessibility remains recorded at this size; the fresh wallet-to-historical-row correlation is still incomplete.",
+          "summary": "Rendered state inspected: Fresh controlled owner-rejection filter returned eight journal rows covering 100.00 and 100.01 submit/reject cycles. All fourteen account amounts per row sum to zero, every Control is Valid, and all account aggregates are 0.00. Mobile journal cards show the paired signs. Actual horizontal scrolling reached rightmost account/control columns; six-size images record that access. No independent per-size workflow acceptance outcome supplied.",
           "evidence": []
         },
         {
           "size": "1280×800",
           "status": "PARTIAL",
-          "summary": "Prior same-release journal accessibility remains recorded at this size; the fresh wallet-to-historical-row correlation is still incomplete.",
+          "summary": "Rendered state inspected: Fresh controlled owner-rejection filter returned eight journal rows covering 100.00 and 100.01 submit/reject cycles. All fourteen account amounts per row sum to zero, every Control is Valid, and all account aggregates are 0.00. Mobile journal cards show the paired signs. Actual horizontal scrolling reached rightmost account/control columns; six-size images record that access. No independent per-size workflow acceptance outcome supplied.",
           "evidence": []
         },
         {
           "size": "1440×900",
           "status": "PARTIAL",
-          "summary": "Prior same-release journal accessibility remains recorded at this size; the fresh wallet-to-historical-row correlation is still incomplete.",
+          "summary": "Rendered state inspected: Fresh controlled owner-rejection filter returned eight journal rows covering 100.00 and 100.01 submit/reject cycles. All fourteen account amounts per row sum to zero, every Control is Valid, and all account aggregates are 0.00. Mobile journal cards show the paired signs. Actual horizontal scrolling reached rightmost account/control columns; six-size images record that access. No independent per-size workflow acceptance outcome supplied.",
           "evidence": []
         }
       ],
       "evidence": [],
       "evidencePublication": "WITHHELD_PRIVACY_REVIEW",
-      "limitations": "The exact historical bid row, public reference, matching counterparty leg, and running-balance transition were not jointly available through the normal deployed UI. No transaction, backfill, capture, refund, or balance mutation was performed.",
-      "sourceRun": "2026-09-15-verify-eight-partials",
-      "resultSource": "Live Chrome verification on the deployed application"
+      "limitations": "Historical double-entry equations pass, but original defect also concerns current wallet/running-balance consistency and counterparties. No fresh bid/refund/capture or wallet running-balance comparison was performed, so the full defect remains partially verified. Journal detail uses raw internal account identifiers; those details were not saved as public evidence. Evidence withheld pending explicit public-asset review. Private document captures, signed links and local paths are never copied automatically.",
+      "sourceRun": "2026-09-14-retest45",
+      "resultSource": "ops-results.json"
     },
     {
       "id": "ADM050-EVIDENCE-001",
@@ -1992,10 +1982,10 @@
   "browser": "Google Chrome",
   "frontend": "https://planar-truck-361704.uc.r.appspot.com",
   "api": "https://cicdevapi.uc.r.appspot.com",
-  "runId": "2026-09-15-verify-eight-partials",
-  "state": "PARTIAL VERIFICATION — 8 CRITICAL FINDINGS",
-  "updatedAt": "2026-09-16T00:57:50Z",
-  "scope": "Fresh deployed Chrome verification of the eight findings that were previously PARTIAL. Exact six-size results are recorded where exercised; missing external prerequisites and reproduced failures remain explicit.",
+  "runId": "2026-09-15-close37-verified-five",
+  "state": "RETEST PARTIAL — five additional critical/high findings are deployed and six-size Chrome verified",
+  "updatedAt": "2026-09-15T15:45:00Z",
+  "scope": "Latest targeted closure batch on the exact deployed versions. Only the five explicitly verified findings are promoted to PASS; every other finding retains its prior status and history.",
   "currentRelease": {
     "webapp": {
       "version": "auth-34913946226-1",
@@ -2018,5 +2008,5 @@
       "runtimePromotionRequired": false
     }
   },
-  "publicationNote": "This run preserves prior history and updates only the eight requested findings. Sensitive credentials, tokens, mailbox content, identity documents, signed URLs, and internal financial identifiers are withheld."
+  "publicationNote": "ADM053-REC-001 is now verified closed. This publication does not change unrelated findings."
 }
