@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 1,
+  "runId": "2026-09-17-defect-batch-deployed-retest",
+  "state": "COMPLETE",
+  "completedAt": "2026-09-18T10:10:00Z",
+  "environment": {
+    "frontend": {
+      "url": "https://auth-35306705473-1-dot-planar-truck-361704.uc.r.appspot.com",
+      "version": "auth-35306705473-1",
+      "mergeCommit": "d8777aae575f942514538381d54d3715aabf4b8c",
+      "trafficPromoted": false
+    },
+    "api": {
+      "url": "https://cicdevapi.uc.r.appspot.com",
+      "mergeCommit": "46a098ebcdcdebac39d1ba73569c793cd70a72fb",
+      "health": "/api/v1/health",
+      "postMergeTestRisk": "5 suites and 7 tests failed in workflow run 35281782628."
+    },
+    "notificationservice": {
+      "mergeCommit": "08b76889070663f7e7d57cad2003d5cd87378340"
+    }
+  },
+  "scope": {
+    "sourceFindingCount": 276,
+    "sourceRegisterSha256": "ab4d22a0e2082c3fd3c8ccca8533ff5e0e8b63a8c1b6e9c7d23ff2606eda03ee",
+    "uniqueScenarioFamilies": 96,
+    "browser": "Chrome",
+    "defaultViewport": "1792x976",
+    "viewportPolicy": "One representative desktop viewport unless the finding concerns responsiveness or the observed behavior warrants expansion.",
+    "mergePolicy": "Keep report changes local until every finding is PASS, FAIL, BLOCKED, OBSOLETE, DUPLICATE_COVERAGE, or PASSED_OVER."
+  },
+  "group": "Admin",
+  "summary": {
+    "total": 8,
+    "PASSED_OVER": 8
+  },
+  "findings": [
+    {
+      "id": "ADM055-RATE-001",
+      "group": "Admin",
+      "scenarioId": "ADM-055",
+      "severity": "MEDIUM",
+      "title": "Zero-duration window silently changes to one hour",
+      "status": "PASSED_OVER",
+      "disposition": "ADMIN_ACTOR_UNAVAILABLE",
+      "testedAt": "2026-09-18T07:24:11.466Z",
+      "browser": "Chrome",
+      "viewport": "1792x976",
+      "targetUrl": "https://auth-35306705473-1-dot-planar-truck-361704.uc.r.appspot.com/admin/profile-reports",
+      "apiUrl": "https://cicdevapi.uc.r.appspot.com",
+      "evidence": [
+        "evidence/admin/ACTOR-AUDIT/ADMIN-actor-boundary-1792x976.png",
+        "evidence/admin/ACTOR-AUDIT/ADMIN-actor-boundary-result.json"
+      ],
+      "notes": "The authenticated Test Assessor is denied access to Compliance Operations, Admin Ledger, User Management, and Profile Reports; The eight Admin findings require an authorized Admin or Super Admin plus disposable subject/grant fixtures; No administrative mutation was attempted through the unauthorized account"
+    },
+    {
+      "id": "ADM053-DATE-001",
+      "group": "Admin",
+      "scenarioId": "ADM-053",
+      "severity": "MEDIUM",
+      "title": "Grant dates drift between views",
+      "status": "PASSED_OVER",
+      "disposition": "ADMIN_ACTOR_UNAVAILABLE",
+      "testedAt": "2026-09-18T07:24:11.466Z",
+      "browser": "Chrome",
+      "viewport": "1792x976",
+      "targetUrl": "https://auth-35306705473-1-dot-planar-truck-361704.uc.r.appspot.com/admin/profile-reports",
+      "apiUrl": "https://cicdevapi.uc.r.appspot.com",
+      "evidence": [
+        "evidence/admin/ACTOR-AUDIT/ADMIN-actor-boundary-1792x976.png",
+        "evidence/admin/ACTOR-AUDIT/ADMIN-actor-boundary-result.json"
+      ],
+      "notes": "The authenticated Test Assessor is denied access to Compliance Operations, Admin Ledger, User Management, and Profile Reports; The eight Admin findings require an authorized Admin or Super Admin plus disposable subject/grant fixtures; No administrative mutation was attempted through the unauthorized account"
+    },
+    {
+      "id": "ADM053-STATE-001",
+      "group": "Admin",
+      "scenarioId": "ADM-053",
+      "severity": "MEDIUM",
+      "title": "Grant panels remain stale after decisions",
+      "status": "PASSED_OVER",
+      "disposition": "ADMIN_ACTOR_UNAVAILABLE",
+      "testedAt": "2026-09-18T07:24:11.466Z",
+      "browser": "Chrome",
+      "viewport": "1792x976",
+      "targetUrl": "https://auth-35306705473-1-dot-planar-truck-361704.uc.r.appspot.com/admin/profile-reports",
+      "apiUrl": "https://cicdevapi.uc.r.appspot.com",
+      "evidence": [
+        "evidence/admin/ACTOR-AUDIT/ADMIN-actor-boundary-1792x976.png",
+        "evidence/admin/ACTOR-AUDIT/ADMIN-actor-boundary-result.json"
+      ],
+      "notes": "The authenticated Test Assessor is denied access to Compliance Operations, Admin Ledger, User Management, and Profile Reports; The eight Admin findings require an authorized Admin or Super Admin plus disposable subject/grant fixtures; No administrative mutation was attempted through the unauthorized account"
+    },
+    {
+      "id": "ADM054-AUD-001",
+      "group": "Admin",
+      "scenarioId": "ADM-054",
+      "severity": "MEDIUM",
+      "title": "Direct moderation actions lack visible rationale capture",
+      "status": "PASSED_OVER",
+      "disposition": "ADMIN_ACTOR_UNAVAILABLE",
+      "testedAt": "2026-09-18T07:24:11.466Z",
+      "browser": "Chrome",
+      "viewport": "1792x976",
+      "targetUrl": "https://auth-35306705473-1-dot-planar-truck-361704.uc.r.appspot.com/admin/profile-reports",
+      "apiUrl": "https://cicdevapi.uc.r.appspot.com",
+      "evidence": [
+        "evidence/admin/ACTOR-AUDIT/ADMIN-actor-boundary-1792x976.png",
+        "evidence/admin/ACTOR-AUDIT/ADMIN-actor-boundary-result.json"
+      ],
+      "notes": "The authenticated Test Assessor is denied access to Compliance Operations, Admin Ledger, User Management, and Profile Reports; The eight Admin findings require an authorized Admin or Super Admin plus disposable subject/grant fixtures; No administrative mutation was attempted through the unauthorized account"
+    },
+    {
+      "id": "ADM056-STALE-001",
+      "group": "Admin",
+      "scenarioId": "ADM-056",
+      "severity": "MEDIUM",
+      "title": "Lock and unlock leave stale row state",
+      "status": "PASSED_OVER",
+      "disposition": "ADMIN_ACTOR_UNAVAILABLE",
+      "testedAt": "2026-09-18T07:24:11.466Z",
+      "browser": "Chrome",
+      "viewport": "1792x976",
+      "targetUrl": "https://auth-35306705473-1-dot-planar-truck-361704.uc.r.appspot.com/admin/profile-reports",
+      "apiUrl": "https://cicdevapi.uc.r.appspot.com",
+      "evidence": [
+        "evidence/admin/ACTOR-AUDIT/ADMIN-actor-boundary-1792x976.png",
+        "evidence/admin/ACTOR-AUDIT/ADMIN-actor-boundary-result.json"
+      ],
+      "notes": "The authenticated Test Assessor is denied access to Compliance Operations, Admin Ledger, User Management, and Profile Reports; The eight Admin findings require an authorized Admin or Super Admin plus disposable subject/grant fixtures; No administrative mutation was attempted through the unauthorized account"
+    },
+    {
+      "id": "ADM056-HOLD-001",
+      "group": "Admin",
+      "scenarioId": "ADM-056",
+      "severity": "MEDIUM",
+      "title": "No isolated subject-level legal hold path",
+      "status": "PASSED_OVER",
+      "disposition": "ADMIN_ACTOR_UNAVAILABLE",
+      "testedAt": "2026-09-18T07:24:11.466Z",
+      "browser": "Chrome",
+      "viewport": "1792x976",
+      "targetUrl": "https://auth-35306705473-1-dot-planar-truck-361704.uc.r.appspot.com/admin/profile-reports",
+      "apiUrl": "https://cicdevapi.uc.r.appspot.com",
+      "evidence": [
+        "evidence/admin/ACTOR-AUDIT/ADMIN-actor-boundary-1792x976.png",
+        "evidence/admin/ACTOR-AUDIT/ADMIN-actor-boundary-result.json"
+      ],
+      "notes": "The authenticated Test Assessor is denied access to Compliance Operations, Admin Ledger, User Management, and Profile Reports; The eight Admin findings require an authorized Admin or Super Admin plus disposable subject/grant fixtures; No administrative mutation was attempted through the unauthorized account"
+    },
+    {
+      "id": "ADM056-DSAR-001",
+      "group": "Admin",
+      "scenarioId": "ADM-056",
+      "severity": "MEDIUM",
+      "title": "No isolated export fulfillment path was available",
+      "status": "PASSED_OVER",
+      "disposition": "ADMIN_ACTOR_UNAVAILABLE",
+      "testedAt": "2026-09-18T07:24:11.466Z",
+      "browser": "Chrome",
+      "viewport": "1792x976",
+      "targetUrl": "https://auth-35306705473-1-dot-planar-truck-361704.uc.r.appspot.com/admin/profile-reports",
+      "apiUrl": "https://cicdevapi.uc.r.appspot.com",
+      "evidence": [
+        "evidence/admin/ACTOR-AUDIT/ADMIN-actor-boundary-1792x976.png",
+        "evidence/admin/ACTOR-AUDIT/ADMIN-actor-boundary-result.json"
+      ],
+      "notes": "The authenticated Test Assessor is denied access to Compliance Operations, Admin Ledger, User Management, and Profile Reports; The eight Admin findings require an authorized Admin or Super Admin plus disposable subject/grant fixtures; No administrative mutation was attempted through the unauthorized account"
+    },
+    {
+      "id": "ADM055-BACKFILL-001",
+      "group": "Admin",
+      "scenarioId": "ADM-055",
+      "severity": "MEDIUM",
+      "title": "Broad Backfill action is exposed beside filters",
+      "status": "PASSED_OVER",
+      "disposition": "ADMIN_ACTOR_UNAVAILABLE",
+      "testedAt": "2026-09-18T07:24:11.466Z",
+      "browser": "Chrome",
+      "viewport": "1792x976",
+      "targetUrl": "https://auth-35306705473-1-dot-planar-truck-361704.uc.r.appspot.com/admin/profile-reports",
+      "apiUrl": "https://cicdevapi.uc.r.appspot.com",
+      "evidence": [
+        "evidence/admin/ACTOR-AUDIT/ADMIN-actor-boundary-1792x976.png",
+        "evidence/admin/ACTOR-AUDIT/ADMIN-actor-boundary-result.json"
+      ],
+      "notes": "The authenticated Test Assessor is denied access to Compliance Operations, Admin Ledger, User Management, and Profile Reports; The eight Admin findings require an authorized Admin or Super Admin plus disposable subject/grant fixtures; No administrative mutation was attempted through the unauthorized account"
+    }
+  ]
+}
